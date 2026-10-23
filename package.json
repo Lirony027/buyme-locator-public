@@ -1,0 +1,13 @@
+{
+  "name": "buyme-locator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Map of where BuyMe, תו הזהב and Swish gift cards can be used, for BuyMe sales staff.",
+  "scripts": {
+    "test": "node --test \"poc/lib/*.test.mjs\"",
+    "build": "node --env-file=.env.local scripts/build-google-page.mjs",
+    "refresh:google": "node --env-file=.env.local scripts/refresh-google-data.mjs",
+    "refresh:merchants": "node scripts/scrape-buyme-merchants.mjs",
+    "deploy": "cd poc && npx vercel@latest --prod"
+  }
+}

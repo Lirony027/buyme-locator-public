@@ -1,0 +1,1873 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>איפה אפשר לממש BuyMe — Google</title>
+<style>
+  /* Map-first: the map is the page, and every control floats over it. The
+     old chrome owned a 380px column plus a solid bar; here the same floating
+     pattern serves desktop and phone. */
+  :root {
+    color-scheme:light;
+    --ink:#14171c; --muted:#5d646e; --line:rgba(20,23,28,.10);
+    --surface:rgba(255,255,255,.96); --accent:#8a6a00;
+    --buyme-yellow:#FFCC00; --buyme-ink:#1a1400;
+  }
+  * { box-sizing:border-box; }
+  /* The sheet is parked below the fold by a transform, which still counts
+     towards scroll height — so the document is taller than the window and the
+     page would scroll and bounce behind the map. Nothing here is meant to
+     scroll but the panels themselves. */
+  html { height:100%; overflow:hidden; overscroll-behavior:none; }
+  body { margin:0; font-family:system-ui,'Segoe UI',Arial,sans-serif; background:#e9edf0; color:var(--ink);
+         height:100%; overflow:hidden; overscroll-behavior:none; }
+  #layout { position:relative; height:100vh; }
+  #map { position:absolute; inset:0; }
+
+  /* The search capsule. */
+  #topbar { position:absolute; top:16px; inset-inline:16px; z-index:3; display:flex; align-items:center; flex-wrap:wrap; gap:10px 14px;
+            padding:10px 12px; background:var(--surface); border:1px solid var(--line); border-radius:14px;
+            box-shadow:0 6px 22px rgba(20,23,28,.18); backdrop-filter:blur(6px); }
+  #topbar h1 { margin:0; display:flex; align-items:center; gap:8px; font-size:15px; white-space:nowrap; }
+  /* The logo carries the BuyMe wordmark itself, so it stands alone here —
+     setting it beside the word "BuyMe" would print the name twice. Sized by
+     height with width auto: the source is 75x64 and must not be stretched. */
+  #brandmark { height:28px; width:auto; flex:none; display:block; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+  form#search { flex:1; min-width:240px; display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+  /* min-width:0 so a long option label cannot push the row wider than the capsule. */
+  select,button { font:inherit; padding:8px 11px; border-radius:9px; border:1px solid rgba(20,23,28,.14); background:#fff; color:var(--ink); min-width:0; }
+  button { background:var(--buyme-yellow); color:var(--buyme-ink); font-weight:700; border:0; cursor:pointer; white-space:nowrap; }
+  button:disabled { opacity:.6; cursor:default; }
+  /* The widget renders its own input in shadow DOM; color-scheme is what
+     reaches it, and without it the field renders dark inside a light capsule
+     whenever the viewer's system is in dark mode. */
+  gmp-place-autocomplete { flex:1; min-width:150px; color-scheme:light; }
+  [hidden] { display:none !important; }
+
+  /* Place or chain: the two questions this page answers. */
+  #mode { flex:none; display:flex; gap:2px; padding:2px; background:rgba(20,23,28,.07); border-radius:9px; }
+  #mode button { padding:6px 10px; border-radius:7px; border:0; background:transparent; color:var(--muted); font-size:12.5px; font-weight:600; }
+  #mode button.on { background:#fff; color:var(--ink); box-shadow:0 1px 3px rgba(20,23,28,.18); }
+
+  #brand-field { position:relative; flex:1; min-width:150px; }
+  #brand-input { width:100%; font:inherit; padding:8px 11px; border-radius:9px; border:1px solid rgba(20,23,28,.14); background:#fff; color:var(--ink); }
+  #brand-list { position:absolute; z-index:5; inset-inline:0; top:calc(100% + 6px); margin:0; padding:4px; list-style:none;
+                max-height:300px; overflow:auto; background:#fff; border:1px solid var(--line); border-radius:12px;
+                box-shadow:0 10px 28px rgba(20,23,28,.24); }
+  #brand-list li { display:flex; align-items:center; gap:9px; padding:8px 10px; border:0; border-radius:8px; }
+  #brand-list li:hover { background:rgba(20,23,28,.05); }
+  #brand-list img { width:26px; height:26px; flex:none; object-fit:contain; background:#fff; border:1px solid var(--line); border-radius:6px; }
+  .brand-name { flex:1; font-size:13.5px; font-weight:600; }
+  .brand-count { font-size:11.5px; color:var(--muted); }
+  .iw-tag.iw-tier { background:#fff4d6; border-color:#e6c977; color:#6b5200; }
+  #brand-list .brand-tier { margin-inline-start:auto; font-size:11px; color:#6b5200;
+    background:#fff4d6; border:1px solid #e6c977; border-radius:999px; padding:1px 7px; }
+  /* The active chain, with the way out of it. */
+  #brand-chip { display:flex; align-items:center; gap:4px; padding:5px 10px 5px 4px; border-radius:999px;
+                background:#fff8df; border:1px solid #e6cf7a; color:#6b5200; font-size:12.5px; font-weight:600; }
+  #brand-chip button { padding:0 6px; min-width:0; border:0; background:transparent; color:#6b5200; font-size:16px; line-height:1; }
+
+  /* The results card. Collapsing it hands the whole map back. */
+  #sidebar { position:absolute; inset-inline-end:16px; bottom:16px; z-index:2; width:352px; max-height:64%;
+             display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line);
+             border-radius:14px; box-shadow:0 10px 30px rgba(20,23,28,.20); overflow:hidden; backdrop-filter:blur(6px); }
+  #sheet-handle { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; flex:none;
+                  padding:11px 14px; background:none; border:0; border-bottom:1px solid var(--line);
+                  font:inherit; color:var(--ink); text-align:start; cursor:pointer; }
+  #sheet-summary { font-size:12.5px; line-height:1.35; color:var(--muted); overflow:hidden;
+                   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+  /* The header already carries this line; repeating it in the body is just
+     the same sentence twice. */
+  #status { display:none; }
+  #sheet-grip { display:none; }
+  #sheet-chevron { flex:none; transition:transform .2s ease; }
+  #sidebar.card-collapsed #sheet-body { display:none; }
+  #sidebar.card-collapsed #sheet-handle { border-bottom:0; }
+  #sidebar.card-collapsed #sheet-chevron { transform:rotate(180deg); }
+  #sheet-body { flex:1; overflow:auto; }
+  .sub { color:var(--muted); font-size:11.5px; padding:10px 14px 0; }
+  #status.shown { display:block; padding:8px 14px; font-size:13px; }
+  #browse { padding:0 14px 10px; color:var(--muted); font-size:12px; }
+  #results { margin:0; padding:0; list-style:none; }
+  li { padding:10px 14px; border-block-start:1px solid var(--line); cursor:pointer; }
+  li:hover { background:rgba(20,23,28,.045); }
+  li.note { cursor:default; }
+  li.note:hover { background:none; }
+  .brand { font-weight:600; font-size:15px; }
+  .meta { color:var(--muted); font-size:12px; margin-top:3px; }
+  .dist { color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums; }
+  .tag { font-size:10px; border:1px solid #ccd2d9; border-radius:4px; padding:1px 5px; color:#555f6b; }
+  /* The store type is what the reader wants; provenance tags stay muted beside
+     it. Same amber-on-tint as the map bubble, so one tag reads one way. */
+  .tag-type { color:#6b5200; border-color:#e6cf7a; background:#fff8df; font-weight:600; }
+  .note { padding:12px 14px; color:var(--muted); font-size:13px; line-height:1.5; }
+  #online { border-block-start:1px solid var(--line); }
+  #online summary { padding:11px 14px; cursor:pointer; font-size:13px; color:var(--muted); }
+  #online-list { max-height:180px; overflow:auto; }
+  /* Outside #sheet-body so ODbL attribution survives collapsing the card. */
+  #credits { flex:none; padding:9px 14px; border-block-start:1px solid var(--line); color:var(--muted); font-size:10.5px; line-height:1.5; }
+  #credits a { color:var(--muted); }
+  /* Pushed into the map's own control stack, so Google lays it out beside the
+     zoom and pegman instead of us guessing at offsets that collide. */
+  #locate { width:44px; height:44px; margin:10px; padding:0; display:flex; align-items:center; justify-content:center;
+            background:#fff; color:#3c4552; border:1px solid rgba(20,23,28,.12); border-radius:50%;
+            box-shadow:0 2px 8px rgba(20,23,28,.28); cursor:pointer; }
+  #locate:hover { background:#f4f6f8; }
+  #locate:disabled { opacity:.7; cursor:progress; }
+  #locate.busy svg { animation:locate-spin 1s linear infinite; }
+  @keyframes locate-spin { to { transform:rotate(360deg); } }
+  /* The universal "you are here" blue: read as position, not as brand. */
+  .me-dot { width:16px; height:16px; border-radius:50%; background:#1a73e8; border:3px solid #fff;
+            box-shadow:0 0 0 1px rgba(20,23,28,.25), 0 2px 6px rgba(20,23,28,.35); }
+  /* Brand chips replace the pins once the map is close enough for them to be
+     legible. White surface because the logos are drawn for white backgrounds. */
+  .chip { width:34px; height:34px; border-radius:9px; background:#fff; border:2px solid #d7dde4;
+          box-shadow:0 2px 6px rgba(20,23,28,.3); display:flex; align-items:center; justify-content:center;
+          overflow:hidden; }
+  .chip img { width:100%; height:100%; object-fit:contain; display:block; }
+  .chip-hit { border-color:var(--buyme-yellow); }
+  /* The info bubble is Google's own white surface, so it gets explicit light
+     colours rather than the sidebar's dark custom properties. */
+  .iw { direction:rtl; text-align:right; font-family:system-ui,'Segoe UI',Arial,sans-serif; color:#111418; min-width:130px; }
+  .iw-brand { font-weight:700; font-size:14px; margin-bottom:2px; }
+  .iw-addr { color:#555f6b; font-size:12px; margin-bottom:6px; }
+  .iw-tag { display:inline-block; font-size:10px; border:1px solid #ccd2d9; border-radius:4px; padding:1px 5px; color:#555f6b; margin-inline-end:4px; }
+  /* Yellow on a white bubble would not survive contrast, so the type tag
+     reads as dark amber on a tinted ground instead. */
+  .iw-type { color:#6b5200; border-color:#e6cf7a; background:#fff8df; font-weight:600; }
+  /* Both apps, equal weight: which one someone navigates with is a personal
+     habit, so neither is presented as the default. */
+  .iw-nav { display:flex; gap:6px; margin-top:10px; }
+  .iw-nav a { display:inline-flex; align-items:center; justify-content:center; gap:5px; flex:1;
+              min-height:38px; padding:8px 10px; border:1px solid #d7dde4; border-radius:8px;
+              background:#f7f9fa; color:#14171c; font-size:12px; font-weight:600; text-decoration:none; }
+  .iw-nav a:hover { background:#eef1f4; }
+
+  #export-bar { padding:0 14px 10px; }
+  #export-pdf { display:inline-flex; align-items:center; gap:6px; padding:7px 12px; font-size:12.5px;
+                background:#fff; color:var(--ink); border:1px solid rgba(20,23,28,.18); font-weight:600; }
+
+  /* The export writes a .pdf file rather than opening the print dialog, so
+     this sheet is never shown — it is laid out off-screen at A4 width and
+     captured to a canvas.
+     Rendering the DOM rather than writing text into the PDF directly is what
+     keeps Hebrew correct: jsPDF ships no Hebrew font and does no bidi, and
+     every address here mixes Hebrew, Latin and digits — precisely where
+     hand-rolled bidi goes wrong. The cost is that the text is an image and
+     therefore not selectable, which for a list meant to be read or printed
+     is the cheaper side of the trade.
+     794px is A4's width at 96dpi, so the capture paginates predictably. */
+  #print-sheet {
+    position:fixed; left:-10000px; top:0; width:794px; padding:40px;
+    background:#fff; color:#000; font-size:11pt;
+  }
+  #print-sheet h1 { font-size:16pt; margin:0 0 4px; }
+  #print-sheet .print-sub { font-size:10pt; color:#333; margin:0 0 2px; }
+  #print-sheet .print-note { font-size:8.5pt; color:#444; margin-top:10px; line-height:1.5; }
+  #print-sheet .print-tier { font-size:10px; color:#6b5200; }
+  #print-sheet table { width:100%; border-collapse:collapse; margin-top:10px; }
+  #print-sheet th, #print-sheet td { border:1px solid #999; padding:4px 6px; text-align:right; vertical-align:top; }
+  #print-sheet th { background:#f0f0f0; font-size:9.5pt; }
+  #print-sheet td { font-size:9.5pt; }
+
+  /* Phone only, and only while the sheet is collapsed: the way back to the
+     list. The collapsed handle is a 64px strip pinned to the bottom edge,
+     which is exactly where a phone browser puts its own toolbar and the home
+     indicator — reachable in a desktop emulator, awkward on real hardware.
+     This sits clear of that strip and is a plain press rather than a drag. */
+  #show-list {
+    position:absolute; z-index:4; bottom:76px; inset-inline:0; margin-inline:auto; width:fit-content;
+    display:none; align-items:center; justify-content:center; gap:7px;
+    height:44px; padding:0 16px; border:0; border-radius:999px;
+    background:var(--buyme-yellow); color:var(--buyme-ink);
+    font:inherit; font-weight:700; font-size:13.5px; cursor:pointer;
+    box-shadow:0 3px 12px rgba(20,23,28,.32);
+  }
+
+  /* Phone: the same floating pattern, with the results card anchored to the
+     bottom edge as a draggable sheet rather than a corner card. */
+  @media (max-width: 768px) {
+    #show-list.on { display:flex; }
+    #topbar { top:10px; inset-inline:10px; gap:8px; padding:9px 10px; }
+    #topbar h1 { font-size:14px; }
+    #brandmark { height:24px; }
+    /* Row one is the mode switch and the logo, sharing the space the logo used
+       to have to itself; the search fields wrap to their own rows below. The
+       auto margin pushes the logo to the inline end — the left, on this RTL
+       page — leaving the reading-start corner to the control. */
+    #mode { order:1; }
+    #topbar h1 { order:2; margin-inline-start:auto; }
+    form#search { order:3; min-width:100%; gap:8px; }
+    /* The place field gets a row of its own; the three short controls share
+       the next one. Four across a phone would leave none of them usable. */
+    gmp-place-autocomplete { flex:1 1 100%; }
+    #brand-field { flex:1 1 100%; }
+    #radius, #type { flex:1 1 0; }
+    #type { max-width:none; }
+    #go { flex:0 0 auto; }
+
+    /* Translated down by its own height minus the peek, so only the handle
+       shows at rest. The three snap points are 'collapsed', 'half', 'full';
+       PEEK_PX in the script must match the 64px peek used here. */
+    #sidebar {
+      inset-inline:0; bottom:0; width:auto; max-height:none;
+      /* Stops below the search row instead of sliding under it. The header
+         floats above the sheet, so a fully open sheet used to surface its drag
+         handle behind the header — 54 of the handle's 64px were covered,
+         leaving no practical way to pull the list back down.
+         dvh, not vh: on a phone vh counts the strip behind the browser's own
+         toolbar, which is the same reason the collapsed handle sits so low. */
+      height: calc(100vh - var(--topbar-space, 210px));
+      height: calc(100dvh - var(--topbar-space, 210px));
+      border-inline:0; border-bottom:0;
+      border-radius:14px 14px 0 0;
+      box-shadow:0 -6px 24px rgba(20,23,28,.28);
+      transform:translateY(calc(100% - 64px));
+      transition:transform .28s ease;
+    }
+    #sidebar.sheet-half { transform:translateY(50%); }
+    #sidebar.sheet-full { transform:translateY(0); }
+    /* The desktop collapse is the transform's job here — never hide the body,
+       or an expanded sheet would open onto nothing. */
+    #sidebar.card-collapsed #sheet-body { display:block; }
+    #sidebar.card-collapsed #sheet-handle { border-bottom:1px solid var(--line); }
+
+    #sheet-handle {
+      flex-direction:column; align-items:center; justify-content:flex-start; gap:6px;
+      height:64px; padding:8px 16px 0; border-bottom:0;
+      text-align:center; touch-action:none;
+    }
+    #sheet-grip { display:block; width:40px; height:4px; border-radius:2px; background:#c3c8cf; flex:none; }
+    #sheet-chevron { display:none; }
+    /* A fully open sheet has room to repeat the line in full, where the
+       handle's two-line clamp may have cut it. */
+    #sidebar.sheet-full #status { display:block; padding:8px 14px; font-size:13px; }
+  }
+</style>
+</head>
+<body>
+<!-- Outside #layout, which print hides wholesale. Filled on export. -->
+<section id="print-sheet" aria-hidden="true"></section>
+
+<div id="layout">
+<div id="map"></div>
+
+<!-- Moved into the map's control stack at startup, or removed when the
+     browser has no geolocation to offer. -->
+<button type="button" id="locate" title="המיקום שלי" aria-label="מרכז את המפה על המיקום שלי">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="3.5"></circle>
+    <circle cx="12" cy="12" r="8"></circle>
+    <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"></path>
+  </svg>
+</button>
+
+<header id="topbar">
+  <h1><img id="brandmark" src="buyme-logo.png" alt="BuyMe"><span class="sr-only"> — איפה אפשר לממש</span></h1>
+  <!-- Which of the two questions is being asked: where am I, or where is this
+       chain. A sibling of the form rather than a child of it, so that on a
+       phone it can share the header's first row with the logo while the search
+       fields wrap to their own rows. The buttons submit nothing, so the form
+       loses no behaviour by not containing them. -->
+  <div id="mode" role="group" aria-label="חיפוש לפי">
+    <button type="button" id="mode-place" class="on" aria-pressed="true">מקום</button>
+    <button type="button" id="mode-brand" aria-pressed="false">רשת</button>
+  </div>
+  <form id="search">
+    <!-- Declarative use is supported; requested-region biases suggestions to
+         Israel so a Hebrew place name resolves without a country qualifier. -->
+    <gmp-place-autocomplete id="place"
+      placeholder="עיר, רחוב או מקום — התחילו להקליד"
+      requested-region="IL"></gmp-place-autocomplete>
+    <!-- Chain search runs entirely on the bundled data: no Places call, and
+         it answers offline once the page has loaded. -->
+    <div id="brand-field" hidden>
+      <input id="brand-input" type="text" autocomplete="off" role="combobox"
+        aria-expanded="false" aria-controls="brand-list"
+        placeholder="שם הרשת — למשל מקדונלד'ס">
+      <ul id="brand-list" hidden></ul>
+    </div>
+    <select id="source" aria-label="כרטיס מתנה">
+      <option value="buyme" selected>BuyMe</option>
+      <option value="tav">תו הזהב</option>
+      <option value="swish">Swish</option>
+    </select>
+    <select id="radius">
+      <option value="1000" selected>1 ק"מ</option>
+      <option value="5000">5 ק"מ</option>
+      <option value="10000">10 ק"מ</option>
+    </select>
+    <!-- Options are filled from the data, so the list only ever offers types
+         that are actually on the map. -->
+    <select id="type"></select>
+    <button type="submit" id="go">חפש</button>
+    <div id="brand-chip" hidden></div>
+  </form>
+</header>
+
+<!-- Shown only on a phone, and only while the sheet is collapsed. -->
+<button type="button" id="show-list">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg>
+  <span>הצג רשימה</span>
+</button>
+
+<aside id="sidebar">
+  <!-- The card's header: a collapse control on desktop, the sheet's grab
+       handle on a phone. Its summary is what the user reads without opening
+       anything. -->
+  <button type="button" id="sheet-handle" aria-controls="sheet-body" aria-expanded="true">
+    <span id="sheet-grip"></span>
+    <span id="sheet-summary"></span>
+    <svg id="sheet-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg>
+  </button>
+  <div id="sheet-body">
+    <div class="sub" id="coverage"></div>
+    <div id="status"></div>
+    <div id="browse"></div>
+    <!-- Hidden until there is a result list worth exporting. -->
+    <div id="export-bar" hidden>
+      <button type="button" id="export-pdf">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 12l5 5 5-5M5 21h14"></path></svg>
+        <span>ייצוא ל-PDF</span>
+      </button>
+    </div>
+    <ul id="results"></ul>
+    <details id="online">
+      <summary></summary>
+      <div class="note" id="online-list"></div>
+    </details>
+  </div>
+  <!-- ODbL requires attribution wherever the Nominatim-derived locations are
+       displayed, so it sits outside the scrolling body and survives a
+       collapsed card. The map carries Google's own attribution on its own. -->
+  <div id="credits">
+    חלק מהמיקומים נגזרו מנתוני
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>
+    ומשמשים ברישיון ODbL. שאר המיקומים ונתוני המפה מ־Google.
+  </div>
+</aside>
+</div>
+
+<script>
+/* BUYME_DATA_START */
+/* BUYME_DATA_END */
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /**
+   * Every source the page holds, and which one is showing. One at a time by
+   * design: the page answers "which voucher do I hold?", and two overlaid
+   * datasets would answer neither.
+   */
+  var CATALOGUES = window.CATALOGUES || {};
+  var SOURCE_IDS = Object.keys(CATALOGUES);
+  /** BuyMe on every load, never the last choice — see applyCatalogue. */
+  var activeSource = SOURCE_IDS.indexOf('buyme') >= 0 ? 'buyme' : SOURCE_IDS[0];
+  var ACTIVE = CATALOGUES[activeSource] || {};
+
+  var DATA = ACTIVE.locations || [];
+  var ONLINE = ACTIVE.onlineOnly || [];
+  var CATALOGUE = ACTIVE.catalogueSize || 0;
+  var UNMAPPED = ACTIVE.unmappedCount || 0;
+  var GENERATED = ACTIVE.generatedAt || null;
+  var BRANCH_TRUTH = ACTIVE.branchTruth || null;
+  var TIERS = ACTIVE.tiers || {};
+
+  // Identical to poc/lib/geo.mjs. Duplicated because a file:// page cannot
+  // import an ES module; the scaffold carries the same copy for the same
+  // reason. Keep all three in step.
+  var EARTH_RADIUS_M = 6371000;
+  function toRadians(d) { return (d * Math.PI) / 180; }
+  function distanceMeters(a, b) {
+    var dLat = toRadians(b.lat - a.lat), dLng = toRadians(b.lng - a.lng);
+    var h = Math.pow(Math.sin(dLat / 2), 2) +
+      Math.cos(toRadians(a.lat)) * Math.cos(toRadians(b.lat)) * Math.pow(Math.sin(dLng / 2), 2);
+    return 2 * EARTH_RADIUS_M * Math.asin(Math.sqrt(h));
+  }
+  function withinRadius(locations, centre, radiusMeters) {
+    return locations
+      // `index` is the position in DATA, kept so the map can draw the hits
+      // differently from everything else currently in view.
+      .map(function (l, index) { var c = {}; for (var k in l) c[k] = l[k]; c.index = index; c.distanceMeters = distanceMeters(centre, l); return c; })
+      .filter(function (l) { return l.distanceMeters <= radiusMeters; })
+      .sort(function (a, b) { return a.distanceMeters - b.distanceMeters; });
+  }
+  function metres(d) { return d < 1000 ? Math.round(d) + ' מ׳' : (d / 1000).toFixed(1) + ' ק״מ'; }
+
+  var map, centreCircle = null, chosen = null;
+  var statusEl = document.getElementById('status');
+  var browseEl = document.getElementById('browse');
+  var resultsEl = document.getElementById('results');
+  var goEl = document.getElementById('go');
+
+  /**
+   * At phone widths the results panel is a bottom sheet with three snap
+   * points. Pressing the handle steps to the next one; dragging it snaps to
+   * whichever point it was released nearest. On desktop none of this runs —
+   * the panel is simply open beside the map.
+   */
+  var sheetEl = document.getElementById('sidebar');
+  var handleEl = document.getElementById('sheet-handle');
+  var summaryEl = document.getElementById('sheet-summary');
+  var showListEl = document.getElementById('show-list');
+  /** Must match the 64px peek in the stylesheet's phone media query. */
+  var PEEK_PX = 64;
+  var SNAP_POINTS = ['collapsed', 'half', 'full'];
+  /** Below this a release counts as a press rather than a drag. */
+  var DRAG_SLOP_PX = 6;
+  var sheetState = 'collapsed';
+
+  function isPhone() { return window.matchMedia('(max-width: 768px)').matches; }
+
+  function offsetFor(state, height) {
+    if (state === 'full') return 0;
+    if (state === 'half') return height / 2;
+    return height - PEEK_PX;
+  }
+
+  function setSheet(state) {
+    sheetState = state;
+    sheetEl.classList.remove('sheet-half', 'sheet-full');
+    if (state !== 'collapsed') sheetEl.classList.add('sheet-' + state);
+    handleEl.setAttribute('aria-expanded', String(state !== 'collapsed'));
+    syncShowList();
+  }
+
+  /**
+   * The shortcut back to the list rides on the sheet's own state, so every
+   * path that moves the sheet — press, drag, search, tapping a result — keeps
+   * it right without each one having to remember.
+   */
+  function syncShowList() {
+    showListEl.classList.toggle('on', isPhone() && sheetState === 'collapsed');
+  }
+
+  /** Desktop: the card is open or shut. Phone: three snap points. */
+  function setCard(open) {
+    sheetEl.classList.toggle('card-collapsed', !open);
+    handleEl.setAttribute('aria-expanded', String(open));
+  }
+
+  function pressHandle() {
+    if (isPhone()) {
+      setSheet(SNAP_POINTS[(SNAP_POINTS.indexOf(sheetState) + 1) % SNAP_POINTS.length]);
+    } else {
+      setCard(sheetEl.classList.contains('card-collapsed'));
+    }
+  }
+
+  // Only the phone path drags; a press is all the desktop card needs.
+  handleEl.addEventListener('click', function () {
+    if (!isPhone()) pressHandle();
+  });
+
+  /** The handle carries the same line as #status, so a collapsed sheet still reads. */
+  function setStatus(text) {
+    statusEl.textContent = text;
+    summaryEl.textContent = text;
+  }
+
+  var dragFromY = null, dragFromOffset = 0, sheetHeight = 0, draggedTo = 0;
+
+  handleEl.addEventListener('pointerdown', function (event) {
+    if (!isPhone()) return;
+    sheetHeight = sheetEl.offsetHeight;
+    dragFromY = event.clientY;
+    dragFromOffset = offsetFor(sheetState, sheetHeight);
+    draggedTo = dragFromOffset;
+    // Follow the finger exactly while dragging; the CSS transition is for
+    // snapping, and leaving it on would lag every move.
+    sheetEl.style.transition = 'none';
+    handleEl.setPointerCapture(event.pointerId);
+  });
+
+  handleEl.addEventListener('pointermove', function (event) {
+    if (dragFromY === null) return;
+    draggedTo = Math.min(
+      Math.max(dragFromOffset + (event.clientY - dragFromY), 0),
+      sheetHeight - PEEK_PX
+    );
+    sheetEl.style.transform = 'translateY(' + draggedTo + 'px)';
+  });
+
+  function endDrag(event) {
+    if (dragFromY === null) return;
+    var travelled = Math.abs(event.clientY - dragFromY);
+    dragFromY = null;
+    // Hand control back to the class-driven positions.
+    sheetEl.style.transition = '';
+    sheetEl.style.transform = '';
+
+    if (travelled < DRAG_SLOP_PX) {
+      pressHandle();
+      return;
+    }
+
+    var nearest = 'collapsed';
+    var best = Infinity;
+    SNAP_POINTS.forEach(function (state) {
+      var gap = Math.abs(offsetFor(state, sheetHeight) - draggedTo);
+      if (gap < best) { best = gap; nearest = state; }
+    });
+    setSheet(nearest);
+  }
+
+  handleEl.addEventListener('pointerup', endDrag);
+  handleEl.addEventListener('pointercancel', endDrag);
+
+  /**
+   * How much room the sheet must leave at the top, measured rather than
+   * assumed: the header grows and shrinks with what it holds — the chain chip
+   * appearing, the type filter hiding, how far the fields wrap — and a fixed
+   * guess would be wrong in exactly the states that matter.
+   */
+  var topbarEl = document.getElementById('topbar');
+
+  function syncSheetClearance() {
+    var clearance = Math.ceil(topbarEl.getBoundingClientRect().bottom) + 10;
+    document.documentElement.style.setProperty('--topbar-space', clearance + 'px');
+  }
+
+  if (window.ResizeObserver) {
+    new ResizeObserver(syncSheetClearance).observe(topbarEl);
+  }
+  window.addEventListener('resize', syncSheetClearance);
+  syncSheetClearance();
+
+  // Half, not full: it shows the list while leaving the searched part of the
+  // map visible, which is the state a search itself opens to.
+  showListEl.addEventListener('click', function () { setSheet('half'); });
+  // Rotating a phone crosses the breakpoint without touching the sheet.
+  window.addEventListener('resize', syncShowList);
+  syncShowList();
+
+  /**
+   * The map browses the whole dataset, not just search hits, so markers are
+   * culled to the viewport: nine thousand AdvancedMarkerElements at once is
+   * thousands of DOM nodes and a map that will not pan. MAX_MARKERS caps what
+   * any one view draws; zooming in is what reveals the rest.
+   */
+  var MAX_MARKERS = 600;
+  /**
+   * The same cull for the result list, which was previously unbounded. At the
+   * 20km radius a central Tel Aviv search matches ~4,600 locations and every
+   * row is several elements — enough to stop the page responding. The list is
+   * sorted nearest-first, so the cut falls on the least relevant rows.
+   */
+  var MAX_ROWS = 300;
+  /**
+   * The export carries more than the screen does, deliberately: scrolling 800
+   * rows is a worse list, but a PDF is read a page at a time and the point of
+   * it is to be complete. This is an upper bound, not a guarantee — the export
+   * trims further if the rendered sheet would exceed what a canvas can hold.
+   */
+  var MAX_PDF_ROWS = 800;
+  /**
+   * Above this many published denominators the coverage line aggregates
+   * rather than naming each chain. Five keeps תו הזהב's three banners
+   * enumerated exactly as before.
+   */
+  var MAX_ENUMERATED_DENOMINATORS = 5;
+  var markerByIndex = {};
+  var hitIndex = {};
+  var pendingForce = false;
+  var infoWindow = null;
+  /** Null until the first draw, so the first pass always builds content. */
+  var lastLogoMode = null;
+
+  function renderCoverage() {
+    var brandCount = {};
+    DATA.forEach(function (l) { brandCount[l.brand] = 1; });
+    var age = GENERATED ? Math.floor((Date.now() - new Date(GENERATED)) / 86400000) : null;
+
+    var parts = [
+      'במאגר שלנו: ' + DATA.length + ' מיקומים · ' + Object.keys(brandCount).length + ' עסקים',
+      CATALOGUE ? UNMAPPED + ' מתוך ' + CATALOGUE + ' עסקים לא אותרו' : 'היקף הכיסוי אינו ידוע',
+    ];
+
+    /**
+     * The only true denominator any catalogue has: the issuer publishes its
+     * own branch count, so for these chains we state a real ratio instead of
+     * "N found" against an unknown total.
+     *
+     * Enumerated while the list is short — תו הזהב has three Shufersal
+     * banners and naming them is more useful than summing them. Swish
+     * publishes a count for every one of its ~1,050 chains, and enumerating
+     * those would produce a coverage line thousands of characters long,
+     * which is not a cosmetic problem: this line is where the page is honest
+     * about what it does not know, and an unreadable one is a missing one.
+     * Above the threshold it aggregates, and the per-chain ratio moves to
+     * the brand header, where it is bounded and actually actionable.
+     */
+    var truthKeys = BRANCH_TRUTH ? Object.keys(BRANCH_TRUTH) : [];
+    if (truthKeys.length && truthKeys.length <= MAX_ENUMERATED_DENOMINATORS) {
+      var known = truthKeys.map(function (banner) {
+        var found = (BRAND_INDEX[banner] || []).length;
+        return banner + ' ' + found + '/' + BRANCH_TRUTH[banner];
+      });
+      parts.push('סניפים שאותרו: ' + known.join(' · '));
+    } else if (truthKeys.length) {
+      var foundTotal = 0;
+      var publishedTotal = 0;
+      truthKeys.forEach(function (brand) {
+        foundTotal += (BRAND_INDEX[brand] || []).length;
+        publishedTotal += BRANCH_TRUTH[brand];
+      });
+      parts.push('סניפים שאותרו: ' + foundTotal + ' מתוך ' + publishedTotal + ' שפורסמו');
+    }
+
+    if (age !== null) parts.push('עודכן לפני ' + age + ' ימים');
+    document.getElementById('coverage').textContent = parts.join(' · ');
+  }
+
+  function renderOnline() {
+    if (ONLINE.length) {
+      document.getElementById('online').style.display = '';
+      document.querySelector('#online summary').textContent =
+        'ועוד ' + ONLINE.length + ' עסקים למימוש אונליין — מכל מקום';
+      document.getElementById('online-list').textContent = ONLINE.join(' · ');
+    } else {
+      document.getElementById('online').style.display = 'none';
+    }
+  }
+
+  /** Search hits carry the brand yellow; everything else browses in muted grey. */
+  function pinFor(isHit) {
+    return new google.maps.marker.PinElement(
+      isHit
+        ? { background: '#FFCC00', borderColor: '#8a6a00', glyphColor: '#8a6a00' }
+        : { background: '#8d97a5', borderColor: '#4a525d', glyphColor: '#4a525d', scale: 0.7 }
+    );
+  }
+
+  /**
+   * Logos only once the map is close enough to read them. Country-wide they
+   * would be an unreadable pile, and every one in view is an image to decode,
+   * so zoomed out the cheap pins do the job.
+   */
+  var LOGO_MIN_ZOOM = 14;
+  /** Chips cost more to draw than pins, so fewer of them share a viewport. */
+  var MAX_CHIPS = 150;
+  var LOGOS = ACTIVE.logos || {};
+  /** Brand -> BuyMe's own categories. Absent for the brands it files nowhere. */
+  var TYPES = ACTIVE.types || {};
+  /** Each source keeps its own logo directory; see scripts/fetch-tav-logos.mjs. */
+  // A map, not a ternary: a third source made the two-way form wrong in two
+  // places at once, and silently — a missing entry serves BuyMe's logos
+  // under another catalogue's brand names.
+  var LOGO_DIRS = { buyme: 'logos/', tav: 'logos-tav/', swish: 'logos-swish/' };
+  var LOGO_DIR = LOGO_DIRS[activeSource] || 'logos/';
+
+  /** '' means every type. Otherwise one category name from TYPES. */
+  var activeType = '';
+  var typeEl = document.getElementById('type');
+
+  function matchesType(loc) {
+    if (activeType === '') return true;
+    var brandTypes = TYPES[loc.brand];
+    return !!brandTypes && brandTypes.indexOf(activeType) !== -1;
+  }
+
+  /**
+   * Browsing one chain: 'מקדונלד'ס' and every branch of it we hold, the way a
+   * map app answers "where can I use this". Null means every brand.
+   */
+  var activeBrand = null;
+
+  function matchesFilters(loc) {
+    if (activeBrand !== null && loc.brand !== activeBrand) return false;
+    return matchesType(loc);
+  }
+
+  var BRAND_INDEX = {};
+  var BRAND_NAMES = [];
+  var BRAND_SEARCH = [];
+
+  function rebuildBrandIndex() {
+    BRAND_INDEX = {};
+    DATA.forEach(function (loc, position) {
+      (BRAND_INDEX[loc.brand] = BRAND_INDEX[loc.brand] || []).push(position);
+    });
+    BRAND_NAMES = Object.keys(BRAND_INDEX).sort(function (a, b) {
+      return BRAND_INDEX[b].length - BRAND_INDEX[a].length;
+    });
+    BRAND_SEARCH = BRAND_NAMES.map(function (name) {
+      return {
+        name: name,
+        key: searchKey(name),
+        aliasKeys: (ALIASES[name] || []).map(searchKey),
+        count: BRAND_INDEX[name].length,
+      };
+    });
+  }
+
+  /**
+   * Switch the whole dataset behind the map.
+   *
+   * Location and radius survive, because the comparison is the point: a
+   * salesperson asks "and what would the competitor give you here?" about the
+   * spot already on screen, and making them retype it would be a second step
+   * for no decision. Type and brand do not survive — the vocabularies differ
+   * and a brand in one catalogue need not exist in the other.
+   */
+  function applyCatalogue(id) {
+    if (!CATALOGUES[id] || id === activeSource) return;
+
+    activeSource = id;
+    ACTIVE = CATALOGUES[id];
+    DATA = ACTIVE.locations || [];
+    ONLINE = ACTIVE.onlineOnly || [];
+    CATALOGUE = ACTIVE.catalogueSize || 0;
+    UNMAPPED = ACTIVE.unmappedCount || 0;
+    GENERATED = ACTIVE.generatedAt || null;
+    BRANCH_TRUTH = ACTIVE.branchTruth || null;
+    TIERS = ACTIVE.tiers || {};
+    LOGOS = ACTIVE.logos || {};
+    TYPES = ACTIVE.types || {};
+    ALIASES = ACTIVE.aliases || {};
+    LOGO_DIR = LOGO_DIRS[id] || 'logos/';
+
+    activeType = '';
+    clearBrand();
+    setMode('place');
+
+    rebuildBrandIndex();
+    buildTypeMenu();
+    renderCoverage();
+    renderOnline();
+
+    // Every marker on screen belongs to the old dataset and its index is a
+    // position in the old DATA, so the bookkeeping has to be emptied rather
+    // than diffed.
+    Object.keys(markerByIndex).forEach(function (key) {
+      if (markerByIndex[key]) markerByIndex[key].map = null;
+    });
+    markerByIndex = {};
+    hitIndex = {};
+    lastLogoMode = null;
+    closeInfo();
+
+    if (chosen) {
+      runSearch(Number(radiusEl.value));
+    } else {
+      resultsEl.innerHTML = '';
+      exportRows = [];
+      exportRadius = null;
+      exportTotal = 0;
+      syncExport();
+      pendingForce = true;
+      refreshMarkers(true);
+    }
+  }
+
+  var radiusEl = document.getElementById('radius');
+  var brandInputEl = document.getElementById('brand-input');
+  var brandListEl = document.getElementById('brand-list');
+  var brandChipEl = document.getElementById('brand-chip');
+  var placeFieldEl = document.getElementById('place');
+  var brandFieldEl = document.getElementById('brand-field');
+  var modePlaceEl = document.getElementById('mode-place');
+  var modeBrandEl = document.getElementById('mode-brand');
+
+  /**
+   * Apostrophes and quote marks are where a typed chain name and BuyMe's own
+   * spelling part company — "מקדונלדס" should still find "מקדונלד'ס".
+   */
+  function searchKey(text) {
+    return String(text || '')
+      .toLowerCase()
+      .replace(/["'`׳״]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /** BuyMe's own alternate spellings, so "mcdonalds" reaches מקדונלד'ס. */
+  var ALIASES = ACTIVE.aliases || {};
+
+  rebuildBrandIndex();
+  buildTypeMenu();
+  renderCoverage();
+  renderOnline();
+
+  /**
+   * Ranked: the name from its start, then anywhere in the name, then an
+   * alternate spelling. An alias only matches from its start — mid-word alias
+   * hits are where a keyword list starts suggesting nonsense.
+   */
+  function brandMatches(query) {
+    var key = searchKey(query);
+    if (key === '') return [];
+    var starts = [];
+    var contains = [];
+    var aliased = [];
+
+    for (var i = 0; i < BRAND_SEARCH.length; i++) {
+      var entry = BRAND_SEARCH[i];
+      var at = entry.key.indexOf(key);
+      if (at === 0) {
+        starts.push(entry);
+      } else if (at > 0) {
+        contains.push(entry);
+      } else {
+        for (var a = 0; a < entry.aliasKeys.length; a++) {
+          if (entry.aliasKeys[a].indexOf(key) === 0) { aliased.push(entry); break; }
+        }
+      }
+    }
+
+    return starts.concat(contains).concat(aliased).slice(0, 8);
+  }
+
+  function closeBrandList() {
+    brandListEl.hidden = true;
+    brandListEl.innerHTML = '';
+  }
+
+  function renderBrandList(query) {
+    var matches = brandMatches(query);
+    brandListEl.innerHTML = '';
+    if (matches.length === 0) {
+      closeBrandList();
+      return;
+    }
+    matches.forEach(function (entry) {
+      var item = document.createElement('li');
+      item.tabIndex = -1;
+      var file = LOGOS[entry.name];
+      if (file) {
+        var logo = document.createElement('img');
+        logo.src = LOGO_DIR + file;
+        logo.alt = '';
+        item.appendChild(logo);
+      }
+      var name = document.createElement('span');
+      name.className = 'brand-name';
+      name.textContent = entry.name;
+      item.appendChild(name);
+      var count = document.createElement('span');
+      count.className = 'brand-count';
+      count.textContent = entry.count === 1 ? 'סניף אחד' : entry.count + ' סניפים';
+      item.appendChild(count);
+      var tierText = tierBadge(entry.name);
+      if (tierText) {
+        var tierMark = document.createElement('span');
+        tierMark.className = 'brand-tier';
+        tierMark.textContent = tierText;
+        item.appendChild(tierMark);
+      }
+      item.addEventListener('click', function () { chooseBrand(entry.name); });
+      brandListEl.appendChild(item);
+    });
+    brandListEl.hidden = false;
+  }
+
+  function chooseBrand(name) {
+    brandInputEl.value = name;
+    closeBrandList();
+    renderBrandChip(name);
+    showBrand(name);
+  }
+
+  /** The active chain, with an × to leave it — the state must be escapable. */
+  function renderBrandChip(name) {
+    brandChipEl.innerHTML = '';
+    if (!name) {
+      brandChipEl.hidden = true;
+      return;
+    }
+    var label = document.createElement('span');
+    label.textContent = name;
+    var clear = document.createElement('button');
+    clear.type = 'button';
+    clear.setAttribute('aria-label', 'הצג את כל העסקים');
+    clear.textContent = '×';
+    clear.addEventListener('click', clearBrand);
+    brandChipEl.appendChild(label);
+    brandChipEl.appendChild(clear);
+    brandChipEl.hidden = false;
+  }
+
+  brandInputEl.addEventListener('input', function () { renderBrandList(brandInputEl.value); });
+  brandInputEl.addEventListener('focus', function () { renderBrandList(brandInputEl.value); });
+  brandInputEl.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeBrandList();
+    if (event.key !== 'Enter') return;
+    // Enter takes the top match, so the keyboard never needs the mouse.
+    event.preventDefault();
+    var top = brandMatches(brandInputEl.value)[0];
+    if (top) chooseBrand(top.name);
+  });
+  document.addEventListener('pointerdown', function (event) {
+    if (brandListEl.hidden) return;
+    if (event.target.closest && event.target.closest('#brand-field')) return;
+    closeBrandList();
+  });
+
+  /**
+   * Two questions, one slot: where am I, or where is this chain. Radius and
+   * type belong to the first — a chain shows all of its branches, and a type
+   * filter left on could silently exclude the very chain being browsed.
+   */
+  function setMode(mode) {
+    var brandMode = mode === 'brand';
+    modeBrandEl.setAttribute('aria-pressed', String(brandMode));
+    modePlaceEl.setAttribute('aria-pressed', String(!brandMode));
+    modeBrandEl.classList.toggle('on', brandMode);
+    modePlaceEl.classList.toggle('on', !brandMode);
+    brandFieldEl.hidden = !brandMode;
+    placeFieldEl.hidden = brandMode;
+    goEl.hidden = brandMode;
+    radiusEl.hidden = brandMode;
+    typeEl.hidden = brandMode;
+
+    if (brandMode) {
+      typeEl.value = '';
+      activeType = '';
+      brandInputEl.focus();
+    } else {
+      closeBrandList();
+      clearBrand();
+    }
+  }
+
+  modePlaceEl.addEventListener('click', function () { setMode('place'); });
+  modeBrandEl.addEventListener('click', function () { setMode('brand'); });
+
+  /**
+   * Fill the type menu from the data itself, ordered by how many locations
+   * each type actually has. A hardcoded list would keep offering categories
+   * after BuyMe drops them, and would silently miss ones it adds.
+   *
+   * A brand with several types is counted under each, so the totals overlap —
+   * they are a sense of scale, not a partition.
+   */
+  function buildTypeMenu() {
+    // Rebuilt on every source switch: the two catalogues have genuinely
+    // different vocabularies, and silently keeping a filter that means
+    // something else in the other one is worse than resetting it.
+    typeEl.textContent = '';
+    var allOption = document.createElement('option');
+    allOption.value = '';
+    allOption.textContent = 'כל הסוגים';
+    typeEl.appendChild(allOption);
+
+    var locationsPerType = {};
+    DATA.forEach(function (loc) {
+      (TYPES[loc.brand] || []).forEach(function (type) {
+        locationsPerType[type] = (locationsPerType[type] || 0) + 1;
+      });
+    });
+
+    Object.keys(locationsPerType)
+      .sort(function (a, b) { return locationsPerType[b] - locationsPerType[a]; })
+      .forEach(function (type) {
+        var option = document.createElement('option');
+        option.value = type;
+        option.textContent = type + ' (' + locationsPerType[type] + ')';
+        typeEl.appendChild(option);
+      });
+  }
+
+  function logoMode() {
+    return map ? map.getZoom() >= LOGO_MIN_ZOOM : false;
+  }
+
+  /** A brand chip, or null when this brand has no bundled logo. */
+  function chipFor(loc, isHit) {
+    var file = LOGOS[loc.brand];
+    if (!file) return null;
+
+    var chip = document.createElement('div');
+    chip.className = isHit ? 'chip chip-hit' : 'chip';
+    var img = document.createElement('img');
+    // Served from this deployment, never hot-linked from buyme.co.il.
+    img.src = LOGO_DIR + file;
+    // The brand name is already the marker's own tooltip.
+    img.alt = '';
+    // A logo that will not load must not leave an empty white square.
+    img.onerror = function () { chip.replaceChildren(pinFor(isHit).element); };
+    chip.appendChild(img);
+    return chip;
+  }
+
+  function markerContent(loc, isHit) {
+    return (logoMode() && chipFor(loc, isHit)) || pinFor(isHit);
+  }
+
+  /**
+   * Destination links for the two apps people actually navigate with.
+   *
+   * An 'approximate' pin is a locality centroid, not the shop — Pipeline A
+   * falls back to the city when an address will not geocode. Navigating to
+   * those coordinates would be confidently wrong, so those hand the address
+   * text over as a query and let the map resolve it. Exact pins navigate to
+   * the coordinates, which is the more precise of the two.
+   */
+  /** A navigation arrow, drawn rather than an emoji so it recolours and scales. */
+  function navIcon() {
+    var SVG = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(SVG, 'svg');
+    svg.setAttribute('width', '13');
+    svg.setAttribute('height', '13');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(SVG, 'path');
+    path.setAttribute('d', 'M3 11l18-8-8 18-2-8-8-2z');
+    svg.appendChild(path);
+    return svg;
+  }
+
+  function navLinks(loc) {
+    var coords = loc.lat + ',' + loc.lng;
+    var exact = loc.precision !== 'approximate';
+    var query = (loc.brand + ' ' + (loc.label || '')).trim();
+    return [
+      {
+        name: 'Google Maps',
+        url: 'https://www.google.com/maps/dir/?api=1&destination=' +
+          encodeURIComponent(exact ? coords : query),
+      },
+      {
+        name: 'Waze',
+        url: exact
+          ? 'https://waze.com/ul?ll=' + encodeURIComponent(coords) + '&navigate=yes'
+          : 'https://waze.com/ul?q=' + encodeURIComponent(query) + '&navigate=yes',
+      },
+    ];
+  }
+
+  /** Which location's bubble is open, so pressing it again can shut it. */
+  var openInfoKey = null;
+  var infoKeyFor = function (loc) { return loc.brand + '@' + loc.lat + ',' + loc.lng; };
+
+  function closeInfo() {
+    if (infoWindow) infoWindow.close();
+    openInfoKey = null;
+  }
+
+  /** A press on the open store's own pin dismisses it; any other switches. */
+  function toggleInfo(loc) {
+    if (openInfoKey === infoKeyFor(loc)) closeInfo();
+    else showInfo(loc);
+  }
+
+  /**
+   * Swish ships as one source over two cards — Swish Plus and Swish Premium,
+   * whose chain lists are 94% identical. A count read off the union is true
+   * for neither card on its own, so every chain only one card carries says
+   * which one. Chains both cards accept carry no badge, which is why TIERS
+   * is sparse.
+   *
+   * Returns '' for sources that have no tiers, so callers need no source check.
+   */
+  var TIER_LABELS = { plus: 'פלוס בלבד', premium: 'פרימיום בלבד' };
+  function tierBadge(brand) {
+    return TIER_LABELS[TIERS[brand]] || '';
+  }
+
+  /**
+   * Dismiss on a press anywhere that is not the bubble itself — bare map, a
+   * pin, the search capsule, the results card.
+   *
+   * The map's own click event is not enough on a phone: at browsing zoom the
+   * map is wall-to-wall brand chips, so a press meant for "somewhere else"
+   * usually lands on a pin and never reaches the map. Capture phase, so this
+   * runs before a pin's own handler reopens the bubble for its store.
+   */
+  document.addEventListener('pointerdown', function (event) {
+    if (!openInfoKey) return;
+    var target = event.target;
+    if (!target || !target.closest) return;
+    // Inside the bubble: its close button and links handle themselves.
+    if (target.closest('.iw, .gm-style-iw, .gm-style-iw-a')) return;
+    // A pin press is the toggle above; let it decide.
+    if (target.closest('gmp-advanced-marker')) return;
+    closeInfo();
+  }, true);
+
+  /**
+   * Opened by position rather than anchored to a marker, so a click in the
+   * results list can show the same bubble without owning a marker object.
+   */
+  function showInfo(loc) {
+    if (!infoWindow) infoWindow = new google.maps.InfoWindow();
+    openInfoKey = infoKeyFor(loc);
+
+    var box = document.createElement('div');
+    box.className = 'iw';
+    var name = document.createElement('div');
+    name.className = 'iw-brand';
+    // textContent throughout: brand and label come from third-party data.
+    name.textContent = loc.brand;
+    box.appendChild(name);
+    if (loc.label) {
+      var addr = document.createElement('div');
+      addr.className = 'iw-addr';
+      addr.textContent = loc.label;
+      box.appendChild(addr);
+    }
+    // Store type first: it answers "what is this place" before provenance,
+    // which answers "how did we find it".
+    (TYPES[loc.brand] || []).forEach(function (type) {
+      var typeTag = document.createElement('span');
+      typeTag.className = 'iw-tag iw-type';
+      typeTag.textContent = type;
+      box.appendChild(typeTag);
+    });
+
+    var tag = document.createElement('span');
+    tag.className = 'iw-tag';
+    tag.textContent = loc.source === 'google' ? 'Google' : 'כתובת ' + ((ACTIVE && ACTIVE.label) || 'BuyMe');
+    box.appendChild(tag);
+    var tier = tierBadge(loc.brand);
+    if (tier) {
+      var tierTag = document.createElement('span');
+      tierTag.className = 'iw-tag iw-tier';
+      tierTag.textContent = tier;
+      box.appendChild(tierTag);
+    }
+    if (loc.precision === 'approximate') {
+      var approx = document.createElement('span');
+      approx.className = 'iw-tag';
+      approx.textContent = 'מיקום מקורב';
+      box.appendChild(approx);
+    }
+
+    var nav = document.createElement('div');
+    nav.className = 'iw-nav';
+    navLinks(loc).forEach(function (target) {
+      var link = document.createElement('a');
+      link.href = target.url;
+      // A new tab, so the map keeps its viewport and search behind the app.
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.appendChild(navIcon());
+      link.appendChild(document.createTextNode(target.name));
+      nav.appendChild(link);
+    });
+    box.appendChild(nav);
+
+    infoWindow.setContent(box);
+    infoWindow.setPosition({ lat: loc.lat, lng: loc.lng });
+    infoWindow.open(map);
+  }
+
+  /** Draw the locations inside the current viewport, reusing existing pins. */
+  function refreshMarkers(force) {
+    if (!map) return;
+    var bounds = map.getBounds();
+    if (!bounds) return;
+
+    // Crossing the logo zoom threshold changes every marker's content, so the
+    // reuse below has to be skipped for that pass.
+    var mode = logoMode();
+    if (mode !== lastLogoMode) {
+      force = true;
+      lastLogoMode = mode;
+    }
+
+    // A search changes which pins are highlighted, so their content must be
+    // rebuilt rather than reused.
+    if (force) {
+      for (var stale in markerByIndex) markerByIndex[stale].map = null;
+      markerByIndex = {};
+    }
+
+    var visible = [];
+    for (var i = 0; i < DATA.length; i++) {
+      if (!matchesFilters(DATA[i])) continue;
+      if (bounds.contains({ lat: DATA[i].lat, lng: DATA[i].lng })) visible.push(i);
+    }
+
+    // Thin by an even stride rather than taking the first N: the data is
+    // ordered by brand, so truncating would show a handful of brands
+    // everywhere instead of every brand somewhere.
+    var cap = mode ? MAX_CHIPS : MAX_MARKERS;
+    var shown = visible;
+    if (visible.length > cap) {
+      shown = [];
+      var stride = visible.length / cap;
+      for (var k = 0; k < cap; k++) shown.push(visible[Math.floor(k * stride)]);
+    }
+
+    var wanted = {};
+    shown.forEach(function (idx) { wanted[idx] = true; });
+
+    for (var have in markerByIndex) {
+      if (!wanted[have]) {
+        markerByIndex[have].map = null;
+        delete markerByIndex[have];
+      }
+    }
+
+    shown.forEach(function (idx) {
+      if (markerByIndex[idx]) return;
+      var loc = DATA[idx];
+      var marker = new google.maps.marker.AdvancedMarkerElement({
+        map: map,
+        position: { lat: loc.lat, lng: loc.lng },
+        // Native hover tooltip; the bubble below is the click affordance.
+        title: loc.brand,
+        content: markerContent(loc, !!hitIndex[idx]),
+        gmpClickable: true,
+      });
+      marker.addListener('gmp-click', function () { toggleInfo(loc); });
+      markerByIndex[idx] = marker;
+    });
+
+    browseEl.textContent =
+      visible.length === 0
+        ? 'אין מיקומים בתצוגה הנוכחית — הזיזו או הרחיקו את המפה.'
+        : shown.length < visible.length
+          ? 'מוצגים ' + shown.length + ' מתוך ' + visible.length + ' מיקומים בתצוגה — התקרבו כדי לראות את כולם.'
+          : 'מוצגים כל ' + visible.length + ' המיקומים בתצוגה.';
+  }
+
+  /**
+   * The export writes out the list as rendered — the active type filter and
+   * radius included — so the PDF is the screen, on paper.
+   */
+  var exportRows = [], exportRadius = null, exportTotal = 0;
+  var exportBarEl = document.getElementById('export-bar');
+  var printSheetEl = document.getElementById('print-sheet');
+
+  function syncExport() {
+    exportBarEl.hidden = exportRows.length === 0;
+  }
+
+  /**
+   * A distance is meaningless without the point it was measured from, so the
+   * heading always states the origin and the radius that produced the list.
+   * Browsing one chain has no origin until a place has been chosen, and there
+   * the distance column is dropped rather than printed against nothing.
+   */
+  function buildPrintSheet(rows) {
+    var measured = rows.some(function (row) { return row.distanceMeters != null; });
+
+    // The sheet leaves the room; the header stays BuyMe's on every source, so
+    // without this a list of the competitor's stores would carry a BuyMe logo
+    // and nothing at all saying whose stores they are.
+    var voucher = (ACTIVE && ACTIVE.label) || 'BuyMe';
+    var heading = activeBrand
+      ? activeBrand + ' — סניפים המקבלים ' + voucher
+      : 'עסקים המקבלים ' + voucher;
+
+    var scope = [];
+    if (exportRadius != null && chosen) {
+      scope.push('ברדיוס ' + metres(exportRadius) + ' מ־' + chosen.label);
+    } else if (measured && chosen) {
+      scope.push('מרחקים נמדדו מ־' + chosen.label);
+    }
+    if (activeType) scope.push('סוג: ' + activeType);
+    scope.push(
+      exportTotal > rows.length
+        ? rows.length + ' הקרובים ביותר מתוך ' + exportTotal + ' שנמצאו'
+        : rows.length + ' מיקומים'
+    );
+
+    /**
+     * One source, two cards. The heading says "Swish"; without this the
+     * sheet does not say that Swish Plus and Swish Premium are different
+     * products, and a reader assumes every row works on whichever one they
+     * hold. The per-row badge below marks the exceptions; this names them.
+     */
+    if (ACTIVE && ACTIVE.cardLabels) {
+      scope.push('כולל ' + ACTIVE.cardLabels.plus + ' ו־' + ACTIVE.cardLabels.premium);
+    }
+
+    printSheetEl.textContent = '';
+
+    var h1 = document.createElement('h1');
+    h1.textContent = heading;
+    printSheetEl.appendChild(h1);
+
+    var sub = document.createElement('p');
+    sub.className = 'print-sub';
+    sub.textContent = scope.join(' · ');
+    printSheetEl.appendChild(sub);
+
+    var when = document.createElement('p');
+    when.className = 'print-sub';
+    when.textContent = 'הופק בתאריך ' + new Date().toLocaleDateString('he-IL');
+    printSheetEl.appendChild(when);
+
+    var table = document.createElement('table');
+    var thead = document.createElement('thead');
+    var headRow = document.createElement('tr');
+    var columns = ['שם העסק', 'כתובת', 'סוג'];
+    if (measured) columns.push('מרחק');
+    columns.forEach(function (name) {
+      var th = document.createElement('th');
+      th.textContent = name;
+      headRow.appendChild(th);
+    });
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    var tbody = document.createElement('tbody');
+    rows.forEach(function (row) {
+      var tr = document.createElement('tr');
+      var brandCell = null;
+      // textContent throughout: every value here is third-party data.
+      [
+        row.brand,
+        row.label || '',
+        (TYPES[row.brand] || []).join(' · '),
+      ].forEach(function (value, index) {
+        var td = document.createElement('td');
+        td.textContent = value;
+        if (index === 0) brandCell = td;
+        tr.appendChild(td);
+      });
+      var rowTier = tierBadge(row.brand);
+      if (rowTier) {
+        var mark = document.createElement('span');
+        mark.className = 'print-tier';
+        mark.textContent = ' (' + rowTier + ')';
+        brandCell.appendChild(mark);
+      }
+      if (measured) {
+        var td = document.createElement('td');
+        td.textContent = row.distanceMeters == null ? '' : metres(row.distanceMeters);
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    printSheetEl.appendChild(table);
+
+    // The same caveat the screen carries. A printed list outlives the page and
+    // reads as authoritative, so it must not drop the one thing that says it
+    // is partial.
+    var note = document.createElement('p');
+    note.className = 'print-note';
+    note.textContent =
+      'המאגר חלקי — ייתכן שיש עסקים נוספים המקבלים ' + voucher + ' שאינם מופיעים ברשימה. ' +
+      'מקורות המיקומים: Google Places ו-OpenStreetMap (ODbL).';
+    printSheetEl.appendChild(note);
+  }
+
+  /**
+   * Loaded on the first export rather than at startup: the page itself works
+   * offline once open, and most visits never export. A failure here is
+   * reported rather than swallowed, because the only symptom otherwise is a
+   * button that does nothing.
+   */
+  var CDN = 'https://cdnjs.cloudflare.com/ajax/libs/';
+  var pdfLibs = null;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var tag = document.createElement('script');
+      tag.src = src;
+      tag.onload = resolve;
+      tag.onerror = function () { reject(new Error('failed to load ' + src)); };
+      document.head.appendChild(tag);
+    });
+  }
+
+  function loadPdfLibs() {
+    if (pdfLibs) return pdfLibs;
+    pdfLibs = Promise.all([
+      loadScript(CDN + 'html2canvas/1.4.1/html2canvas.min.js'),
+      loadScript(CDN + 'jspdf/2.5.1/jspdf.umd.min.js'),
+    ]).catch(function (error) {
+      // Let the next attempt retry instead of caching the failure.
+      pdfLibs = null;
+      throw error;
+    });
+    return pdfLibs;
+  }
+
+  /**
+   * Page breaks that fall between rows, never through one.
+   *
+   * Slicing a tall capture at fixed intervals cuts stores in half across the
+   * fold. Each row's own bottom edge is a legal break, so the last one that
+   * still fits the page is the one to take.
+   */
+  function pageBreaks(canvasHeight, pageHeight, rowBottoms) {
+    var breaks = [];
+    var top = 0;
+    while (top < canvasHeight) {
+      var limit = top + pageHeight;
+      if (limit >= canvasHeight) { breaks.push(canvasHeight); break; }
+      var cut = 0;
+      for (var i = 0; i < rowBottoms.length; i++) {
+        if (rowBottoms[i] > top && rowBottoms[i] <= limit) cut = rowBottoms[i];
+      }
+      // A row taller than a whole page has no legal break; take the full page.
+      breaks.push(cut > top ? cut : limit);
+      top = breaks[breaks.length - 1];
+    }
+    return breaks;
+  }
+
+  var exportBtn = document.getElementById('export-pdf');
+  var exportLabel = exportBtn.querySelector('span');
+
+  exportBtn.addEventListener('click', async function () {
+    if (exportRows.length === 0) return;
+
+    var original = exportLabel.textContent;
+    exportBtn.disabled = true;
+    exportLabel.textContent = 'מכין PDF…';
+
+    try {
+      await loadPdfLibs();
+
+      // Capture resolution, and the factor between CSS and canvas pixels that
+      // the page-break measurements below depend on. One constant, because the
+      // two must never drift apart.
+      var CAPTURE_SCALE = 2;
+      /**
+       * Browsers refuse a canvas beyond a maximum side — 65,535px in Chrome,
+       * and html2canvas returns a blank one rather than an error when it is
+       * crossed. Row height depends on how far each address wraps, so the only
+       * reliable check is to measure the built sheet and trim if it overruns
+       * rather than to trust a row count.
+       */
+      var MAX_CANVAS_PX = 60000;
+
+      buildPrintSheet(exportRows);
+      var tooTall = printSheetEl.scrollHeight * CAPTURE_SCALE;
+      if (tooTall > MAX_CANVAS_PX) {
+        var fits = Math.floor(exportRows.length * (MAX_CANVAS_PX / tooTall));
+        buildPrintSheet(exportRows.slice(0, fits));
+      }
+
+      var canvas = await window.html2canvas(printSheetEl, {
+        scale: CAPTURE_SCALE,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+
+      var PAGE_W_MM = 210, PAGE_H_MM = 297;
+      var pxPerMm = canvas.width / PAGE_W_MM;
+      var pageHeightPx = Math.floor(PAGE_H_MM * pxPerMm);
+
+      // Row edges in canvas pixels, which is CSS pixels times html2canvas'
+      // scale, measured from the sheet's own top.
+      var sheetTop = printSheetEl.getBoundingClientRect().top;
+      var rowBottoms = [].map.call(
+        printSheetEl.querySelectorAll('tr'),
+        function (row) {
+          return Math.round((row.getBoundingClientRect().bottom - sheetTop) * CAPTURE_SCALE);
+        }
+      );
+
+      var pdf = new window.jspdf.jsPDF('p', 'mm', 'a4');
+      var breaks = pageBreaks(canvas.height, pageHeightPx, rowBottoms);
+      var top = 0;
+
+      breaks.forEach(function (bottom, page) {
+        var height = bottom - top;
+        var slice = document.createElement('canvas');
+        slice.width = canvas.width;
+        slice.height = height;
+        slice.getContext('2d').drawImage(
+          canvas, 0, top, canvas.width, height, 0, 0, canvas.width, height
+        );
+        if (page > 0) pdf.addPage();
+        // JPEG, not PNG: a screenful of text as PNG runs to several megabytes.
+        pdf.addImage(
+          slice.toDataURL('image/jpeg', 0.85), 'JPEG', 0, 0, PAGE_W_MM, height / pxPerMm
+        );
+        top = bottom;
+      });
+
+      var stamp = new Date().toISOString().slice(0, 10);
+      pdf.save(activeSource + '-' + (activeBrand ? 'branches' : 'stores') + '-' + stamp + '.pdf');
+    } catch (error) {
+      setStatus('ייצוא ה-PDF נכשל: ' + error.message);
+    } finally {
+      // The rows are rebuilt on every export; keeping them costs memory for
+      // nothing.
+      printSheetEl.textContent = '';
+      exportLabel.textContent = original;
+      exportBtn.disabled = false;
+    }
+  });
+
+  function render(hits, radius) {
+    resultsEl.innerHTML = '';
+    var rows = hits.length > MAX_ROWS ? hits.slice(0, MAX_ROWS) : hits;
+    // Captured from the same hits the list is drawn from, so the two always
+    // describe one search — but taken to the export's own, larger cap.
+    exportRows = hits.length > MAX_PDF_ROWS ? hits.slice(0, MAX_PDF_ROWS) : hits;
+    exportTotal = hits.length;
+    exportRadius = radius;
+    syncExport();
+
+    if (hits.length === 0) {
+      // Never "no stores accept BuyMe here". The dataset is known to be
+      // partial, so a confident negative is a claim it cannot support.
+      var note = document.createElement('li');
+      note.className = 'note';
+      note.textContent =
+        (activeType
+          // An empty result under a filter is about the filter first. Reading
+          // it as "nothing here" would be wrong twice over.
+          ? 'לא נמצאו עסקים מסוג ' + activeType + ' במאגר שלנו ברדיוס ' + metres(radius) +
+            '. נסו סוג אחר או "כל הסוגים". '
+          : 'לא נמצאו עסקים במאגר שלנו ברדיוס ' + metres(radius) + '. ') +
+        'המאגר חלקי — ייתכן שיש כאן עסקים שמקבלים ' + ((ACTIVE && ACTIVE.label) || 'BuyMe') + ' ואינם מופיעים.';
+      resultsEl.appendChild(note);
+      return;
+    }
+
+    rows.forEach(function (hit) {
+      var li = document.createElement('li');
+      var brand = document.createElement('div');
+      brand.className = 'brand';
+      brand.textContent = hit.brand;
+      var meta = document.createElement('div');
+      meta.className = 'meta';
+      // Browsing one chain's branches has no origin to measure from until a
+      // place is chosen, so the distance is omitted rather than faked.
+      if (hit.distanceMeters != null) {
+        var dist = document.createElement('span');
+        dist.className = 'dist';
+        dist.textContent = metres(hit.distanceMeters);
+        meta.appendChild(dist);
+        meta.appendChild(document.createTextNode(' · '));
+      }
+      // textContent throughout: brand and label come from third-party data.
+      meta.appendChild(document.createTextNode((hit.label || '') + ' · '));
+      // Only the primary type in the list — the bubble carries the rest.
+      var typeNames = TYPES[hit.brand] || [];
+      if (typeNames.length) {
+        var typeTag = document.createElement('span');
+        typeTag.className = 'tag tag-type';
+        typeTag.textContent = typeNames[0];
+        meta.appendChild(typeTag);
+        meta.appendChild(document.createTextNode(' '));
+      }
+      var tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = hit.source === 'google' ? 'Google' : 'כתובת ' + ((ACTIVE && ACTIVE.label) || 'BuyMe');
+      meta.appendChild(tag);
+      var tier = tierBadge(hit.brand);
+      if (tier) {
+        var tierTag = document.createElement('span');
+        tierTag.className = 'iw-tag iw-tier';
+        tierTag.textContent = tier;
+        meta.appendChild(document.createTextNode(' '));
+        meta.appendChild(tierTag);
+      }
+      if (hit.precision === 'approximate') {
+        var approx = document.createElement('span');
+        approx.className = 'tag';
+        approx.textContent = 'מיקום מקורב';
+        meta.appendChild(document.createTextNode(' '));
+        meta.appendChild(approx);
+      }
+      li.appendChild(brand);
+      li.appendChild(meta);
+      li.onclick = function () {
+        map.setCenter({ lat: hit.lat, lng: hit.lng });
+        map.setZoom(17);
+        showInfo(hit);
+        // The pin the user just asked for is behind the sheet on a phone.
+        if (isPhone()) setSheet('collapsed');
+      };
+      resultsEl.appendChild(li);
+    });
+
+    if (rows.length < hits.length) {
+      // Said plainly, because a list that silently stops at 300 reads as "that
+      // is all there is" — the same wrong reading the empty-result note avoids.
+      var more = document.createElement('li');
+      more.className = 'note';
+      more.textContent =
+        'מוצגים ' + rows.length + ' העסקים הקרובים ביותר מתוך ' + hits.length +
+        ' שנמצאו. צמצמו את הרדיוס או סננו לפי סוג כדי לראות את השאר.';
+      resultsEl.appendChild(more);
+    }
+  }
+
+  /**
+   * Show every branch of one chain, the way a map app answers "where can I
+   * use this". No radius applies — the point is the whole chain — so the map
+   * fits to its branches and the list carries all of them.
+   *
+   * Distances appear only once a place or the device's position has given us
+   * an origin to measure from.
+   */
+  function showBrand(name) {
+    var positions = BRAND_INDEX[name] || [];
+    if (positions.length === 0) return;
+
+    activeBrand = name;
+    hitIndex = {};
+    var branches = positions.map(function (position) {
+      hitIndex[position] = true;
+      var branch = {};
+      for (var key in DATA[position]) branch[key] = DATA[position][key];
+      branch.index = position;
+      if (chosen) branch.distanceMeters = distanceMeters(chosen, DATA[position]);
+      return branch;
+    });
+
+    branches.sort(function (a, b) {
+      if (a.distanceMeters != null && b.distanceMeters != null) {
+        return a.distanceMeters - b.distanceMeters;
+      }
+      return String(a.label || '').localeCompare(String(b.label || ''), 'he');
+    });
+
+    // "in our data", never "the branches": OSM and Places both miss some, and
+    // this list is the one place a user would read it as complete.
+    //
+    // Unless the issuer publishes its own count for this chain, in which case
+    // we can do better than a hedge and state the real ratio. A per-chain
+    // denominator is actionable exactly here — "9 מתוך 20" tells a
+    // salesperson this chain's coverage is partial, which the global coverage
+    // line cannot say about any single chain. Bounded by construction: one
+    // brand is active at a time.
+    var publishedForBrand = BRANCH_TRUTH && BRANCH_TRUTH[name];
+    setStatus(
+      publishedForBrand
+        ? name + ' — ' + branches.length + ' מתוך ' + publishedForBrand + ' סניפים שפורסמו'
+        : name + ' — ' + branches.length + ' סניפים במאגר שלנו'
+    );
+
+    var extent = new google.maps.LatLngBounds();
+    branches.forEach(function (branch) { extent.extend({ lat: branch.lat, lng: branch.lng }); });
+    if (branches.length === 1) {
+      map.setCenter({ lat: branches[0].lat, lng: branches[0].lng });
+      map.setZoom(16);
+    } else {
+      map.fitBounds(extent, 60);
+    }
+
+    if (centreCircle) { centreCircle.setMap(null); centreCircle = null; }
+    render(branches, null);
+    if (isPhone()) setSheet('half');
+    else setCard(true);
+
+    pendingForce = true;
+    refreshMarkers(true);
+  }
+
+  /** Back to browsing everything, from either the mode switch or the chip. */
+  function clearBrand() {
+    if (activeBrand === null) return;
+    activeBrand = null;
+    hitIndex = {};
+    brandInputEl.value = '';
+    renderBrandChip();
+    resultsEl.innerHTML = '';
+    exportRows = [];
+    exportRadius = null;
+    exportTotal = 0;
+    syncExport();
+    setStatus('הזיזו והתקרבו במפה לעיון חופשי, או חפשו מיקום לרשימה לפי מרחק.');
+    pendingForce = true;
+    refreshMarkers(true);
+  }
+
+  function runSearch(radius) {
+    if (!chosen) {
+      setStatus('בחרו מיקום מהרשימה תחילה.');
+      return;
+    }
+    // Filtered after withinRadius, not before: `index` is a position in DATA
+    // and the map's marker bookkeeping is keyed by it.
+    var hits = withinRadius(DATA, chosen, radius).filter(matchesFilters);
+    var distinct = {};
+    hitIndex = {};
+    hits.forEach(function (h) { distinct[h.brand] = 1; hitIndex[h.index] = true; });
+    setStatus(
+      hits.length + ' מיקומים · ' + Object.keys(distinct).length +
+      ' עסקים ברדיוס ' + metres(radius) + ' מ־' + chosen.label);
+
+    map.setCenter({ lat: chosen.lat, lng: chosen.lng });
+    map.setZoom(radius <= 1000 ? 14 : radius <= 5000 ? 12 : 11);
+    if (centreCircle) centreCircle.setMap(null);
+    centreCircle = new google.maps.Circle({
+      map: map, center: { lat: chosen.lat, lng: chosen.lng }, radius: radius,
+      strokeColor: '#8a6a00', strokeWeight: 1, fillColor: '#FFCC00', fillOpacity: 0.09,
+    });
+    render(hits, radius);
+    // Results are the point of a search, so the card opens to show them — at
+    // half height on a phone, which keeps the searched area of the map in view.
+    if (isPhone()) setSheet('half');
+    else setCard(true);
+
+    // Redraw now for the case where the map did not actually move (the same
+    // search twice fires no idle event), and again on the idle that follows
+    // when it did.
+    pendingForce = true;
+    refreshMarkers(true);
+  }
+
+  /**
+   * Centre on the device's position and search from it.
+   *
+   * Read only on this press — never on load, never stored, never sent
+   * anywhere; the coordinates stay in this page and feed the same haversine
+   * filter a typed location does. Searching straight away is the point of
+   * the button: "what can I spend here" is the question it answers, and
+   * leaving the user to press חפש afterwards would be a second step for no
+   * decision.
+   */
+  var meMarker = null;
+
+  function locateMe() {
+    var locateEl = document.getElementById('locate');
+    locateEl.classList.add('busy');
+    locateEl.disabled = true;
+
+    var done = function () {
+      locateEl.classList.remove('busy');
+      locateEl.disabled = false;
+    };
+
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        done();
+        chosen = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          label: 'המיקום שלי',
+        };
+
+        if (meMarker) meMarker.map = null;
+        meMarker = new google.maps.marker.AdvancedMarkerElement({
+          map: map,
+          position: { lat: chosen.lat, lng: chosen.lng },
+          title: 'המיקום שלי',
+          content: (function () {
+            var dot = document.createElement('div');
+            dot.className = 'me-dot';
+            return dot;
+          })(),
+          // Above the brand chips: it is the one pin that answers "where am I".
+          zIndex: 9999,
+        });
+
+        runSearch(Number(document.getElementById('radius').value));
+      },
+      function (error) {
+        done();
+        // The status line doubles as the card's header, so this is readable
+        // without opening anything.
+        setStatus(
+          error.code === error.PERMISSION_DENIED
+            ? 'אין הרשאה למיקום. אפשרו גישה למיקום בדפדפן ונסו שוב, או הקלידו מקום.'
+            : 'לא הצלחנו לאתר את המיקום שלכם. נסו שוב, או הקלידו מקום.'
+        );
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  }
+
+  window.initApp = async function () {
+    var { Map } = await google.maps.importLibrary('maps');
+    await google.maps.importLibrary('marker');
+    await google.maps.importLibrary('places');
+
+    // Opens on central Tel Aviv rather than fitting the whole dataset. The
+    // country-wide fit was technically the fuller answer and the worse first
+    // frame: every marker a grey dot, nothing readable, and a zoom needed
+    // before the page showed what it is for. This zoom is past LOGO_MIN_ZOOM,
+    // so the first thing on screen is brand logos in the densest area we
+    // cover — and the search field is right there for anywhere else.
+    map = new Map(document.getElementById('map'), {
+      center: { lat: 32.0853, lng: 34.7818 },
+      zoom: LOGO_MIN_ZOOM,
+      mapId: 'DEMO_MAP_ID',
+      // One finger pans. The default ('auto') resolves to 'cooperative' on
+      // touch, which reserves one-finger drags for scrolling the page — right
+      // for a map embedded in an article, wrong here, where the map is the
+      // page and there is nothing to scroll behind it.
+      gestureHandling: 'greedy',
+    });
+
+    // Panning or zooming away from a place is also a dismissal; the press
+    // itself is handled by the document listener above.
+    map.addListener('dragstart', closeInfo);
+    map.addListener('zoom_changed', closeInfo);
+
+    var locateEl = document.getElementById('locate');
+    if (navigator.geolocation) {
+      locateEl.addEventListener('click', locateMe);
+      // Handed to Google's own control stack so it lands beside the zoom and
+      // pegman instead of us guessing offsets that collide with them. Deferred
+      // to the first idle: pushed during construction the node is not adopted
+      // and stays where it was authored.
+      google.maps.event.addListenerOnce(map, 'idle', function () {
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(locateEl);
+      });
+    } else {
+      locateEl.remove();
+    }
+
+    // Every pan and zoom settles into an idle, which is what repopulates the
+    // viewport's markers.
+    map.addListener('idle', function () {
+      refreshMarkers(pendingForce);
+      pendingForce = false;
+    });
+
+    // Session-based autocomplete: the widget groups keystrokes plus the final
+    // details fetch into one billable session, which Google charges nothing
+    // for at any volume. This is why the scaffold's on-submit-only constraint
+    // does not apply here.
+    var autocomplete = document.getElementById('place');
+    autocomplete.addEventListener('gmp-select', async function (event) {
+      var place = event.placePrediction.toPlace();
+      await place.fetchFields({ fields: ['displayName', 'formattedAddress', 'location'] });
+      chosen = {
+        lat: place.location.lat(),
+        lng: place.location.lng(),
+        label: place.displayName || place.formattedAddress || 'המיקום שנבחר',
+      };
+      setStatus('נבחר: ' + chosen.label + ' — לחצו חפש');
+    });
+
+    document.getElementById('search').onsubmit = function (event) {
+      event.preventDefault();
+      runSearch(Number(document.getElementById('radius').value));
+    };
+
+    // Applies immediately rather than waiting for another חפש: the filter
+    // changes what is on the map as much as what is in the list, and the map
+    // is browsable with no search at all.
+    typeEl.addEventListener('change', function () {
+      activeType = typeEl.value;
+      if (chosen) {
+        runSearch(Number(document.getElementById('radius').value));
+      } else {
+        pendingForce = true;
+        refreshMarkers(true);
+      }
+    });
+
+    document.getElementById('source').addEventListener('change', function (event) {
+      applyCatalogue(event.target.value);
+    });
+
+    if (DATA.length === 0) {
+      setStatus('אין נתונים. הריצו: node scripts/build-google-page.mjs');
+    } else {
+      setStatus('הזיזו והתקרבו במפה לעיון חופשי, או חפשו מיקום לרשימה לפי מרחק.');
+    }
+  };
+})();
+</script>
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=__GOOGLE_PAGE_API_KEY__&loading=async&libraries=places,marker&callback=initApp&language=he&region=IL">
+</script>
+</body>
+</html>

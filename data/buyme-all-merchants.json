@@ -1,0 +1,5222 @@
+[
+  {
+    "name": "adidas",
+    "heName": "אדידס"
+  },
+  {
+    "name": "ASA Izakaya",
+    "heName": "אסא"
+  },
+  {
+    "name": "טרקלין חשמל",
+    "heName": null
+  },
+  {
+    "name": "עגליס",
+    "heName": null
+  },
+  {
+    "name": "רשת מלונות ישרוטל",
+    "heName": null
+  },
+  {
+    "name": "MAC",
+    "heName": "מק"
+  },
+  {
+    "name": "סניפים נבחרים ברשת קפה גרג",
+    "heName": null
+  },
+  {
+    "name": "S-wear",
+    "heName": "אסוור"
+  },
+  {
+    "name": "פתאל",
+    "heName": null
+  },
+  {
+    "name": "מילק אנד האני",
+    "heName": null
+  },
+  {
+    "name": "Jrpole",
+    "heName": null
+  },
+  {
+    "name": "כרמלה",
+    "heName": null
+  },
+  {
+    "name": "שופרא",
+    "heName": null
+  },
+  {
+    "name": "SOHO",
+    "heName": "סוהו"
+  },
+  {
+    "name": "Biamba",
+    "heName": "ביאמבה"
+  },
+  {
+    "name": "צ'אקולי",
+    "heName": null
+  },
+  {
+    "name": "KFC",
+    "heName": "קי אפ סי"
+  },
+  {
+    "name": "Bina & Bino",
+    "heName": "בינה ובינו"
+  },
+  {
+    "name": "מלונות בראון מבית ישראל קנדה",
+    "heName": null
+  },
+  {
+    "name": "דרך היין",
+    "heName": null
+  },
+  {
+    "name": "Dé Rococo",
+    "heName": "דה רוקקו"
+  },
+  {
+    "name": "Legenda",
+    "heName": "לגנדה"
+  },
+  {
+    "name": "Food Appeal",
+    "heName": "פוד אפיל"
+  },
+  {
+    "name": "ארקיע",
+    "heName": null
+  },
+  {
+    "name": "פרימה",
+    "heName": null
+  },
+  {
+    "name": "LAMER",
+    "heName": "להמר"
+  },
+  {
+    "name": "מסעדות כרמים",
+    "heName": null
+  },
+  {
+    "name": "Femina",
+    "heName": "פמינה"
+  },
+  {
+    "name": "סניפים נבחרים ברשת קפה קפה",
+    "heName": null
+  },
+  {
+    "name": "JO MALONE LONDON",
+    "heName": "ג'ו מלון"
+  },
+  {
+    "name": "MOBILITY BRANDS",
+    "heName": "מוביליטי ברנדס"
+  },
+  {
+    "name": "שני יעקובי",
+    "heName": null
+  },
+  {
+    "name": "ד\"ר גב",
+    "heName": null
+  },
+  {
+    "name": "ShareSpa- מלון Herods הרצליה",
+    "heName": "שר ספא הרודס"
+  },
+  {
+    "name": "דאיה גסטהאוס",
+    "heName": null
+  },
+  {
+    "name": "SELAS",
+    "heName": "סלאס"
+  },
+  {
+    "name": "שר המשקאות",
+    "heName": null
+  },
+  {
+    "name": "Nintendo",
+    "heName": "נינטנדו"
+  },
+  {
+    "name": "We Love Plants",
+    "heName": null
+  },
+  {
+    "name": "אופטיקה הלפרין",
+    "heName": null
+  },
+  {
+    "name": "JAPAN-JAPAN",
+    "heName": "ג'פן ג'פן"
+  },
+  {
+    "name": "באולינג 7",
+    "heName": null
+  },
+  {
+    "name": "מלון ומוזיאון דונה גרציה",
+    "heName": null
+  },
+  {
+    "name": "מגה ספורט",
+    "heName": null
+  },
+  {
+    "name": "המלביה",
+    "heName": null
+  },
+  {
+    "name": "קולומביה, שבילים ואווטסיידרס",
+    "heName": null
+  },
+  {
+    "name": "WeShoes",
+    "heName": null
+  },
+  {
+    "name": "Joya",
+    "heName": "ג'ויה"
+  },
+  {
+    "name": "ליאור מוצרי חשמל",
+    "heName": null
+  },
+  {
+    "name": "YOLO",
+    "heName": "יולו"
+  },
+  {
+    "name": "The Gutman Hotel",
+    "heName": "גוטמן"
+  },
+  {
+    "name": "KIKO MILANO",
+    "heName": "קיקו מילאנו"
+  },
+  {
+    "name": "מסעדת לוצ'נה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת MOSHIK& של השף מושיק רוט",
+    "heName": null
+  },
+  {
+    "name": "BABY STORY",
+    "heName": "בייבי סטורי"
+  },
+  {
+    "name": "ספא גלי כנרת",
+    "heName": null
+  },
+  {
+    "name": "De Beer",
+    "heName": "דה בר"
+  },
+  {
+    "name": "Garmin",
+    "heName": "גרמין"
+  },
+  {
+    "name": "פיצה סטורי",
+    "heName": null
+  },
+  {
+    "name": "שגב",
+    "heName": null
+  },
+  {
+    "name": "ShareSpa- מלון U Coral Beach אילת",
+    "heName": "שר ספא יו קורל ביץ'"
+  },
+  {
+    "name": "רשת Bגוד",
+    "heName": null
+  },
+  {
+    "name": "COTTON CLUB",
+    "heName": "קוטון קלאב"
+  },
+  {
+    "name": "רשת צומת ספרים",
+    "heName": null
+  },
+  {
+    "name": "משלוחה",
+    "heName": null
+  },
+  {
+    "name": "מקדונלד'ס",
+    "heName": null
+  },
+  {
+    "name": "GOLBARY",
+    "heName": "גולברי"
+  },
+  {
+    "name": "גלמפינג מיא",
+    "heName": null
+  },
+  {
+    "name": "Stylish",
+    "heName": "סטייליש"
+  },
+  {
+    "name": "ITAY BRANDS",
+    "heName": "איתי ברנדס"
+  },
+  {
+    "name": "רשת לנדוור",
+    "heName": null
+  },
+  {
+    "name": "PETEAT",
+    "heName": null
+  },
+  {
+    "name": "Crazy Line",
+    "heName": "קרייזי לן"
+  },
+  {
+    "name": "ASK Q",
+    "heName": "אסק יו"
+  },
+  {
+    "name": "מלון שטרקמן ארנה",
+    "heName": null
+  },
+  {
+    "name": "עצמל'ה",
+    "heName": null
+  },
+  {
+    "name": "מסעדות בנדיקט",
+    "heName": null
+  },
+  {
+    "name": "פפאיה",
+    "heName": null
+  },
+  {
+    "name": "Giraffe",
+    "heName": "ג'ירף"
+  },
+  {
+    "name": "3030",
+    "heName": null
+  },
+  {
+    "name": "Laline",
+    "heName": "לאלין"
+  },
+  {
+    "name": "MOKAYA",
+    "heName": "מוקיה"
+  },
+  {
+    "name": "Afrodita",
+    "heName": "אפרודיטה"
+  },
+  {
+    "name": "MOBICELL",
+    "heName": "מוביסל"
+  },
+  {
+    "name": "ShareSpa- מלון Gordon Beach ת\"א",
+    "heName": "שר ספא גורדון ביץ'"
+  },
+  {
+    "name": "מלון אמבסי",
+    "heName": null
+  },
+  {
+    "name": "נונו ומימי",
+    "heName": null
+  },
+  {
+    "name": "תחביבן",
+    "heName": null
+  },
+  {
+    "name": "GANT",
+    "heName": "גאנת"
+  },
+  {
+    "name": "Arcaffe",
+    "heName": "אר קפה"
+  },
+  {
+    "name": "השטיח האדום",
+    "heName": null
+  },
+  {
+    "name": "אליטל",
+    "heName": null
+  },
+  {
+    "name": "אגאדיר",
+    "heName": null
+  },
+  {
+    "name": "The Black Box",
+    "heName": "בלק בוקס"
+  },
+  {
+    "name": "לוינסקי מרקט הוטל",
+    "heName": null
+  },
+  {
+    "name": "אלוף ספורט",
+    "heName": null
+  },
+  {
+    "name": "נאם",
+    "heName": null
+  },
+  {
+    "name": "REPLAY",
+    "heName": "ריפלי"
+  },
+  {
+    "name": "בוניטה דה מאס",
+    "heName": null
+  },
+  {
+    "name": "קמפאי & CHI CHI",
+    "heName": null
+  },
+  {
+    "name": "סולתם",
+    "heName": null
+  },
+  {
+    "name": "סלקשיין",
+    "heName": null
+  },
+  {
+    "name": "Loginn",
+    "heName": "לוגין"
+  },
+  {
+    "name": "BYNETA",
+    "heName": null
+  },
+  {
+    "name": "Mr. Pretzels",
+    "heName": "פרצל"
+  },
+  {
+    "name": "THE NORTH FACE",
+    "heName": "נורת'פייס"
+  },
+  {
+    "name": "SANANDO",
+    "heName": "סננדו"
+  },
+  {
+    "name": "I JUMP",
+    "heName": "אי גאמפ"
+  },
+  {
+    "name": "ריקושט",
+    "heName": null
+  },
+  {
+    "name": "Kedem Spa",
+    "heName": "קדם ספא האוס"
+  },
+  {
+    "name": "מתחת לעץ",
+    "heName": null
+  },
+  {
+    "name": "טבע נאות",
+    "heName": null
+  },
+  {
+    "name": "NAAMAN",
+    "heName": "נאמן"
+  },
+  {
+    "name": "כתר",
+    "heName": null
+  },
+  {
+    "name": "Timothy Cafe",
+    "heName": "טימותי קפה"
+  },
+  {
+    "name": "Eats Cafeteria",
+    "heName": "איטס קפיטריה"
+  },
+  {
+    "name": "magnolia",
+    "heName": "מגנוליה"
+  },
+  {
+    "name": "זמארין",
+    "heName": null
+  },
+  {
+    "name": "Ceramora",
+    "heName": "קרמקה"
+  },
+  {
+    "name": "תיק התיקים",
+    "heName": null
+  },
+  {
+    "name": "THE Spa אינטרקונטיננטל ת\"א",
+    "heName": null
+  },
+  {
+    "name": "קפה אניצ'ה",
+    "heName": null
+  },
+  {
+    "name": "VARDINON",
+    "heName": "ורדינון"
+  },
+  {
+    "name": "יש לאן",
+    "heName": null
+  },
+  {
+    "name": "The Savoy hotel tlv",
+    "heName": "סבוי"
+  },
+  {
+    "name": "רשת Homestyle",
+    "heName": "הומסטיל"
+  },
+  {
+    "name": "BRETONNE",
+    "heName": "ברתון"
+  },
+  {
+    "name": "STEVE MADDEN",
+    "heName": "סטיב מאדן"
+  },
+  {
+    "name": "MICHAELI",
+    "heName": "מיכאלי"
+  },
+  {
+    "name": "ברא צמחים",
+    "heName": null
+  },
+  {
+    "name": "יקב הר אודם",
+    "heName": null
+  },
+  {
+    "name": "VANS",
+    "heName": "ואנס"
+  },
+  {
+    "name": "GOLF&CO",
+    "heName": "גולפ"
+  },
+  {
+    "name": "מלון נוף",
+    "heName": null
+  },
+  {
+    "name": "VANIGLIA ICE CREAM",
+    "heName": "ונילה"
+  },
+  {
+    "name": "דנדי",
+    "heName": null
+  },
+  {
+    "name": "מילגה",
+    "heName": null
+  },
+  {
+    "name": "קונדיטורית טיבי",
+    "heName": null
+  },
+  {
+    "name": "כיתן",
+    "heName": null
+  },
+  {
+    "name": "Jah Spa קיסריה",
+    "heName": "ג'ה ספא"
+  },
+  {
+    "name": "CASTRO",
+    "heName": "קסתרו"
+  },
+  {
+    "name": "קפה בוקה",
+    "heName": null
+  },
+  {
+    "name": "יקב גוש עציון",
+    "heName": null
+  },
+  {
+    "name": "מנד'ומה",
+    "heName": null
+  },
+  {
+    "name": "רשת למטייל",
+    "heName": null
+  },
+  {
+    "name": "פרש קפה",
+    "heName": null
+  },
+  {
+    "name": "URBANICA",
+    "heName": "אורבניקה"
+  },
+  {
+    "name": "HOODIES",
+    "heName": "הודיס"
+  },
+  {
+    "name": "אורן משי",
+    "heName": null
+  },
+  {
+    "name": "שקם אלקטריק",
+    "heName": null
+  },
+  {
+    "name": "LEGO",
+    "heName": "לגו"
+  },
+  {
+    "name": "יקב אסף",
+    "heName": null
+  },
+  {
+    "name": "לבנדר",
+    "heName": null
+  },
+  {
+    "name": "הקונדיטוריה של גל",
+    "heName": null
+  },
+  {
+    "name": "אופטיקנה",
+    "heName": null
+  },
+  {
+    "name": "Spa My Touch",
+    "heName": "ספא מאי טאצ'"
+  },
+  {
+    "name": "charme tlv",
+    "heName": "שארם תל אביב"
+  },
+  {
+    "name": "SELFISH",
+    "heName": "סלפיש"
+  },
+  {
+    "name": "לה פטיסייר",
+    "heName": null
+  },
+  {
+    "name": "&GOLF",
+    "heName": "גולפ"
+  },
+  {
+    "name": "Fox Home",
+    "heName": "פוקס הום"
+  },
+  {
+    "name": "H&O",
+    "heName": null
+  },
+  {
+    "name": "Jusa Cold Pressed",
+    "heName": "ג'וסא"
+  },
+  {
+    "name": "הרצל",
+    "heName": null
+  },
+  {
+    "name": "אינטימה",
+    "heName": null
+  },
+  {
+    "name": "ClaylaTLV",
+    "heName": "קליילה"
+  },
+  {
+    "name": "TIMBERLAND",
+    "heName": "תימברלנד"
+  },
+  {
+    "name": "6 במאי",
+    "heName": null
+  },
+  {
+    "name": "ביג אלקטריק",
+    "heName": null
+  },
+  {
+    "name": "פלנט באולינג וסיטי באולינג",
+    "heName": null
+  },
+  {
+    "name": "INK HOTEL",
+    "heName": null
+  },
+  {
+    "name": "Golf Kids",
+    "heName": "גולף קידס"
+  },
+  {
+    "name": "Burger Box כפר עציון",
+    "heName": "בורגר בוקס"
+  },
+  {
+    "name": "גלידריית פינגוין",
+    "heName": null
+  },
+  {
+    "name": "ÉVE PROMETICS",
+    "heName": null
+  },
+  {
+    "name": "בירליך",
+    "heName": null
+  },
+  {
+    "name": "TERMINAL X",
+    "heName": "טרמינל איקס"
+  },
+  {
+    "name": "Flying Tiger",
+    "heName": null
+  },
+  {
+    "name": "LALUN חופשות בישראל",
+    "heName": null
+  },
+  {
+    "name": "sweetime",
+    "heName": null
+  },
+  {
+    "name": "שילה הקדומה",
+    "heName": null
+  },
+  {
+    "name": "שילב",
+    "heName": null
+  },
+  {
+    "name": "Just-Meat",
+    "heName": "ג'סט מיט"
+  },
+  {
+    "name": "POPSI",
+    "heName": "פפסי"
+  },
+  {
+    "name": "ספא גולף קיסריה",
+    "heName": null
+  },
+  {
+    "name": "Foot Locker",
+    "heName": "פוטלוקר"
+  },
+  {
+    "name": "OPA! skyfield",
+    "heName": null
+  },
+  {
+    "name": "ALAYA POLEG",
+    "heName": "אליה פולג"
+  },
+  {
+    "name": "Trek Market",
+    "heName": "טרקמרקט"
+  },
+  {
+    "name": "פלמינגו ספא",
+    "heName": null
+  },
+  {
+    "name": "מסעדת חנדלה",
+    "heName": null
+  },
+  {
+    "name": "Vintage Original",
+    "heName": "וינטג' אוריגנל"
+  },
+  {
+    "name": "MANGO",
+    "heName": "מנגו"
+  },
+  {
+    "name": "סילו תרבות",
+    "heName": null
+  },
+  {
+    "name": "לובלינסקי",
+    "heName": null
+  },
+  {
+    "name": "מוצצים",
+    "heName": null
+  },
+  {
+    "name": "casa suzanna",
+    "heName": "סוזנה"
+  },
+  {
+    "name": "פנינה רוזנבלום",
+    "heName": null
+  },
+  {
+    "name": "קפה דיזנגוף",
+    "heName": null
+  },
+  {
+    "name": "CAROLINA LEMKE",
+    "heName": "קרולינה למקה"
+  },
+  {
+    "name": "ספא OKOA מלון קמפינסקי",
+    "heName": null
+  },
+  {
+    "name": "ShareSpa-  מלון Herods ת\"א",
+    "heName": "שר ספא הרודס ת\"א"
+  },
+  {
+    "name": "היכל הקרח חולון",
+    "heName": null
+  },
+  {
+    "name": "Ecosupp",
+    "heName": "אקוסאפ"
+  },
+  {
+    "name": "אנסטסיה",
+    "heName": null
+  },
+  {
+    "name": "Fit House",
+    "heName": "פית האוס"
+  },
+  {
+    "name": "מלון פרא",
+    "heName": null
+  },
+  {
+    "name": "IT MOMZ",
+    "heName": "איט מאמז"
+  },
+  {
+    "name": "הסטודיו לבישול",
+    "heName": null
+  },
+  {
+    "name": "Claro",
+    "heName": "קלרו"
+  },
+  {
+    "name": "יקב טוליפ ויקב מאיה",
+    "heName": null
+  },
+  {
+    "name": "מתפתחים ביחד עם שלומית שוסטר",
+    "heName": null
+  },
+  {
+    "name": "MIMI VAZA - משלוחי פרחים ומארזים",
+    "heName": null
+  },
+  {
+    "name": "מנו ספנות",
+    "heName": null
+  },
+  {
+    "name": "STORY",
+    "heName": "סתורי"
+  },
+  {
+    "name": "רביבה וסיליה",
+    "heName": null
+  },
+  {
+    "name": "ICONIX",
+    "heName": null
+  },
+  {
+    "name": "4Chef",
+    "heName": "שף"
+  },
+  {
+    "name": "MINISO",
+    "heName": "מיניסו"
+  },
+  {
+    "name": "גרג קיטשן",
+    "heName": null
+  },
+  {
+    "name": "איש שטח",
+    "heName": null
+  },
+  {
+    "name": "מסעדת TYO",
+    "heName": null
+  },
+  {
+    "name": "ג'ונגל",
+    "heName": null
+  },
+  {
+    "name": "מלונות אטלס",
+    "heName": null
+  },
+  {
+    "name": "פונפוני",
+    "heName": null
+  },
+  {
+    "name": "קפה נאפו",
+    "heName": null
+  },
+  {
+    "name": "Miss Nori",
+    "heName": "מיס נורי"
+  },
+  {
+    "name": "עדה לזורגן",
+    "heName": null
+  },
+  {
+    "name": "נגינה",
+    "heName": null
+  },
+  {
+    "name": "אחוזת הספא",
+    "heName": null
+  },
+  {
+    "name": "מסעדת פדריק",
+    "heName": null
+  },
+  {
+    "name": "Frame Sushi Bar | Unniko Sushi",
+    "heName": "פריים"
+  },
+  {
+    "name": "Cook and Bake",
+    "heName": "קוק אנד בייק"
+  },
+  {
+    "name": "בר איטליה",
+    "heName": null
+  },
+  {
+    "name": "המחסן",
+    "heName": null
+  },
+  {
+    "name": "Hotel Lear Sense",
+    "heName": "ליר סנס"
+  },
+  {
+    "name": "PlaySmart",
+    "heName": "פליי סמארט"
+  },
+  {
+    "name": "Sinta Bar",
+    "heName": "סנט בר"
+  },
+  {
+    "name": "RONEN CHEN",
+    "heName": "רונן חן"
+  },
+  {
+    "name": "גוז' ודניאל - ביסטרו בכפר",
+    "heName": null
+  },
+  {
+    "name": "רשת מלונות גרנד הוטלס",
+    "heName": null
+  },
+  {
+    "name": "ONLY'S BEAUTY",
+    "heName": null
+  },
+  {
+    "name": "מצמן",
+    "heName": null
+  },
+  {
+    "name": "גלים",
+    "heName": null
+  },
+  {
+    "name": "העץ של יאשה",
+    "heName": null
+  },
+  {
+    "name": "ShareSpa-  מלון NYX הרצליה",
+    "heName": "שייר ספא ניקס"
+  },
+  {
+    "name": "IL MAKIAGE",
+    "heName": "עיל מקיאג'"
+  },
+  {
+    "name": "מסעדת תריסר",
+    "heName": null
+  },
+  {
+    "name": "Jiggeria",
+    "heName": "ג'יגריה"
+  },
+  {
+    "name": "LAKE TLV",
+    "heName": "לייק תל אביב"
+  },
+  {
+    "name": "קולנוע לב",
+    "heName": null
+  },
+  {
+    "name": "בוקא",
+    "heName": null
+  },
+  {
+    "name": "משתלת אזור",
+    "heName": null
+  },
+  {
+    "name": "אוליאה | Olea",
+    "heName": null
+  },
+  {
+    "name": "Hilisplay",
+    "heName": null
+  },
+  {
+    "name": "TOYS R US",
+    "heName": "תויס אר אס"
+  },
+  {
+    "name": "חלי ממן",
+    "heName": null
+  },
+  {
+    "name": "שירי",
+    "heName": null
+  },
+  {
+    "name": "TinyTap",
+    "heName": null
+  },
+  {
+    "name": "TAIZU",
+    "heName": "תאיזו"
+  },
+  {
+    "name": "APRIL",
+    "heName": "אפריל"
+  },
+  {
+    "name": "Babystar",
+    "heName": "בייביסתאר"
+  },
+  {
+    "name": "Hipster",
+    "heName": "היפסטר"
+  },
+  {
+    "name": "H&M",
+    "heName": "הייץ' אנד אם"
+  },
+  {
+    "name": "נעלי נמרוד",
+    "heName": null
+  },
+  {
+    "name": "JACK KUBA",
+    "heName": "ג'ק קובה"
+  },
+  {
+    "name": "BOGART",
+    "heName": "בוגרט"
+  },
+  {
+    "name": "סנדלי שורש",
+    "heName": null
+  },
+  {
+    "name": "Tollman's dot",
+    "heName": "תולמנ'ס דות"
+  },
+  {
+    "name": "VIVINO ראשון לציון",
+    "heName": null
+  },
+  {
+    "name": "BOBBI BROWN",
+    "heName": "בובי ברון"
+  },
+  {
+    "name": "JUMP & ONOT",
+    "heName": "גמפ"
+  },
+  {
+    "name": "sweetgirlshop",
+    "heName": "סווית גירל שופ"
+  },
+  {
+    "name": "CHOZEN",
+    "heName": "צ'וזן"
+  },
+  {
+    "name": "Saucony",
+    "heName": "סקוני"
+  },
+  {
+    "name": "BLUEBERRY",
+    "heName": "בלוברי"
+  },
+  {
+    "name": "ATA",
+    "heName": null
+  },
+  {
+    "name": "Mia Inspiration",
+    "heName": null
+  },
+  {
+    "name": "She-Ra Jewelry",
+    "heName": "שירה"
+  },
+  {
+    "name": "שלומית אופיר",
+    "heName": null
+  },
+  {
+    "name": "iBags וקיפלינג",
+    "heName": null
+  },
+  {
+    "name": "ESTEE LAUDER",
+    "heName": "אסתי לודר"
+  },
+  {
+    "name": "KUMI",
+    "heName": "קומי"
+  },
+  {
+    "name": "ShareSpa- אתר אונליין",
+    "heName": "שיירספא"
+  },
+  {
+    "name": "SEBOCALM",
+    "heName": "סבוקלם"
+  },
+  {
+    "name": "speedo",
+    "heName": "ספדו"
+  },
+  {
+    "name": "AIMEE",
+    "heName": "אימי"
+  },
+  {
+    "name": "VIVINO קריות",
+    "heName": "וויוינו קריות"
+  },
+  {
+    "name": "תכשיטי דנון",
+    "heName": null
+  },
+  {
+    "name": "Floralis",
+    "heName": "פלורליס"
+  },
+  {
+    "name": "כרמל דיירקט",
+    "heName": null
+  },
+  {
+    "name": "SCOTCH & SODA",
+    "heName": "סקוצ' & סודה"
+  },
+  {
+    "name": "VIVINO באר שבע",
+    "heName": "וויוינו באר שבע"
+  },
+  {
+    "name": "את",
+    "heName": null
+  },
+  {
+    "name": "דניאלה להבי",
+    "heName": null
+  },
+  {
+    "name": "Casa Bella",
+    "heName": "קאסה בלה"
+  },
+  {
+    "name": "BABY BREZZA",
+    "heName": "בייבי בריזה"
+  },
+  {
+    "name": "WORKER",
+    "heName": "וורקר"
+  },
+  {
+    "name": "raven",
+    "heName": "רייבן"
+  },
+  {
+    "name": "econawa",
+    "heName": "אקונאוה"
+  },
+  {
+    "name": "LASTER",
+    "heName": "לסטר"
+  },
+  {
+    "name": "Rip Curl",
+    "heName": "ריפ קרל"
+  },
+  {
+    "name": "Legal Outfit",
+    "heName": "לגל"
+  },
+  {
+    "name": "Lorens",
+    "heName": "לורנס"
+  },
+  {
+    "name": "אורדמן",
+    "heName": null
+  },
+  {
+    "name": "SHANI BAR",
+    "heName": "שני בר"
+  },
+  {
+    "name": "אשכר מטפחות לדתיות",
+    "heName": null
+  },
+  {
+    "name": "BuyCarpet",
+    "heName": "ביי קרפט"
+  },
+  {
+    "name": "SECOND",
+    "heName": "סקנד"
+  },
+  {
+    "name": "PELLE by shelly gafni",
+    "heName": "שלי גפני"
+  },
+  {
+    "name": "Radler",
+    "heName": "רדלר"
+  },
+  {
+    "name": "outline",
+    "heName": null
+  },
+  {
+    "name": "ARCOSTEEL KITCHEN",
+    "heName": "ארקוסטיל קיטצ'ן"
+  },
+  {
+    "name": "Candid",
+    "heName": "קנדד"
+  },
+  {
+    "name": "CLAY HOUSE",
+    "heName": "קללי האוס"
+  },
+  {
+    "name": "מסעדת a",
+    "heName": null
+  },
+  {
+    "name": "ואהבת",
+    "heName": null
+  },
+  {
+    "name": "Give a SMILE‎ by BUYME",
+    "heName": "סמייל"
+  },
+  {
+    "name": "ספא הורייזון - שרתון ת\"א",
+    "heName": null
+  },
+  {
+    "name": "Be Tel Aviv Tours",
+    "heName": "בי טורס"
+  },
+  {
+    "name": "בייבי טבע",
+    "heName": null
+  },
+  {
+    "name": "LORD TICKETS",
+    "heName": "לורד טיקטס"
+  },
+  {
+    "name": "DOMO",
+    "heName": "דומו"
+  },
+  {
+    "name": "HOTCROWN Jewelry",
+    "heName": "הותקראון"
+  },
+  {
+    "name": "TAKEANAP",
+    "heName": "תייק א נאפ"
+  },
+  {
+    "name": "Billabong",
+    "heName": "בילבונג"
+  },
+  {
+    "name": "American Eagle",
+    "heName": "אמריקן איגל"
+  },
+  {
+    "name": "FOX",
+    "heName": "פוקס"
+  },
+  {
+    "name": "CASTRO HOME",
+    "heName": "קסטרו הום"
+  },
+  {
+    "name": "ALDO",
+    "heName": "אלדו"
+  },
+  {
+    "name": "Quiksilver",
+    "heName": "קוויק סילבר"
+  },
+  {
+    "name": "מסעדת ג'ורג' וג'ון",
+    "heName": null
+  },
+  {
+    "name": "בא מאהבה",
+    "heName": null
+  },
+  {
+    "name": "OKINAWA",
+    "heName": "אוקינווה"
+  },
+  {
+    "name": "Boardriders",
+    "heName": null
+  },
+  {
+    "name": "ספא נורמן",
+    "heName": null
+  },
+  {
+    "name": "DREAM SPORT",
+    "heName": "דרים ספורט"
+  },
+  {
+    "name": "Aerie",
+    "heName": "אריא"
+  },
+  {
+    "name": "Aberto",
+    "heName": "אברתו"
+  },
+  {
+    "name": "MAYER HOUSE - HOTEL & SPA",
+    "heName": "מאיר האוס"
+  },
+  {
+    "name": "מסעדת אסתר",
+    "heName": null
+  },
+  {
+    "name": "Pomo",
+    "heName": "פומו"
+  },
+  {
+    "name": "מריפוסה- מסעדת שף בקיסריה",
+    "heName": null
+  },
+  {
+    "name": "גסטון סטייק האוס",
+    "heName": null
+  },
+  {
+    "name": "הספא במלון פרא",
+    "heName": null
+  },
+  {
+    "name": "גרקו והמעדניה היוונית של גרקו",
+    "heName": null
+  },
+  {
+    "name": "TRES",
+    "heName": "טרס"
+  },
+  {
+    "name": "מתוקה",
+    "heName": null
+  },
+  {
+    "name": "H&M HOME",
+    "heName": "הייץ' אנד אם הום"
+  },
+  {
+    "name": "VIVINO חיפה",
+    "heName": "וויוינו חיפה"
+  },
+  {
+    "name": "קאלה",
+    "heName": null
+  },
+  {
+    "name": "מבשלת שריגים",
+    "heName": null
+  },
+  {
+    "name": "קבוצת גוצ'ה",
+    "heName": null
+  },
+  {
+    "name": "גלית ניניו",
+    "heName": null
+  },
+  {
+    "name": "מסעדת חוות התבלינים בגלבוע",
+    "heName": null
+  },
+  {
+    "name": "מרכז קנדה",
+    "heName": null
+  },
+  {
+    "name": "גלריית פחות מאלף",
+    "heName": null
+  },
+  {
+    "name": "מסעדת לה שוק",
+    "heName": null
+  },
+  {
+    "name": "POLGAT",
+    "heName": "פולגת"
+  },
+  {
+    "name": "Don't tell Mama",
+    "heName": "דונט טל מאמא"
+  },
+  {
+    "name": "האופרה הישראלית",
+    "heName": null
+  },
+  {
+    "name": "מסעדת יפו תל אביב",
+    "heName": null
+  },
+  {
+    "name": "מתוק מהלב- אפייה ושוקולד",
+    "heName": null
+  },
+  {
+    "name": "Dixie",
+    "heName": "דיקסי"
+  },
+  {
+    "name": "הדרכות \"מחוברים בלב\"",
+    "heName": null
+  },
+  {
+    "name": "סקייטרק",
+    "heName": null
+  },
+  {
+    "name": "קפה סוזאנה",
+    "heName": null
+  },
+  {
+    "name": "שבתאי פיצה ובירה",
+    "heName": null
+  },
+  {
+    "name": "גראנד קפה",
+    "heName": null
+  },
+  {
+    "name": "L'OCCITANE",
+    "heName": "לאוקסיתן"
+  },
+  {
+    "name": "מסעדת אווזי - חיפה",
+    "heName": null
+  },
+  {
+    "name": "מרכז סוזן דלל",
+    "heName": null
+  },
+  {
+    "name": "ספא טומוקו ג'פניס",
+    "heName": null
+  },
+  {
+    "name": "קימל בגלבוע",
+    "heName": null
+  },
+  {
+    "name": "רשת סושי רחביה",
+    "heName": null
+  },
+  {
+    "name": "Shiloh Jerusalem Puzzle Quest",
+    "heName": null
+  },
+  {
+    "name": "אביטליטי",
+    "heName": null
+  },
+  {
+    "name": "דוניה רוסה",
+    "heName": null
+  },
+  {
+    "name": "רשת דארלן",
+    "heName": null
+  },
+  {
+    "name": "מסעדת באבא יאגה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת הספריה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת קסיס",
+    "heName": null
+  },
+  {
+    "name": "מסעדת שצ'ופק",
+    "heName": null
+  },
+  {
+    "name": "מסעדת אלנה במלון נורמן",
+    "heName": null
+  },
+  {
+    "name": "מסעדת בלה בעמק",
+    "heName": null
+  },
+  {
+    "name": "וואלי",
+    "heName": null
+  },
+  {
+    "name": "מגבות אלכסנדר",
+    "heName": null
+  },
+  {
+    "name": "Templers hotel",
+    "heName": "טמפלרס"
+  },
+  {
+    "name": "מסעדת דלאל",
+    "heName": null
+  },
+  {
+    "name": "Sebastian",
+    "heName": "סבסתיאן"
+  },
+  {
+    "name": "סיורי עיריית תל אביב יפו",
+    "heName": null
+  },
+  {
+    "name": "קפה נואר",
+    "heName": null
+  },
+  {
+    "name": "זה סושי בזל - תל-אביב",
+    "heName": null
+  },
+  {
+    "name": "פארוק בשוק",
+    "heName": null
+  },
+  {
+    "name": "הטרקלין",
+    "heName": null
+  },
+  {
+    "name": "מסעדת פוקצ'ה במושבה",
+    "heName": null
+  },
+  {
+    "name": "מרכז תרבות נא לגעת",
+    "heName": null
+  },
+  {
+    "name": "Jah Spa הרצליה",
+    "heName": "ג'ה ספא"
+  },
+  {
+    "name": "עיסוי רפואי- מרדכי בורודטי",
+    "heName": null
+  },
+  {
+    "name": "סאפ יוגה תל אביב",
+    "heName": null
+  },
+  {
+    "name": "SLEEZY PIZZA",
+    "heName": "סליזי"
+  },
+  {
+    "name": "ציפורלה",
+    "heName": null
+  },
+  {
+    "name": "Casa Do Brasil - אילת",
+    "heName": "קאסה דה ברזיל"
+  },
+  {
+    "name": "KYOTO",
+    "heName": "קיוטו"
+  },
+  {
+    "name": "שרינה שוקולד",
+    "heName": null
+  },
+  {
+    "name": "Lavic",
+    "heName": "לביק"
+  },
+  {
+    "name": "ספא הבריאות שבפינוק",
+    "heName": null
+  },
+  {
+    "name": "west and spa אשדוד",
+    "heName": "ווסט אנד ספא"
+  },
+  {
+    "name": "אריק לבנת",
+    "heName": null
+  },
+  {
+    "name": "מרקש",
+    "heName": null
+  },
+  {
+    "name": "Body and Soul",
+    "heName": "באדי אנד סול"
+  },
+  {
+    "name": "פונדק עין כרם",
+    "heName": null
+  },
+  {
+    "name": "Sea Time",
+    "heName": null
+  },
+  {
+    "name": "לי-ים",
+    "heName": null
+  },
+  {
+    "name": "סטודיו הראל",
+    "heName": null
+  },
+  {
+    "name": "צפון אברקסס",
+    "heName": null
+  },
+  {
+    "name": "קופינאס",
+    "heName": null
+  },
+  {
+    "name": "מועדון לב הים",
+    "heName": null
+  },
+  {
+    "name": "ספא מנטרה - רעננה",
+    "heName": null
+  },
+  {
+    "name": "Jet Lag",
+    "heName": "ג'ת לג"
+  },
+  {
+    "name": "מועדון הגולף קיסריה",
+    "heName": null
+  },
+  {
+    "name": "ספא בית אורן",
+    "heName": null
+  },
+  {
+    "name": "אוליברי",
+    "heName": null
+  },
+  {
+    "name": "Just Believe Jewelry",
+    "heName": null
+  },
+  {
+    "name": "אלי היבש",
+    "heName": null
+  },
+  {
+    "name": "ספא SHEVA",
+    "heName": "שבע"
+  },
+  {
+    "name": "גיל לוין",
+    "heName": null
+  },
+  {
+    "name": "וניה ביסטרו",
+    "heName": null
+  },
+  {
+    "name": "מסעדת בוצ'רי",
+    "heName": null
+  },
+  {
+    "name": "פלה דה תה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת הצדף",
+    "heName": null
+  },
+  {
+    "name": "איטלקיה בפשפשים",
+    "heName": null
+  },
+  {
+    "name": "מחסן גיטרות",
+    "heName": null
+  },
+  {
+    "name": "מסעדת מינאטו",
+    "heName": null
+  },
+  {
+    "name": "פוקצ'ה בר",
+    "heName": null
+  },
+  {
+    "name": "דייויס ואודי",
+    "heName": null
+  },
+  {
+    "name": "סטודיו מיכל",
+    "heName": null
+  },
+  {
+    "name": "Noor Glamping",
+    "heName": "נור גלמפינג"
+  },
+  {
+    "name": "מסעדת מונא",
+    "heName": null
+  },
+  {
+    "name": "סיגל זיו",
+    "heName": null
+  },
+  {
+    "name": "Dance Tel Aviv",
+    "heName": "דענס תל אביב"
+  },
+  {
+    "name": "ביצ'יקלטה",
+    "heName": null
+  },
+  {
+    "name": "BalleriMa",
+    "heName": "בלרימה"
+  },
+  {
+    "name": "Jah Spa אילת",
+    "heName": "ג'ה ספא"
+  },
+  {
+    "name": "BABY MIT MIT",
+    "heName": "בייבי מיט מיט"
+  },
+  {
+    "name": "BARCOM",
+    "heName": "בר קום"
+  },
+  {
+    "name": "Beer Garden",
+    "heName": "ביר גערדן"
+  },
+  {
+    "name": "Carter's/Oshkosh",
+    "heName": "קרטרס"
+  },
+  {
+    "name": "CLINIQUE",
+    "heName": "קליניק"
+  },
+  {
+    "name": "DeVine",
+    "heName": null
+  },
+  {
+    "name": "אקסקלוסיב ריקודים",
+    "heName": null
+  },
+  {
+    "name": "Gatsby",
+    "heName": "גטסבי"
+  },
+  {
+    "name": "Instablock",
+    "heName": "אינסתבלוק"
+  },
+  {
+    "name": "lost",
+    "heName": "לוסט"
+  },
+  {
+    "name": "MOLET",
+    "heName": "מולט"
+  },
+  {
+    "name": "My Winery",
+    "heName": null
+  },
+  {
+    "name": "NOLA American Bakery",
+    "heName": "נולה אמריקן בייקרי"
+  },
+  {
+    "name": "Novarun",
+    "heName": "נובה ראן"
+  },
+  {
+    "name": "pecka'le",
+    "heName": "פקאלה"
+  },
+  {
+    "name": "PicCell - צילום בסמארטפון",
+    "heName": null
+  },
+  {
+    "name": "QUESTLINE",
+    "heName": null
+  },
+  {
+    "name": "Silver Bell",
+    "heName": "סילבר בל"
+  },
+  {
+    "name": "SmartTour",
+    "heName": null
+  },
+  {
+    "name": "Sparco",
+    "heName": "ספארקו"
+  },
+  {
+    "name": "Surf Club א.ד משוטים",
+    "heName": null
+  },
+  {
+    "name": "Surf Club",
+    "heName": "סורף קלאב"
+  },
+  {
+    "name": "ToneLine",
+    "heName": null
+  },
+  {
+    "name": "ספא אלמונד",
+    "heName": null
+  },
+  {
+    "name": "TOPSEA",
+    "heName": "טופסי"
+  },
+  {
+    "name": "בית הספר - W",
+    "heName": null
+  },
+  {
+    "name": "ZOHARA",
+    "heName": "זוהרה"
+  },
+  {
+    "name": "Abraham Hostel",
+    "heName": "אברהם הוסתל"
+  },
+  {
+    "name": "agenda",
+    "heName": "אגנדה"
+  },
+  {
+    "name": "Alltech",
+    "heName": "אולטק"
+  },
+  {
+    "name": "Cafe Popular",
+    "heName": "קפה פופולר"
+  },
+  {
+    "name": "AYUCHKA",
+    "heName": "איוצ'קה"
+  },
+  {
+    "name": "אליסיום עולם בריא לתינוקות",
+    "heName": null
+  },
+  {
+    "name": "אריסטו שמט",
+    "heName": null
+  },
+  {
+    "name": "באלגן",
+    "heName": null
+  },
+  {
+    "name": "FIORI",
+    "heName": "פיורי"
+  },
+  {
+    "name": "בטבע של בני - בצל התאנה",
+    "heName": null
+  },
+  {
+    "name": "בירה אלכסנדר",
+    "heName": null
+  },
+  {
+    "name": "דריה ספא נתניה",
+    "heName": null
+  },
+  {
+    "name": "כפיר בולטין",
+    "heName": null
+  },
+  {
+    "name": "בית השנטי",
+    "heName": null
+  },
+  {
+    "name": "בית חנה",
+    "heName": null
+  },
+  {
+    "name": "בית קנדינוף",
+    "heName": null
+  },
+  {
+    "name": "La maison du savon",
+    "heName": null
+  },
+  {
+    "name": "ביתא קפה",
+    "heName": null
+  },
+  {
+    "name": "ג'קו סטריט",
+    "heName": null
+  },
+  {
+    "name": "גליליס",
+    "heName": null
+  },
+  {
+    "name": "דנה אשכנזי",
+    "heName": null
+  },
+  {
+    "name": "דנית השכרת יאכטות",
+    "heName": null
+  },
+  {
+    "name": "האתר הסודי לשמלות מסתובבות",
+    "heName": null
+  },
+  {
+    "name": "הולה",
+    "heName": null
+  },
+  {
+    "name": "החנות הורודה",
+    "heName": null
+  },
+  {
+    "name": "הממלכה",
+    "heName": null
+  },
+  {
+    "name": "המרכז למיינדפולנס",
+    "heName": null
+  },
+  {
+    "name": "הצוללת הצהובה",
+    "heName": null
+  },
+  {
+    "name": "הקתדרה- מפגשים מהסוג האינטלקטואלי",
+    "heName": null
+  },
+  {
+    "name": "מסעדת שופן",
+    "heName": null
+  },
+  {
+    "name": "התרבוש",
+    "heName": null
+  },
+  {
+    "name": "VIVINO זיכרון יעקב",
+    "heName": null
+  },
+  {
+    "name": "חוות צוק- המסעדה",
+    "heName": null
+  },
+  {
+    "name": "TOUS",
+    "heName": "תואוס"
+  },
+  {
+    "name": "טיליה",
+    "heName": null
+  },
+  {
+    "name": "טלי רוקני",
+    "heName": null
+  },
+  {
+    "name": "יוגה צחוק",
+    "heName": null
+  },
+  {
+    "name": "Laguna Sea Sports",
+    "heName": null
+  },
+  {
+    "name": "לייזר טאג פולג- לוחמה אורבנית",
+    "heName": null
+  },
+  {
+    "name": "לרקוד מהלב",
+    "heName": null
+  },
+  {
+    "name": "מדיטק חולון",
+    "heName": null
+  },
+  {
+    "name": "מושלמת",
+    "heName": null
+  },
+  {
+    "name": "מזרני Camp David",
+    "heName": "קמפ"
+  },
+  {
+    "name": "מחבואים בחשיכה",
+    "heName": null
+  },
+  {
+    "name": "מטרונום סטודיו",
+    "heName": null
+  },
+  {
+    "name": "מי קאסה",
+    "heName": null
+  },
+  {
+    "name": "מיטחברת",
+    "heName": null
+  },
+  {
+    "name": "Mixta",
+    "heName": "מיקסטה"
+  },
+  {
+    "name": "מלון White Villa",
+    "heName": "וילה לבנה"
+  },
+  {
+    "name": "מלון גורדון אין",
+    "heName": null
+  },
+  {
+    "name": "מלון משכנות רות דניאל",
+    "heName": null
+  },
+  {
+    "name": "The Schumacher Hotel",
+    "heName": "שומאכר"
+  },
+  {
+    "name": "יקב בן חיים",
+    "heName": null
+  },
+  {
+    "name": "מסעדת ארסטו קיסריה",
+    "heName": null
+  },
+  {
+    "name": "Torii",
+    "heName": "תורי"
+  },
+  {
+    "name": "מסעדת לוקס",
+    "heName": null
+  },
+  {
+    "name": "סיונרה",
+    "heName": null
+  },
+  {
+    "name": "Pastel",
+    "heName": "פסטל"
+  },
+  {
+    "name": "משק הלברכט",
+    "heName": null
+  },
+  {
+    "name": "מסעדת רשטא",
+    "heName": null
+  },
+  {
+    "name": "ספא דרך הגוף",
+    "heName": null
+  },
+  {
+    "name": "סטודיו בעלי המלאכה",
+    "heName": null
+  },
+  {
+    "name": "ספא בית דרך חיים- נמל ת\"א",
+    "heName": null
+  },
+  {
+    "name": "IZEN SPA",
+    "heName": "אייזן ספא"
+  },
+  {
+    "name": "ספא ויה מאריס",
+    "heName": null
+  },
+  {
+    "name": "פארק מיני ישראל",
+    "heName": null
+  },
+  {
+    "name": "פונדק הצלבנים קיסריה",
+    "heName": null
+  },
+  {
+    "name": "פוסידון",
+    "heName": null
+  },
+  {
+    "name": "פטלינה",
+    "heName": null
+  },
+  {
+    "name": "Paint Pub",
+    "heName": "פיינת פאב"
+  },
+  {
+    "name": "פיצה פורטו",
+    "heName": null
+  },
+  {
+    "name": "צ'רלי בננה",
+    "heName": null
+  },
+  {
+    "name": "צימרים גן העדן של ליאורה",
+    "heName": null
+  },
+  {
+    "name": "קפה זליק",
+    "heName": null
+  },
+  {
+    "name": "קפה פרנצ'וק",
+    "heName": null
+  },
+  {
+    "name": "קפה סלבדור",
+    "heName": null
+  },
+  {
+    "name": "Brainit",
+    "heName": "בריינט"
+  },
+  {
+    "name": "רשת מלונות מטיילים",
+    "heName": null
+  },
+  {
+    "name": "פאפאגאיו ירושלים",
+    "heName": null
+  },
+  {
+    "name": "sagit jewelry",
+    "heName": "שגית"
+  },
+  {
+    "name": "Shoppu",
+    "heName": null
+  },
+  {
+    "name": "שיחות עם הברמן",
+    "heName": null
+  },
+  {
+    "name": "שירי רז",
+    "heName": null
+  },
+  {
+    "name": "שישקו",
+    "heName": null
+  },
+  {
+    "name": "תות וניל",
+    "heName": null
+  },
+  {
+    "name": "תיאטרון באר-שבע",
+    "heName": null
+  },
+  {
+    "name": "QUESTAIR",
+    "heName": "קווסטאייר"
+  },
+  {
+    "name": "MysticRoom",
+    "heName": "מיסטיקרום"
+  },
+  {
+    "name": "ספא דריה נבל דוד גליל ריזורט",
+    "heName": null
+  },
+  {
+    "name": "ADAMA",
+    "heName": "אדמה"
+  },
+  {
+    "name": "BOOLCACTUS",
+    "heName": "בול קקתוס"
+  },
+  {
+    "name": "Desigual",
+    "heName": "דיסיגוואל"
+  },
+  {
+    "name": "ספא טיפה אחרת",
+    "heName": null
+  },
+  {
+    "name": "Enerjucier",
+    "heName": null
+  },
+  {
+    "name": "Extreme",
+    "heName": "אקסטרים"
+  },
+  {
+    "name": "Gitta bags",
+    "heName": "גיתה בגס"
+  },
+  {
+    "name": "KOA",
+    "heName": null
+  },
+  {
+    "name": "LONGCHAMP",
+    "heName": "לונג צ'אמפ"
+  },
+  {
+    "name": "Mommysport",
+    "heName": "מאמי ספורט"
+  },
+  {
+    "name": "ONAMI",
+    "heName": "אונאמי"
+  },
+  {
+    "name": "SUPERDRY",
+    "heName": "סופרדריי"
+  },
+  {
+    "name": "ThaiTime",
+    "heName": "תאילנד"
+  },
+  {
+    "name": "אדון קרלוס",
+    "heName": null
+  },
+  {
+    "name": "איש הענבים",
+    "heName": null
+  },
+  {
+    "name": "אנשי הזית- מוצרי פרימיום",
+    "heName": null
+  },
+  {
+    "name": "ביג גרף",
+    "heName": null
+  },
+  {
+    "name": "בן רוד",
+    "heName": null
+  },
+  {
+    "name": "גיגסי",
+    "heName": null
+  },
+  {
+    "name": "דה קרינה שוקולד",
+    "heName": null
+  },
+  {
+    "name": "האקדמיה לפירות",
+    "heName": null
+  },
+  {
+    "name": "המתססה",
+    "heName": null
+  },
+  {
+    "name": "הקמפוס הדיגיטלי",
+    "heName": null
+  },
+  {
+    "name": "השף היושב",
+    "heName": null
+  },
+  {
+    "name": "VIVINO כרמיאל",
+    "heName": "וויוינו כרמיאל"
+  },
+  {
+    "name": "וילה בכפר למרגלות הגלבוע",
+    "heName": null
+  },
+  {
+    "name": "זאוספא רמת גן",
+    "heName": null
+  },
+  {
+    "name": "יקב לטם",
+    "heName": null
+  },
+  {
+    "name": "לייזר סטריט",
+    "heName": null
+  },
+  {
+    "name": "מלון טריאסטה בוטיק",
+    "heName": null
+  },
+  {
+    "name": "מלון עדן אין",
+    "heName": null
+  },
+  {
+    "name": "Ruby",
+    "heName": "רובי"
+  },
+  {
+    "name": "מסעדת פימפינלה",
+    "heName": null
+  },
+  {
+    "name": "Par Derriere",
+    "heName": "פאר דרייר"
+  },
+  {
+    "name": "Kalamata",
+    "heName": "קלמתה"
+  },
+  {
+    "name": "מסעדת שטרודל",
+    "heName": null
+  },
+  {
+    "name": "סקאי",
+    "heName": null
+  },
+  {
+    "name": "ספא פנינה בכרמל",
+    "heName": null
+  },
+  {
+    "name": "עוגאיה",
+    "heName": null
+  },
+  {
+    "name": "עיניים",
+    "heName": null
+  },
+  {
+    "name": "Deep siam",
+    "heName": null
+  },
+  {
+    "name": "פרה פרה-מסעדת בשרים",
+    "heName": null
+  },
+  {
+    "name": "שבלול ג'אז",
+    "heName": null
+  },
+  {
+    "name": "שוק EAT",
+    "heName": null
+  },
+  {
+    "name": "שרנא ספא הרצליה",
+    "heName": null
+  },
+  {
+    "name": "תות תקשורת - אלון גל",
+    "heName": null
+  },
+  {
+    "name": "Picabook",
+    "heName": "פיקבוק"
+  },
+  {
+    "name": "רוסטיקו",
+    "heName": null
+  },
+  {
+    "name": "אחוזת ספא קיסר- קיסריה",
+    "heName": null
+  },
+  {
+    "name": "מזיגה חופשית",
+    "heName": null
+  },
+  {
+    "name": "Somek Winery",
+    "heName": "יקב סומכ"
+  },
+  {
+    "name": "דנה ישראלי",
+    "heName": null
+  },
+  {
+    "name": "I AM LITTLE",
+    "heName": null
+  },
+  {
+    "name": "My Medi",
+    "heName": "מיי מדי"
+  },
+  {
+    "name": "CAFE TAIZU",
+    "heName": "קפה תאיזו"
+  },
+  {
+    "name": "טרקטורוני עמק חפר",
+    "heName": null
+  },
+  {
+    "name": "סמארט טויס",
+    "heName": null
+  },
+  {
+    "name": "ESKIMOS",
+    "heName": "אסקימוס"
+  },
+  {
+    "name": "Homegrown",
+    "heName": "הום גראו"
+  },
+  {
+    "name": "LOL ART",
+    "heName": "לול ארט"
+  },
+  {
+    "name": "ReFresh",
+    "heName": "ריפרש"
+  },
+  {
+    "name": "SWAGG",
+    "heName": "סווג"
+  },
+  {
+    "name": "אושי אושי חיפה",
+    "heName": null
+  },
+  {
+    "name": "בש גל",
+    "heName": null
+  },
+  {
+    "name": "טעימים",
+    "heName": null
+  },
+  {
+    "name": "מלון SAUL",
+    "heName": "סול"
+  },
+  {
+    "name": "מלון רנומה",
+    "heName": null
+  },
+  {
+    "name": "Philadelphia",
+    "heName": "פילדלפיה"
+  },
+  {
+    "name": "KAB KEM",
+    "heName": "קאב קם"
+  },
+  {
+    "name": "סלון אוכל",
+    "heName": null
+  },
+  {
+    "name": "שירלי מרכז אומנויות",
+    "heName": null
+  },
+  {
+    "name": "שקדיה",
+    "heName": null
+  },
+  {
+    "name": "ellesse",
+    "heName": "אלס"
+  },
+  {
+    "name": "רהיטי קיסר",
+    "heName": null
+  },
+  {
+    "name": "התרנגול הכחול",
+    "heName": null
+  },
+  {
+    "name": "קבוצת מחניודה",
+    "heName": null
+  },
+  {
+    "name": "OH MY BOX",
+    "heName": "מיי בוקס"
+  },
+  {
+    "name": "התאילנדית בסמטת סיני",
+    "heName": null
+  },
+  {
+    "name": "קיפצובה",
+    "heName": null
+  },
+  {
+    "name": "Lilush box",
+    "heName": "לילוש בוקס"
+  },
+  {
+    "name": "ששון - אחוזה חיפה",
+    "heName": null
+  },
+  {
+    "name": "סינטה בר אקספרס - חיפה",
+    "heName": null
+  },
+  {
+    "name": "BAYTON",
+    "heName": "בייטון"
+  },
+  {
+    "name": "GUESS",
+    "heName": "גס"
+  },
+  {
+    "name": "ממבו מילאנו- מטבח איטלקי עכשווי",
+    "heName": null
+  },
+  {
+    "name": "מסעדת טלביה",
+    "heName": null
+  },
+  {
+    "name": "MR.BUN BURGER",
+    "heName": "מר. בען בורגר"
+  },
+  {
+    "name": "מסעדת פרינג'",
+    "heName": null
+  },
+  {
+    "name": "The Children's Place",
+    "heName": "דה צ'ילדרס פליז"
+  },
+  {
+    "name": "SHAZLONG BY UNICO",
+    "heName": "שזלונג"
+  },
+  {
+    "name": "malaya kids",
+    "heName": "מעליה קידס"
+  },
+  {
+    "name": "I Optic",
+    "heName": "איאופטיק"
+  },
+  {
+    "name": "Choose Your Cookies",
+    "heName": null
+  },
+  {
+    "name": "Foody",
+    "heName": "פודי"
+  },
+  {
+    "name": "White Space",
+    "heName": "ווייט ספייס"
+  },
+  {
+    "name": "מטיילים עם עדן",
+    "heName": null
+  },
+  {
+    "name": "Lee Cooper",
+    "heName": "ליקופר"
+  },
+  {
+    "name": "NINE WEST",
+    "heName": "ניין וסט"
+  },
+  {
+    "name": "קפאסה",
+    "heName": null
+  },
+  {
+    "name": "NAUTICA",
+    "heName": "נאותיקה"
+  },
+  {
+    "name": "EMPORIUM",
+    "heName": "אמפורום"
+  },
+  {
+    "name": "הצנחניה",
+    "heName": null
+  },
+  {
+    "name": "Gali",
+    "heName": "גלי"
+  },
+  {
+    "name": "מלון דניאל וספא שיזן הרצליה",
+    "heName": null
+  },
+  {
+    "name": "DKNY",
+    "heName": "דונה קארן"
+  },
+  {
+    "name": "Eureka Workshop",
+    "heName": null
+  },
+  {
+    "name": "FOOD TERMINAL",
+    "heName": "פוד טרמינל"
+  },
+  {
+    "name": "Gaby's",
+    "heName": "גבי'ס"
+  },
+  {
+    "name": "MY BABY",
+    "heName": "מיי בייבי"
+  },
+  {
+    "name": "The Line 9- אופנה נשים יומיומית",
+    "heName": null
+  },
+  {
+    "name": "TOPTEN",
+    "heName": "תופ תן"
+  },
+  {
+    "name": "Woman- מהפיכת הטיפוח הביתי",
+    "heName": null
+  },
+  {
+    "name": "אוריה עזרן",
+    "heName": null
+  },
+  {
+    "name": "YVES ROCHER",
+    "heName": "איב רושה"
+  },
+  {
+    "name": "בירה קלוצמן",
+    "heName": null
+  },
+  {
+    "name": "2BREAK",
+    "heName": "טו ברייק"
+  },
+  {
+    "name": "חמדתיה",
+    "heName": null
+  },
+  {
+    "name": "יקב בזק",
+    "heName": null
+  },
+  {
+    "name": "יקב חיטים",
+    "heName": null
+  },
+  {
+    "name": "יקב תל שיפון",
+    "heName": null
+  },
+  {
+    "name": "כיף האוס",
+    "heName": null
+  },
+  {
+    "name": "מלכת הבירה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת בוצ'רי דה ברילוצ'ה",
+    "heName": null
+  },
+  {
+    "name": "Imahot",
+    "heName": "אמהות"
+  },
+  {
+    "name": "מסעדת גסטה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת טגלוס",
+    "heName": null
+  },
+  {
+    "name": "LUNEL",
+    "heName": "לונל"
+  },
+  {
+    "name": "מסעדת סמוראיו",
+    "heName": null
+  },
+  {
+    "name": "Poupe'e",
+    "heName": "פופא"
+  },
+  {
+    "name": "מסעדת פיאצה גרנדה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת קפטן הוק",
+    "heName": null
+  },
+  {
+    "name": "נולה",
+    "heName": null
+  },
+  {
+    "name": "נירוונה",
+    "heName": null
+  },
+  {
+    "name": "נעה עינת",
+    "heName": null
+  },
+  {
+    "name": "סימונצ'ו קייקס",
+    "heName": null
+  },
+  {
+    "name": "ספרינקלס בייקרי",
+    "heName": null
+  },
+  {
+    "name": "פאנקי פיש מתנות חוויתיות",
+    "heName": null
+  },
+  {
+    "name": "אנו",
+    "heName": null
+  },
+  {
+    "name": "גן סטודיו",
+    "heName": null
+  },
+  {
+    "name": "נעם גונן- לגדול דרך תנועה",
+    "heName": null
+  },
+  {
+    "name": "Crown club",
+    "heName": "קראון"
+  },
+  {
+    "name": "המעשנה",
+    "heName": null
+  },
+  {
+    "name": "Solog",
+    "heName": "סולוג"
+  },
+  {
+    "name": "מגדל דוד",
+    "heName": null
+  },
+  {
+    "name": "מקס ברנר עד הבית",
+    "heName": null
+  },
+  {
+    "name": "מלון קוקו",
+    "heName": null
+  },
+  {
+    "name": "גל שוקרון",
+    "heName": null
+  },
+  {
+    "name": "John Boy",
+    "heName": "גון בוי"
+  },
+  {
+    "name": "יקב שדות",
+    "heName": null
+  },
+  {
+    "name": "MISHKA",
+    "heName": "מישקה"
+  },
+  {
+    "name": "מסעדת JOY גריל האוס",
+    "heName": null
+  },
+  {
+    "name": "MEZE",
+    "heName": "מאזה"
+  },
+  {
+    "name": "קונדיטוריית שני",
+    "heName": null
+  },
+  {
+    "name": "WE BAGS",
+    "heName": "וויבגס"
+  },
+  {
+    "name": "Minene",
+    "heName": "מי ננה"
+  },
+  {
+    "name": "POWER HOUSE",
+    "heName": null
+  },
+  {
+    "name": "ספא מטה במדבר",
+    "heName": null
+  },
+  {
+    "name": "FLY AWAY",
+    "heName": "פליי אוויי"
+  },
+  {
+    "name": "JUV activewear",
+    "heName": null
+  },
+  {
+    "name": "AHAVA",
+    "heName": "אהבת"
+  },
+  {
+    "name": "ארמאנני ספא",
+    "heName": null
+  },
+  {
+    "name": "הדרומית",
+    "heName": null
+  },
+  {
+    "name": "הרצאות מהכורסא",
+    "heName": null
+  },
+  {
+    "name": "מסעדת גורג' אנד ברדרס",
+    "heName": null
+  },
+  {
+    "name": "פרלינים- שוקולד זה מתנה",
+    "heName": null
+  },
+  {
+    "name": "אומנות המגע במים",
+    "heName": null
+  },
+  {
+    "name": "Rev Optic",
+    "heName": "ראב אופתיק"
+  },
+  {
+    "name": "Leonidas",
+    "heName": "ליונידס"
+  },
+  {
+    "name": "תכשיטי חביב",
+    "heName": null
+  },
+  {
+    "name": "INTOTO",
+    "heName": null
+  },
+  {
+    "name": "חנות בוטיק AYO",
+    "heName": null
+  },
+  {
+    "name": "ריסטרט לאמהות",
+    "heName": null
+  },
+  {
+    "name": "דיאדה",
+    "heName": null
+  },
+  {
+    "name": "מקס ברנר",
+    "heName": null
+  },
+  {
+    "name": "ספא ומלון ברדיצ'בסקי",
+    "heName": null
+  },
+  {
+    "name": "ALLSAINTS",
+    "heName": "אולסיינטס"
+  },
+  {
+    "name": "Assemblage Boutique Hotel",
+    "heName": "אסמבלאז'"
+  },
+  {
+    "name": "Camel Mountain",
+    "heName": "קמל מאונטיין"
+  },
+  {
+    "name": "Freefit",
+    "heName": "פריפיט"
+  },
+  {
+    "name": "Oomai Urban Sushi",
+    "heName": null
+  },
+  {
+    "name": "Alonella",
+    "heName": "אלונלה"
+  },
+  {
+    "name": "בר שר המשקאות",
+    "heName": null
+  },
+  {
+    "name": "WORD by story",
+    "heName": null
+  },
+  {
+    "name": "גורו זוזו",
+    "heName": null
+  },
+  {
+    "name": "חנות - משקפיים",
+    "heName": null
+  },
+  {
+    "name": "MASKIT",
+    "heName": "מסקית"
+  },
+  {
+    "name": "משק אחיה",
+    "heName": null
+  },
+  {
+    "name": "צ'ימיגג",
+    "heName": null
+  },
+  {
+    "name": "קאלמה ספא",
+    "heName": null
+  },
+  {
+    "name": "KoH Thai  - התאילנדית בסמילנסקי",
+    "heName": null
+  },
+  {
+    "name": "XRAY",
+    "heName": "אקס ריי"
+  },
+  {
+    "name": "Spices Online",
+    "heName": null
+  },
+  {
+    "name": "DARYA",
+    "heName": "דריה"
+  },
+  {
+    "name": "INTER JEANS BY NYOU",
+    "heName": "אינטר גינס"
+  },
+  {
+    "name": "PURE",
+    "heName": "פיור"
+  },
+  {
+    "name": "Donna Victoria",
+    "heName": "דונה ויקטוריה"
+  },
+  {
+    "name": "טאטי ביסטרו",
+    "heName": null
+  },
+  {
+    "name": "Modibodi",
+    "heName": "מודיבודי"
+  },
+  {
+    "name": "קיוטו נאי ראשון לציון",
+    "heName": null
+  },
+  {
+    "name": "תמר שיין פז",
+    "heName": null
+  },
+  {
+    "name": "RUBY BAY",
+    "heName": null
+  },
+  {
+    "name": "מסעדת קרודו חיפה",
+    "heName": null
+  },
+  {
+    "name": "קפה 65",
+    "heName": null
+  },
+  {
+    "name": "קפה בקסטייג'",
+    "heName": null
+  },
+  {
+    "name": "קפה מרקט האוס",
+    "heName": null
+  },
+  {
+    "name": "TES- Leather Bags",
+    "heName": "תס בגס"
+  },
+  {
+    "name": "ימה קצבית דגים של שף יובל בן נריה",
+    "heName": null
+  },
+  {
+    "name": "קמפאי סטריט ווק",
+    "heName": null
+  },
+  {
+    "name": "משקפי OBO",
+    "heName": null
+  },
+  {
+    "name": "Zionacafe",
+    "heName": "קפה ציונה"
+  },
+  {
+    "name": "Burger King",
+    "heName": "ברגר קינג"
+  },
+  {
+    "name": "Forever21",
+    "heName": "פוראבר"
+  },
+  {
+    "name": "LEO ספא",
+    "heName": "ליאו"
+  },
+  {
+    "name": "movement",
+    "heName": "מובמנט"
+  },
+  {
+    "name": "Rain Drop Spa",
+    "heName": "רן דרופ"
+  },
+  {
+    "name": "SHUGIS",
+    "heName": "שוגיס"
+  },
+  {
+    "name": "TIKI- מותג אופנה לאנשים טובים",
+    "heName": null
+  },
+  {
+    "name": "בלו בנדנה",
+    "heName": null
+  },
+  {
+    "name": "PARAPLU",
+    "heName": null
+  },
+  {
+    "name": "הנחלה ברמות",
+    "heName": null
+  },
+  {
+    "name": "טוהר קליינר",
+    "heName": null
+  },
+  {
+    "name": "יאלהרנט-הבית שלכם לחופשה",
+    "heName": null
+  },
+  {
+    "name": "מלון רפאל האוס",
+    "heName": null
+  },
+  {
+    "name": "מסעדת רוז'",
+    "heName": null
+  },
+  {
+    "name": "מקום בלב",
+    "heName": null
+  },
+  {
+    "name": "קפה רבי",
+    "heName": null
+  },
+  {
+    "name": "ריביירה ספא",
+    "heName": null
+  },
+  {
+    "name": "Converse",
+    "heName": null
+  },
+  {
+    "name": "Simbioze",
+    "heName": "סמבויוזה"
+  },
+  {
+    "name": "VILEBREQUIN",
+    "heName": "ווילברקווין"
+  },
+  {
+    "name": "ARTERRA",
+    "heName": "ארטרה"
+  },
+  {
+    "name": "מסעדת גשן",
+    "heName": null
+  },
+  {
+    "name": "7TO1 Lab",
+    "heName": null
+  },
+  {
+    "name": "AIRTLV",
+    "heName": null
+  },
+  {
+    "name": "BIMBA Y LOLA",
+    "heName": "בימבה אי לולה"
+  },
+  {
+    "name": "BROWNIE",
+    "heName": "בראוני"
+  },
+  {
+    "name": "ספא רוקסון אורבן רמת גן",
+    "heName": null
+  },
+  {
+    "name": "Erborian",
+    "heName": "אירבוריאן"
+  },
+  {
+    "name": "Eye Glow",
+    "heName": "אי גלו"
+  },
+  {
+    "name": "GOVANA Fashion",
+    "heName": "גובנה"
+  },
+  {
+    "name": "ICE CUBE",
+    "heName": null
+  },
+  {
+    "name": "LEE",
+    "heName": "לי"
+  },
+  {
+    "name": "LEOBUS",
+    "heName": null
+  },
+  {
+    "name": "MamaGreg",
+    "heName": "מאמא גרג"
+  },
+  {
+    "name": "NEW ERA",
+    "heName": "ניו ארה"
+  },
+  {
+    "name": "FINE RITUALS",
+    "heName": "פיין ריטואלס"
+  },
+  {
+    "name": "Wrangler",
+    "heName": "רנגל"
+  },
+  {
+    "name": "אלן קאר- מוציאים את הסיגריה מהראש",
+    "heName": null
+  },
+  {
+    "name": "גבינות ברמות",
+    "heName": null
+  },
+  {
+    "name": "יקב בן זמרה",
+    "heName": null
+  },
+  {
+    "name": "lee cooper kids",
+    "heName": "לי קופר קידס"
+  },
+  {
+    "name": "אלנתן תכשיטים",
+    "heName": null
+  },
+  {
+    "name": "מסעדת פינתי כפר עציון",
+    "heName": null
+  },
+  {
+    "name": "Neta Efrati",
+    "heName": "נטע אפרתי"
+  },
+  {
+    "name": "פרי גנך",
+    "heName": null
+  },
+  {
+    "name": "סיני קליניק",
+    "heName": null
+  },
+  {
+    "name": "Axe and Co",
+    "heName": "אקס אנד קו"
+  },
+  {
+    "name": "CHRISTINA",
+    "heName": "כריסטינה"
+  },
+  {
+    "name": "COLOR CAFE",
+    "heName": "קולר קופי"
+  },
+  {
+    "name": "G-CONCEPT",
+    "heName": "ג'י קונספט"
+  },
+  {
+    "name": "SAM EDELMAN",
+    "heName": "סם אדלמן"
+  },
+  {
+    "name": "TIKTIK",
+    "heName": "טיק טיק"
+  },
+  {
+    "name": "Water.io",
+    "heName": null
+  },
+  {
+    "name": "זמן ערבה",
+    "heName": null
+  },
+  {
+    "name": "יקב בזלת",
+    "heName": null
+  },
+  {
+    "name": "מועדון היין",
+    "heName": null
+  },
+  {
+    "name": "מלון BY14",
+    "heName": null
+  },
+  {
+    "name": "Mantra",
+    "heName": "מנטרה"
+  },
+  {
+    "name": "שוקה TLV",
+    "heName": null
+  },
+  {
+    "name": "רפטינג נהר הירדן",
+    "heName": null
+  },
+  {
+    "name": "Bugaboo",
+    "heName": "בוגבו"
+  },
+  {
+    "name": "CAFE MAYER",
+    "heName": "קפה מאייר"
+  },
+  {
+    "name": "MEY JEWELRY",
+    "heName": "מיי"
+  },
+  {
+    "name": "אופנוסנטר",
+    "heName": null
+  },
+  {
+    "name": "PASEO- מסעדת רופטופ על הים",
+    "heName": null
+  },
+  {
+    "name": "slowness - קיבוץ מורן",
+    "heName": "סלונס"
+  },
+  {
+    "name": "Studio 51",
+    "heName": null
+  },
+  {
+    "name": "The Cocktail Box",
+    "heName": "קוקטייל בוקס"
+  },
+  {
+    "name": "USTABELLE",
+    "heName": "אוסטבל"
+  },
+  {
+    "name": "VOLT swimwear",
+    "heName": null
+  },
+  {
+    "name": "Winest store",
+    "heName": "ויינסט"
+  },
+  {
+    "name": "אגם",
+    "heName": null
+  },
+  {
+    "name": "Ice healing center",
+    "heName": "אייס הילינג סנטר"
+  },
+  {
+    "name": "אלון ענבל- כלבים לחיים",
+    "heName": null
+  },
+  {
+    "name": "Art Time",
+    "heName": null
+  },
+  {
+    "name": "דורית בירמן",
+    "heName": null
+  },
+  {
+    "name": "הדבש של עידו",
+    "heName": null
+  },
+  {
+    "name": "המטבח",
+    "heName": null
+  },
+  {
+    "name": "טלי שמחי",
+    "heName": null
+  },
+  {
+    "name": "יקב אלבר",
+    "heName": null
+  },
+  {
+    "name": "מותק",
+    "heName": null
+  },
+  {
+    "name": "בייבי ליס",
+    "heName": null
+  },
+  {
+    "name": "מסעדת קיצוקאי",
+    "heName": null
+  },
+  {
+    "name": "מרכז ענבל ברק",
+    "heName": null
+  },
+  {
+    "name": "נערי האור",
+    "heName": null
+  },
+  {
+    "name": "סורוצקין",
+    "heName": null
+  },
+  {
+    "name": "עידן אקרו יוגה",
+    "heName": null
+  },
+  {
+    "name": "עלמה",
+    "heName": null
+  },
+  {
+    "name": "קפה אוסישקין",
+    "heName": null
+  },
+  {
+    "name": "קפה אופטימי",
+    "heName": null
+  },
+  {
+    "name": "שגית",
+    "heName": null
+  },
+  {
+    "name": "Erroca by Super-Pharm",
+    "heName": "אירוקה"
+  },
+  {
+    "name": "Babybjorn",
+    "heName": "בייבי ביורן"
+  },
+  {
+    "name": "C. baby group",
+    "heName": "סי בייבי גרופ"
+  },
+  {
+    "name": "HOMY",
+    "heName": "הומי"
+  },
+  {
+    "name": "SHOW OFF",
+    "heName": "שואואוף"
+  },
+  {
+    "name": "Studio Cotta",
+    "heName": "סטודיו קוטה"
+  },
+  {
+    "name": "כפר הנוקדים",
+    "heName": null
+  },
+  {
+    "name": "Monte Black",
+    "heName": "מונטה בלאק"
+  },
+  {
+    "name": "מסעדת סופר המזרח",
+    "heName": null
+  },
+  {
+    "name": "קבוצת IBBG- אולם תצוגה",
+    "heName": null
+  },
+  {
+    "name": "KYOTO Bae",
+    "heName": "קיטו"
+  },
+  {
+    "name": "מלון האפנדי",
+    "heName": null
+  },
+  {
+    "name": "antonyoni",
+    "heName": null
+  },
+  {
+    "name": "Box and bellz",
+    "heName": "בוקס"
+  },
+  {
+    "name": "Deli Queso",
+    "heName": "דלי קסו"
+  },
+  {
+    "name": "EATALIA",
+    "heName": null
+  },
+  {
+    "name": "ENERGYM",
+    "heName": "אנרגים"
+  },
+  {
+    "name": "Intech",
+    "heName": null
+  },
+  {
+    "name": "Linenz",
+    "heName": "ליננז"
+  },
+  {
+    "name": "MORAN GIL CAKERY",
+    "heName": "מורן גיל"
+  },
+  {
+    "name": "noovi",
+    "heName": "נובי"
+  },
+  {
+    "name": "Pha Design",
+    "heName": "פה דיזיין"
+  },
+  {
+    "name": "אופק חדש",
+    "heName": null
+  },
+  {
+    "name": "בטן מלאה",
+    "heName": null
+  },
+  {
+    "name": "Urban Giraffa",
+    "heName": "גירפה"
+  },
+  {
+    "name": "גליאנו",
+    "heName": null
+  },
+  {
+    "name": "דלי אלהמברה",
+    "heName": null
+  },
+  {
+    "name": "HELENA",
+    "heName": "הלנה"
+  },
+  {
+    "name": "VIVINO נתיבות",
+    "heName": "וויוינו נתיבות"
+  },
+  {
+    "name": "חוותות גבעת עדה",
+    "heName": null
+  },
+  {
+    "name": "יוגה שאלה יפו",
+    "heName": null
+  },
+  {
+    "name": "יין בכרם",
+    "heName": null
+  },
+  {
+    "name": "מלון רוקסון אורבן רמת גן",
+    "heName": null
+  },
+  {
+    "name": "מלון רוקסון דזרט ערד",
+    "heName": null
+  },
+  {
+    "name": "מלון רוקסון סי סאנד בת ים",
+    "heName": null
+  },
+  {
+    "name": "מלון רמדה אוליבייה נצרת",
+    "heName": null
+  },
+  {
+    "name": "מסעדת דולפין ים",
+    "heName": null
+  },
+  {
+    "name": "Set Up",
+    "heName": "סטאפ"
+  },
+  {
+    "name": "נעלי SAND",
+    "heName": "סנדלים"
+  },
+  {
+    "name": "SPARADISE",
+    "heName": "ספרדייז"
+  },
+  {
+    "name": "צעצועי עוזי",
+    "heName": null
+  },
+  {
+    "name": "ALBI HOTELS",
+    "heName": "מלון אלבי"
+  },
+  {
+    "name": "רועי אלבה",
+    "heName": null
+  },
+  {
+    "name": "IMRACING",
+    "heName": "איימרייסינג"
+  },
+  {
+    "name": "LiatK-בית של אנרגיות טובות",
+    "heName": null
+  },
+  {
+    "name": "LULU VINTAGE",
+    "heName": "לולו וינטג'"
+  },
+  {
+    "name": "TEL-A-VIN",
+    "heName": "תל א וין"
+  },
+  {
+    "name": "BUMPERS",
+    "heName": "במפרס"
+  },
+  {
+    "name": "בועז שטיין",
+    "heName": null
+  },
+  {
+    "name": "חבל ארץ טיולים",
+    "heName": null
+  },
+  {
+    "name": "חוות רום",
+    "heName": null
+  },
+  {
+    "name": "יקב לוינסון",
+    "heName": null
+  },
+  {
+    "name": "סטודיו עדי ניסני",
+    "heName": null
+  },
+  {
+    "name": "ספא בהר - הרי ירושלים",
+    "heName": null
+  },
+  {
+    "name": "קאנטרי שיק",
+    "heName": null
+  },
+  {
+    "name": "קפה זוריק",
+    "heName": null
+  },
+  {
+    "name": "רשת מכלול",
+    "heName": null
+  },
+  {
+    "name": "417",
+    "heName": null
+  },
+  {
+    "name": "ערסלו'ס",
+    "heName": null
+  },
+  {
+    "name": "חניות פיזיות : TERMINAL X",
+    "heName": "טרמינל איקס"
+  },
+  {
+    "name": "Bodymotion",
+    "heName": "בודימושין"
+  },
+  {
+    "name": "BOOSA & CO",
+    "heName": "בוסה"
+  },
+  {
+    "name": "Picnic",
+    "heName": "פיקנק"
+  },
+  {
+    "name": "TALADA",
+    "heName": "טלדה"
+  },
+  {
+    "name": "גלביה",
+    "heName": null
+  },
+  {
+    "name": "מלון הלני מלכה ירושלים",
+    "heName": null
+  },
+  {
+    "name": "מסעדת אגוסטין",
+    "heName": null
+  },
+  {
+    "name": "פרדס סדנאות ליצירה בעץ",
+    "heName": null
+  },
+  {
+    "name": "CHEZ VIVIE",
+    "heName": null
+  },
+  {
+    "name": "EVER LAB",
+    "heName": "אבר לאב"
+  },
+  {
+    "name": "H&O Kids",
+    "heName": null
+  },
+  {
+    "name": "KAHIKO Swimwear",
+    "heName": "קהקו"
+  },
+  {
+    "name": "LIVERE",
+    "heName": "ליבר"
+  },
+  {
+    "name": "PITZ surf & explore",
+    "heName": "פיץ סרף אנד אקספלור"
+  },
+  {
+    "name": "SMEG",
+    "heName": "סמג"
+  },
+  {
+    "name": "Smoovee",
+    "heName": "סמובי"
+  },
+  {
+    "name": "דריה",
+    "heName": null
+  },
+  {
+    "name": "Hackett",
+    "heName": "הקט"
+  },
+  {
+    "name": "יערית",
+    "heName": null
+  },
+  {
+    "name": "כלבו LOVE",
+    "heName": "לאב"
+  },
+  {
+    "name": "ממילא ויו סוויטס",
+    "heName": null
+  },
+  {
+    "name": "מסעדת פראטלי",
+    "heName": null
+  },
+  {
+    "name": "עלטה",
+    "heName": null
+  },
+  {
+    "name": "פראנה",
+    "heName": null
+  },
+  {
+    "name": "Crocs",
+    "heName": "קרוקס"
+  },
+  {
+    "name": "Studio Cheha",
+    "heName": "סטודיו צ'חה"
+  },
+  {
+    "name": "תיאטרון הבימה",
+    "heName": null
+  },
+  {
+    "name": "ג'אסט מיוזיק",
+    "heName": null
+  },
+  {
+    "name": "היכל התרבות אשקלון",
+    "heName": null
+  },
+  {
+    "name": "מסעדת Donna La Cucina",
+    "heName": "דונה לה קוצ'ינה"
+  },
+  {
+    "name": "גורדון פדגוגיה חדשנית",
+    "heName": null
+  },
+  {
+    "name": "אבא חטוב ואמא חטובה",
+    "heName": null
+  },
+  {
+    "name": "MUZA",
+    "heName": "מוזא"
+  },
+  {
+    "name": "#אימונוי",
+    "heName": null
+  },
+  {
+    "name": "החיות של דודו",
+    "heName": null
+  },
+  {
+    "name": "זיסל'ה",
+    "heName": null
+  },
+  {
+    "name": "AMA-LURRA",
+    "heName": "אמאלורה"
+  },
+  {
+    "name": "BRANT",
+    "heName": "בראנט"
+  },
+  {
+    "name": "clearly",
+    "heName": "קלירלי"
+  },
+  {
+    "name": "סבב ברים D-TLV",
+    "heName": null
+  },
+  {
+    "name": "O Lingerie",
+    "heName": null
+  },
+  {
+    "name": "OFEK WOODI",
+    "heName": "אופק וודי"
+  },
+  {
+    "name": "R.D.T COSMETICS",
+    "heName": "ארדיתי"
+  },
+  {
+    "name": "Studio happy",
+    "heName": "סטודיו הפי"
+  },
+  {
+    "name": "אסטלה",
+    "heName": null
+  },
+  {
+    "name": "בית לאמנות ישראלית",
+    "heName": null
+  },
+  {
+    "name": "גרין רול סושי",
+    "heName": null
+  },
+  {
+    "name": "HELENA- מותג אופנה",
+    "heName": null
+  },
+  {
+    "name": "חוות צהלה",
+    "heName": null
+  },
+  {
+    "name": "טומוקה",
+    "heName": null
+  },
+  {
+    "name": "כפר הנופש דריה",
+    "heName": null
+  },
+  {
+    "name": "לוטם דרעי",
+    "heName": null
+  },
+  {
+    "name": "LOOCO",
+    "heName": "לוקו"
+  },
+  {
+    "name": "lilibloom",
+    "heName": "לילבלוים"
+  },
+  {
+    "name": "מלון מולאן",
+    "heName": null
+  },
+  {
+    "name": "מלון רוקסון רד סי אילת",
+    "heName": null
+  },
+  {
+    "name": "מלונות 7EVEN",
+    "heName": null
+  },
+  {
+    "name": "סקיני פסטה",
+    "heName": null
+  },
+  {
+    "name": "Anat Friedman",
+    "heName": "ענת פרידמן"
+  },
+  {
+    "name": "פיצ'פונים",
+    "heName": null
+  },
+  {
+    "name": "צ'ירז",
+    "heName": null
+  },
+  {
+    "name": "KIPULIM",
+    "heName": "קיפולים"
+  },
+  {
+    "name": "Roy Chocolate",
+    "heName": "רוי שוקולד"
+  },
+  {
+    "name": "רויטל כהן- האקדמיה לנומרולוגיה",
+    "heName": null
+  },
+  {
+    "name": "moments ריטריטים",
+    "heName": "מומנטס"
+  },
+  {
+    "name": "עליזהל'ה",
+    "heName": null
+  },
+  {
+    "name": "Pozitive",
+    "heName": "פוזיתיב"
+  },
+  {
+    "name": "יאסו",
+    "heName": null
+  },
+  {
+    "name": "Ananda Spa",
+    "heName": "אננדה"
+  },
+  {
+    "name": "ELIT SWIMWEAR",
+    "heName": "עלית"
+  },
+  {
+    "name": "Getaway by BUYME",
+    "heName": null
+  },
+  {
+    "name": "Gon Surfing",
+    "heName": "גון סרפינג"
+  },
+  {
+    "name": "MON'E תכשיטים",
+    "heName": null
+  },
+  {
+    "name": "Shape Patissier- By Tamar Shilon",
+    "heName": "תמר שילון"
+  },
+  {
+    "name": "SMASH ROOM",
+    "heName": "סמאשרום"
+  },
+  {
+    "name": "VALHALLA",
+    "heName": "ולהלה"
+  },
+  {
+    "name": "באשר פרומוז'רי",
+    "heName": null
+  },
+  {
+    "name": "בון סטריט",
+    "heName": null
+  },
+  {
+    "name": "גורילה",
+    "heName": null
+  },
+  {
+    "name": "GROOVIM",
+    "heName": "גרובים"
+  },
+  {
+    "name": "toi.shop",
+    "heName": null
+  },
+  {
+    "name": "דני בוי",
+    "heName": null
+  },
+  {
+    "name": "פודסטפס",
+    "heName": null
+  },
+  {
+    "name": "Balaguna",
+    "heName": "בלגונה"
+  },
+  {
+    "name": "COLORIA TLV",
+    "heName": "קולוריה"
+  },
+  {
+    "name": "decorado",
+    "heName": "דקורדו"
+  },
+  {
+    "name": "DELI VINO",
+    "heName": "דלי וינו"
+  },
+  {
+    "name": "GLO jewelries",
+    "heName": null
+  },
+  {
+    "name": "LA MONTIA",
+    "heName": "לה מונטייה"
+  },
+  {
+    "name": "LE- house of asia",
+    "heName": "אסיה"
+  },
+  {
+    "name": "RAY",
+    "heName": "ריי"
+  },
+  {
+    "name": "Roomi",
+    "heName": "רומי"
+  },
+  {
+    "name": "SWEETWEET",
+    "heName": "סוויט"
+  },
+  {
+    "name": "TULA",
+    "heName": "תולה"
+  },
+  {
+    "name": "היכל התרבות - איירפורט סיטי",
+    "heName": null
+  },
+  {
+    "name": "valittu",
+    "heName": null
+  },
+  {
+    "name": "BARBIZ",
+    "heName": "ברביז"
+  },
+  {
+    "name": "ZO TLV",
+    "heName": "זו תל אביב"
+  },
+  {
+    "name": "בל בוי ובטלר",
+    "heName": null
+  },
+  {
+    "name": "chen keidar",
+    "heName": "קידר"
+  },
+  {
+    "name": "JEM'S",
+    "heName": "ג'מס"
+  },
+  {
+    "name": "CANDLE CLUB",
+    "heName": "קנדל קלאב"
+  },
+  {
+    "name": "GAL GONEN",
+    "heName": "גל גונן"
+  },
+  {
+    "name": "דיזנגוף 223",
+    "heName": null
+  },
+  {
+    "name": "Happy Hempy",
+    "heName": "הפי המפי"
+  },
+  {
+    "name": "הבית בלימן",
+    "heName": null
+  },
+  {
+    "name": "INCENSE",
+    "heName": "אינסנס"
+  },
+  {
+    "name": "המדריך לתיכוניסט - ליאל אלי",
+    "heName": null
+  },
+  {
+    "name": "medical spa center",
+    "heName": "מדיקל סנטר"
+  },
+  {
+    "name": "זוטא",
+    "heName": null
+  },
+  {
+    "name": "MENT TO DRIVE",
+    "heName": "מנט טו דרייב"
+  },
+  {
+    "name": "טיטניום",
+    "heName": null
+  },
+  {
+    "name": "mermaids house",
+    "heName": null
+  },
+  {
+    "name": "מיני סטייליש",
+    "heName": null
+  },
+  {
+    "name": "Minded – House of Wellness",
+    "heName": null
+  },
+  {
+    "name": "מלון MOA",
+    "heName": null
+  },
+  {
+    "name": "Oliere Paris",
+    "heName": "אוליאר פריז"
+  },
+  {
+    "name": "מלון כרמלה בוטיק חיפה",
+    "heName": null
+  },
+  {
+    "name": "ממילא ויו - אורבן",
+    "heName": null
+  },
+  {
+    "name": "Redefine Hair",
+    "heName": "רדפיין"
+  },
+  {
+    "name": "מסעדת בון גוסטו",
+    "heName": null
+  },
+  {
+    "name": "מרינה דלאל",
+    "heName": null
+  },
+  {
+    "name": "Signet Collection",
+    "heName": "סיגנט"
+  },
+  {
+    "name": "סלון יווני",
+    "heName": null
+  },
+  {
+    "name": "SORA SPA",
+    "heName": "סורא ספא"
+  },
+  {
+    "name": "ספא בריאה",
+    "heName": null
+  },
+  {
+    "name": "Spotlight Podcasts",
+    "heName": null
+  },
+  {
+    "name": "עיינות ספיר",
+    "heName": null
+  },
+  {
+    "name": "Terratiles studio",
+    "heName": null
+  },
+  {
+    "name": "TFU TFU",
+    "heName": "טפו טפו"
+  },
+  {
+    "name": "FANTASTIC",
+    "heName": "פנטסטיק"
+  },
+  {
+    "name": "WLNS CLUB",
+    "heName": null
+  },
+  {
+    "name": "קופסא מהשוק - BY חן קורן",
+    "heName": null
+  },
+  {
+    "name": "WORLD8",
+    "heName": null
+  },
+  {
+    "name": "Adam Hotels",
+    "heName": "אדם הוטלס"
+  },
+  {
+    "name": "YOOZ",
+    "heName": "יוז"
+  },
+  {
+    "name": "ארטפון",
+    "heName": null
+  },
+  {
+    "name": "בייבי בוס טקסטיל",
+    "heName": null
+  },
+  {
+    "name": "GADE",
+    "heName": "גיד"
+  },
+  {
+    "name": "HOLYLAND CIVILIANS",
+    "heName": "הוילנד"
+  },
+  {
+    "name": "ליליה",
+    "heName": null
+  },
+  {
+    "name": "מילה חיפה",
+    "heName": null
+  },
+  {
+    "name": "קפה בסיבוב",
+    "heName": null
+  },
+  {
+    "name": "קפה הצבי",
+    "heName": null
+  },
+  {
+    "name": "Mashya",
+    "heName": "משיה"
+  },
+  {
+    "name": "תאי צ'ו",
+    "heName": null
+  },
+  {
+    "name": "CAPRI",
+    "heName": "קפרי"
+  },
+  {
+    "name": "ADSEA",
+    "heName": "עדסי"
+  },
+  {
+    "name": "בית המלאכה לקדרות",
+    "heName": null
+  },
+  {
+    "name": "ERA  ACTIVE",
+    "heName": "ארה אקטיב"
+  },
+  {
+    "name": "HUB-ility",
+    "heName": "חברתי"
+  },
+  {
+    "name": "גיליגולי",
+    "heName": null
+  },
+  {
+    "name": "הגפן",
+    "heName": null
+  },
+  {
+    "name": "הסוד",
+    "heName": null
+  },
+  {
+    "name": "יהלומי הבורסה",
+    "heName": null
+  },
+  {
+    "name": "ליטל לוין",
+    "heName": null
+  },
+  {
+    "name": "HOME DECOR",
+    "heName": "דקור"
+  },
+  {
+    "name": "Start Home",
+    "heName": "סטאר הום"
+  },
+  {
+    "name": "Brasseri 18",
+    "heName": "ברסרי"
+  },
+  {
+    "name": "Buona Casa",
+    "heName": "באונה קאסה"
+  },
+  {
+    "name": "Shiree Odiz",
+    "heName": "שירי אודיז"
+  },
+  {
+    "name": "הודיה טיבר",
+    "heName": null
+  },
+  {
+    "name": "Daphne Skin",
+    "heName": "דפני סקין"
+  },
+  {
+    "name": "LILY ROSE",
+    "heName": "לילי רוז"
+  },
+  {
+    "name": "MIRZA",
+    "heName": "מרזה"
+  },
+  {
+    "name": "OTILYAS",
+    "heName": null
+  },
+  {
+    "name": "Playground Restaurant",
+    "heName": "פלייגראונד"
+  },
+  {
+    "name": "The Nest Shop",
+    "heName": "דה נסט שופ"
+  },
+  {
+    "name": "ofiyaa israel",
+    "heName": null
+  },
+  {
+    "name": "בייבי שירי- פשוט להתפתח בכיף",
+    "heName": null
+  },
+  {
+    "name": "מדילנד",
+    "heName": null
+  },
+  {
+    "name": "מלון בוטיק דוריה",
+    "heName": null
+  },
+  {
+    "name": "מלונות גולדן קראון",
+    "heName": null
+  },
+  {
+    "name": "רוזה אשדוד",
+    "heName": null
+  },
+  {
+    "name": "ASAF & TOMER",
+    "heName": "אסף ותומר"
+  },
+  {
+    "name": "CARLTON Tel Aviv",
+    "heName": "קרלטון תל אביב"
+  },
+  {
+    "name": "CEZAR",
+    "heName": "סיזר"
+  },
+  {
+    "name": "CUE",
+    "heName": "קיו"
+  },
+  {
+    "name": "DOLĆE MILA",
+    "heName": "דולצ'ה מילה"
+  },
+  {
+    "name": "FLYBYFLY",
+    "heName": "פליי ביי פליי"
+  },
+  {
+    "name": "ForeverTold",
+    "heName": "פוראבר טולד"
+  },
+  {
+    "name": "GOOM",
+    "heName": "גומי"
+  },
+  {
+    "name": "inhale exhale",
+    "heName": "אינהייל אקסהייל"
+  },
+  {
+    "name": "LULU Baby",
+    "heName": null
+  },
+  {
+    "name": "Daisy mei",
+    "heName": "דייזי מיי"
+  },
+  {
+    "name": "MOY",
+    "heName": "מוי"
+  },
+  {
+    "name": "Noam Outdoors",
+    "heName": "אאוטדורס"
+  },
+  {
+    "name": "אסטרל אילת",
+    "heName": null
+  },
+  {
+    "name": "NOFAR MOR",
+    "heName": "נופר מור"
+  },
+  {
+    "name": "PROMISE",
+    "heName": "פרומיס"
+  },
+  {
+    "name": "A DAY IN A LIFE",
+    "heName": "א דיי אין א לייף"
+  },
+  {
+    "name": "Puppy Yoga",
+    "heName": "פאפי יוגה"
+  },
+  {
+    "name": "חגית טסה",
+    "heName": null
+  },
+  {
+    "name": "SABON",
+    "heName": "סבון"
+  },
+  {
+    "name": "L.RAPHAEL by Ronit Raphael",
+    "heName": "רונית רפאל"
+  },
+  {
+    "name": "Shaka",
+    "heName": "שאקה"
+  },
+  {
+    "name": "Mor for your baby",
+    "heName": "מור"
+  },
+  {
+    "name": "TAURUS SMOKEHOUSE",
+    "heName": "סמוקהאוס"
+  },
+  {
+    "name": "בייביסטפס",
+    "heName": null
+  },
+  {
+    "name": "The Grill Room TLV",
+    "heName": "דה גריל רום"
+  },
+  {
+    "name": "חנות האוהדים של מכבי תל אביב",
+    "heName": null
+  },
+  {
+    "name": "בית הרמזים",
+    "heName": null
+  },
+  {
+    "name": "סטודיו הדובות",
+    "heName": null
+  },
+  {
+    "name": "הזקן והיין",
+    "heName": null
+  },
+  {
+    "name": "ARDO",
+    "heName": "ארדו"
+  },
+  {
+    "name": "לה מוזה פטיסרי",
+    "heName": null
+  },
+  {
+    "name": "מטאור",
+    "heName": null
+  },
+  {
+    "name": "BONIC",
+    "heName": "בוניק"
+  },
+  {
+    "name": "מסעדת MILA",
+    "heName": "מילה"
+  },
+  {
+    "name": "עלהבוקר- מתחם וולנס",
+    "heName": null
+  },
+  {
+    "name": "Callisto Art",
+    "heName": "קליסטו ארט"
+  },
+  {
+    "name": "ספא דניאל",
+    "heName": null
+  },
+  {
+    "name": "TULIP",
+    "heName": "מותג טיפוח"
+  },
+  {
+    "name": "Under Armour",
+    "heName": "אנדר ארמור"
+  },
+  {
+    "name": "Biliblond",
+    "heName": "ביליבלונד"
+  },
+  {
+    "name": "Eazy2gift",
+    "heName": "איזי גיפט"
+  },
+  {
+    "name": "מלון פורט",
+    "heName": null
+  },
+  {
+    "name": "KITCHENEAT",
+    "heName": null
+  },
+  {
+    "name": "KUALA",
+    "heName": "קואלה"
+  },
+  {
+    "name": "NEXTHEAT",
+    "heName": "נקסטהיט"
+  },
+  {
+    "name": "Pelle Gift",
+    "heName": null
+  },
+  {
+    "name": "SEQUOIA",
+    "heName": "סקויה"
+  },
+  {
+    "name": "סימני דרך",
+    "heName": null
+  },
+  {
+    "name": "CHILL",
+    "heName": "צ'יל"
+  },
+  {
+    "name": "SWING",
+    "heName": "סוינג"
+  },
+  {
+    "name": "FlyFoot",
+    "heName": "פלי פוט"
+  },
+  {
+    "name": "IROBOT",
+    "heName": "רומבה"
+  },
+  {
+    "name": "URBAN SPA TLV",
+    "heName": "ארבן ספא"
+  },
+  {
+    "name": "organic zone",
+    "heName": "אורגניקזון"
+  },
+  {
+    "name": "אות והדר תשמישי קדושה",
+    "heName": null
+  },
+  {
+    "name": "הדרא",
+    "heName": null
+  },
+  {
+    "name": "מלון פולי האוס",
+    "heName": null
+  },
+  {
+    "name": "סו סושי תל אביב",
+    "heName": null
+  },
+  {
+    "name": "SIMPLE AS THAT",
+    "heName": "סימפל אס דאט"
+  },
+  {
+    "name": "עידו עמית תצפיות כוכבים",
+    "heName": null
+  },
+  {
+    "name": "Slav&So | סריגה.יצירה.קהילה",
+    "heName": null
+  },
+  {
+    "name": "מגוון מלונות אפריקה ישראל",
+    "heName": null
+  },
+  {
+    "name": "הראל קולדן- קורס לניהול כסף חכם",
+    "heName": null
+  },
+  {
+    "name": "מקסיקנה",
+    "heName": null
+  },
+  {
+    "name": "קבוצת story",
+    "heName": "סתורי"
+  },
+  {
+    "name": "Super Friends-מותגי אופנה מובילים",
+    "heName": "סופר פרינדס"
+  },
+  {
+    "name": "מגוון מותגי קבוצת קסטרו הודיס",
+    "heName": null
+  },
+  {
+    "name": "מגוון מותגי קבוצת FOX",
+    "heName": null
+  },
+  {
+    "name": "H&O ו- Carter's/Oshkosh",
+    "heName": null
+  },
+  {
+    "name": "קבוצת Golf",
+    "heName": "גולף"
+  },
+  {
+    "name": "Naaman & Vardinon",
+    "heName": "נעמן ורדינון"
+  },
+  {
+    "name": "MULTI BRANDS",
+    "heName": "מולתי ברנדס"
+  },
+  {
+    "name": "HACKETT & GANT",
+    "heName": "הקט אנד גאנט"
+  },
+  {
+    "name": "קבוצת אסתי לאודר, MAC בובי בראון",
+    "heName": null
+  },
+  {
+    "name": "GLOBAL BRANDS",
+    "heName": "גלובל"
+  },
+  {
+    "name": "מותגי קבוצת INTER JEANS",
+    "heName": "אינטר גינס"
+  },
+  {
+    "name": "& Other Stories",
+    "heName": "אנודר סטוריס"
+  },
+  {
+    "name": "COS",
+    "heName": "קוס"
+  },
+  {
+    "name": "Mekimi",
+    "heName": "מקימי"
+  },
+  {
+    "name": "FESTIVE",
+    "heName": "פסטיב"
+  },
+  {
+    "name": "KUNI",
+    "heName": "קוני"
+  },
+  {
+    "name": "almaré",
+    "heName": "אלמר"
+  },
+  {
+    "name": "Matteo",
+    "heName": "מתעו"
+  },
+  {
+    "name": "Belago איטלקית באגם",
+    "heName": null
+  },
+  {
+    "name": "TicketTeams",
+    "heName": "כרטיס"
+  },
+  {
+    "name": "byMemmis",
+    "heName": "ביי ממיס"
+  },
+  {
+    "name": "NEWTON",
+    "heName": "ניוטון"
+  },
+  {
+    "name": "Marmor House",
+    "heName": "מרמור האוס"
+  },
+  {
+    "name": "napo",
+    "heName": "נפו"
+  },
+  {
+    "name": "RESET",
+    "heName": "ריסט"
+  },
+  {
+    "name": "SHEEPY",
+    "heName": "שיפי"
+  },
+  {
+    "name": "יקב קטרון",
+    "heName": null
+  },
+  {
+    "name": "ארגז מהכפר",
+    "heName": null
+  },
+  {
+    "name": "ALALI",
+    "heName": "אללי"
+  },
+  {
+    "name": "מגוון מותגי קבוצת H&M",
+    "heName": null
+  },
+  {
+    "name": "DASI Boutique Experience",
+    "heName": null
+  },
+  {
+    "name": "ספא אדמה",
+    "heName": null
+  },
+  {
+    "name": "Good Morning Sunshine",
+    "heName": null
+  },
+  {
+    "name": "Guilty",
+    "heName": "גלטי"
+  },
+  {
+    "name": "Head Spa Israel",
+    "heName": "ספא ראש"
+  },
+  {
+    "name": "גרפוס",
+    "heName": null
+  },
+  {
+    "name": "ALTRA",
+    "heName": "אלטרה"
+  },
+  {
+    "name": "הילולה",
+    "heName": null
+  },
+  {
+    "name": "CALZEDONIA",
+    "heName": "קלצדוניה"
+  },
+  {
+    "name": "הספר הכחול",
+    "heName": null
+  },
+  {
+    "name": "COCONUT LOVE",
+    "heName": "קוקונאטלאב"
+  },
+  {
+    "name": "יקב דרימיה",
+    "heName": null
+  },
+  {
+    "name": "Danielle Gerber",
+    "heName": "דניאל גרבר"
+  },
+  {
+    "name": "Daysy",
+    "heName": "דיזי"
+  },
+  {
+    "name": "צמר שטיחים יפים",
+    "heName": null
+  },
+  {
+    "name": "DREAME",
+    "heName": "דרימי"
+  },
+  {
+    "name": "ימה גלילות של שף יובל בן נריה",
+    "heName": null
+  },
+  {
+    "name": "DRONDEN",
+    "heName": "דרונדן"
+  },
+  {
+    "name": "קשרי תעופה",
+    "heName": null
+  },
+  {
+    "name": "Grinberg Burger",
+    "heName": "גרינברג בורגר"
+  },
+  {
+    "name": "Guy Eitani healing",
+    "heName": "גיא איתני"
+  },
+  {
+    "name": "Hili Toys",
+    "heName": "הילי טויס"
+  },
+  {
+    "name": "Israel-2GO",
+    "heName": "ישראל טו גו"
+  },
+  {
+    "name": "Intimissimi",
+    "heName": "אינטימיסימי"
+  },
+  {
+    "name": "ZMRM",
+    "heName": null
+  },
+  {
+    "name": "JanSport",
+    "heName": "ג'אנספורת"
+  },
+  {
+    "name": "Leo & Cubs",
+    "heName": "לאו&קאבס"
+  },
+  {
+    "name": "Nanobebe",
+    "heName": "ננבבה"
+  },
+  {
+    "name": "noonebetter",
+    "heName": "הלבשת יוקרה"
+  },
+  {
+    "name": "orea",
+    "heName": "אוראה"
+  },
+  {
+    "name": "PALPHOT",
+    "heName": "פלפוט"
+  },
+  {
+    "name": "Petit Loup",
+    "heName": "פטיט לופ"
+  },
+  {
+    "name": "Salomon",
+    "heName": "סלמון"
+  },
+  {
+    "name": "SIMMONS",
+    "heName": "סימונס"
+  },
+  {
+    "name": "The clean dot",
+    "heName": null
+  },
+  {
+    "name": "XI MOBILITY",
+    "heName": null
+  },
+  {
+    "name": "ZEST",
+    "heName": "זסט"
+  },
+  {
+    "name": "הבית של גיליגולי",
+    "heName": null
+  },
+  {
+    "name": "דביר טרקטורונים מעופפים",
+    "heName": null
+  },
+  {
+    "name": "המעדניה היוונית של גרקו",
+    "heName": null
+  },
+  {
+    "name": "Desert HOM By Glow",
+    "heName": "דזרט הום"
+  },
+  {
+    "name": "חברת אופקים תיירות נופש",
+    "heName": null
+  },
+  {
+    "name": "FRANGELICO",
+    "heName": "פרנגליקן"
+  },
+  {
+    "name": "מאמאל'ה",
+    "heName": null
+  },
+  {
+    "name": "Marley",
+    "heName": "מרלי"
+  },
+  {
+    "name": "משק 33",
+    "heName": null
+  },
+  {
+    "name": "NAGISA",
+    "heName": "נגיסה"
+  },
+  {
+    "name": "קל גב",
+    "heName": null
+  },
+  {
+    "name": "Outdoor",
+    "heName": "אוטדור"
+  },
+  {
+    "name": "SHAK IT",
+    "heName": null
+  },
+  {
+    "name": "The OM café",
+    "heName": "אם קפה"
+  },
+  {
+    "name": "SHLOMIT ZIV ALVAS",
+    "heName": "שלומית זיו"
+  },
+  {
+    "name": "מלונות ג'ייקוב",
+    "heName": null
+  },
+  {
+    "name": "Spicehaus Cocktails",
+    "heName": "ספייסהאוס"
+  },
+  {
+    "name": "איריסקו עגלת קפה",
+    "heName": null
+  },
+  {
+    "name": "DENIM BAR",
+    "heName": "דנים בר"
+  },
+  {
+    "name": "הסושיה",
+    "heName": null
+  },
+  {
+    "name": "JEZ V",
+    "heName": null
+  },
+  {
+    "name": "מניקות עם עומר",
+    "heName": null
+  },
+  {
+    "name": "LIDOR BAR",
+    "heName": "לידור בר"
+  },
+  {
+    "name": "מקופלת",
+    "heName": null
+  },
+  {
+    "name": "M32",
+    "heName": null
+  },
+  {
+    "name": "Maika",
+    "heName": "מאיקה"
+  },
+  {
+    "name": "צעדים ראשונים",
+    "heName": null
+  },
+  {
+    "name": "MAIYAN CERAMIC",
+    "heName": "מעין קרמיקה"
+  },
+  {
+    "name": "MEN BY NORI",
+    "heName": null
+  },
+  {
+    "name": "owlet care",
+    "heName": "אוולט קאר"
+  },
+  {
+    "name": "NORI KIDS",
+    "heName": "נורי קידס"
+  },
+  {
+    "name": "PALMERS",
+    "heName": "פלמרס"
+  },
+  {
+    "name": "Pasta Della Casa",
+    "heName": "פסטה דלה קזה"
+  },
+  {
+    "name": "רוזנבאום תכשיטים",
+    "heName": null
+  },
+  {
+    "name": "Sunglass Hut",
+    "heName": "סנגלס האט"
+  },
+  {
+    "name": "ZOMEE",
+    "heName": "זומי"
+  },
+  {
+    "name": "אבני אהוה",
+    "heName": null
+  },
+  {
+    "name": "אולפני לירון",
+    "heName": null
+  },
+  {
+    "name": "אילוף בנועם",
+    "heName": null
+  },
+  {
+    "name": "ביאנקה",
+    "heName": null
+  },
+  {
+    "name": "ויצק",
+    "heName": null
+  },
+  {
+    "name": "לילית קוסמטיקה",
+    "heName": null
+  },
+  {
+    "name": "בן אביטל מאלף כלבים",
+    "heName": null
+  },
+  {
+    "name": "מילאנו בייקרי",
+    "heName": null
+  },
+  {
+    "name": "מלון אלמרה",
+    "heName": null
+  },
+  {
+    "name": "מסעדת אווזי שכונת התקווה תל אביב",
+    "heName": null
+  },
+  {
+    "name": "ספא ומלון בוטיק שנקין תל אביב",
+    "heName": null
+  },
+  {
+    "name": "ספא נאות",
+    "heName": null
+  },
+  {
+    "name": "צימר חן",
+    "heName": null
+  },
+  {
+    "name": "קולנוע יפו",
+    "heName": null
+  },
+  {
+    "name": "ריטה מיסיוק",
+    "heName": null
+  },
+  {
+    "name": "בורגראנץ'",
+    "heName": null
+  },
+  {
+    "name": "Shula babies",
+    "heName": "שולה בייבי"
+  },
+  {
+    "name": "Alef Alef",
+    "heName": "אלף אלף"
+  },
+  {
+    "name": "Ironline",
+    "heName": null
+  },
+  {
+    "name": "NORITAMY",
+    "heName": "נוריטמי"
+  },
+  {
+    "name": "Motion Lab",
+    "heName": "מושן לאב"
+  },
+  {
+    "name": "RUGSIL",
+    "heName": "רוגסיל"
+  },
+  {
+    "name": "SPA AKOYA",
+    "heName": "ספא אקויה"
+  },
+  {
+    "name": "דודי ספק בדיקות QA",
+    "heName": null
+  },
+  {
+    "name": "חן במטבח",
+    "heName": null
+  },
+  {
+    "name": "לינויה",
+    "heName": null
+  },
+  {
+    "name": "סאן פדרו",
+    "heName": null
+  },
+  {
+    "name": "piece of nature",
+    "heName": "פיס אוף נייצ'ר"
+  },
+  {
+    "name": "Pretty Ballerinas",
+    "heName": "\"פריטי בלרינס\""
+  },
+  {
+    "name": "חשמל נטו",
+    "heName": null
+  },
+  {
+    "name": "DRIX GAME CAFE",
+    "heName": null
+  },
+  {
+    "name": "GIN CLUB",
+    "heName": "גין קלב"
+  },
+  {
+    "name": "HAPPY LEMON",
+    "heName": "הפי למון"
+  },
+  {
+    "name": "Nike",
+    "heName": "נייק"
+  },
+  {
+    "name": "On.Tour by Issta Sport",
+    "heName": "כרטיסים להופעות"
+  },
+  {
+    "name": "PTORA",
+    "heName": null
+  },
+  {
+    "name": "THE GEORGE SPA",
+    "heName": "גורג"
+  },
+  {
+    "name": "Think and Drink",
+    "heName": "סקרנות"
+  },
+  {
+    "name": "א.ל.מ.",
+    "heName": null
+  },
+  {
+    "name": "בקתה בלבן",
+    "heName": null
+  },
+  {
+    "name": "מוזיאון יעקב אגם",
+    "heName": null
+  }
+]

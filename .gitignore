@@ -1,0 +1,22 @@
+node_modules/
+.superpowers/
+.claude/worktrees/
+
+# local env files (Google API keys)
+.env*.local
+
+# scratch summary written by scripts/scrape-buyme-merchants.mjs — never meant
+# to be committed
+/buyme-refresh-summary.md
+
+# Google Places output. Git-ignored deliberately: Places terms forbid caching
+# coordinates beyond 30 days, and committing them would be exactly that
+# violation in durable form.
+/poc/buyme-chains-google.json
+/poc/.cache/google-places.json
+/poc/buyme-map-google.html
+
+# BuyMe merchant logos, downloaded by scripts/fetch-buyme-logos.mjs and served
+# from the deployment so the map draws brand chips without hot-linking. They
+# are BuyMe's images, not this repository's, and the script reproduces them.
+/poc/logos/

@@ -1,0 +1,263 @@
+# BuyMe Locator
+
+A single web page — a Google Map — showing every physical store where three Israeli
+gift cards can be redeemed: **BuyMe**, **תו הזהב** (Shufersal's voucher) and **Swish**
+(Plus and Premium cards). It was built for BuyMe sales staff to show a client how
+BuyMe's coverage compares with the competitors'.
+
+Live: https://poc-six-taupe.vercel.app/buyme-map-google.html
+
+The page lets you switch source from a dropdown, search by brand or find the stores
+near an address, and export the result as a PDF sheet.
+
+---
+
+## Quick start
+
+Requires **Node 20+**. There are no npm dependencies — everything is plain Node ESM
+(`.mjs`) using built-in `fetch` and `node:test`.
+
+```bash
+cp .env.example .env.local     # then fill in the keys (see "Keys" below)
+npm test                       # 111 unit tests for the pipeline libraries
+```
+
+The committed data is enough for תו הזהב's addressed brands and Swish's coordinates,
+but **a fresh clone cannot build the page straight away**: Google-derived data is
+deliberately not in git (see "Google's 30-day rule"), and some source metadata lives in
+the git-ignored `poc/.cache/`. The first build is therefore a full refresh — follow
+[Refreshing the data](#refreshing-the-data) top to bottom once, then `npm run build`.
+
+| Command | What it does |
+|---|---|
+| `npm test` | Run all library tests (`node --test "poc/lib/*.test.mjs"`) |
+| `node --test poc/lib/geocode.test.mjs` | Run one test file |
+| `npm run build` | Regenerate `poc/buyme-map-google.html` from the resolved data |
+| `npm run refresh:google` | Re-pull BuyMe's Google Places data if it is ≥21 days old (`-- --force` to override) |
+| `npm run refresh:merchants` | Re-scrape BuyMe's merchant list into `data/buyme-all-merchants.json` |
+| `npm run deploy` | Publish `poc/` to Vercel (add `--scope <your-team>` for your own account) |
+
+---
+
+## Keys
+
+All in `.env.local` (git-ignored):
+
+| Variable | Used by | Notes |
+|---|---|---|
+| `GOOGLE_PIPELINE_API_KEY` | `resolve-buyme-chains-google`, `resolve-tav-locations-google` | Server-side only. Restrict to **Places API**. Never put it in a page. |
+| `GOOGLE_PAGE_API_KEY` | `build-google-page` | Embedded in the generated HTML, so **it is public**. Restrict by API (Maps JavaScript + Places + Geocoding) and set a **daily quota cap** — the page can be opened from `file://`, which sends no referrer, so referrer restriction is not possible; the cap is what bounds abuse. |
+| `ANTHROPIC_API_KEY` | `scrape-buyme-merchants` (optional) | Looks up the Hebrew name of genuinely new BuyMe merchants. `npm run refresh:merchants` does not load `.env.local`, so run the script with `--env-file=.env.local` to use it. Without it, a phonetic heuristic is used instead. |
+
+Nominatim and Photon (the free geocoders) need no key, but Nominatim's usage policy
+requires an identifying User-Agent and at most 1 request/second. Change the `UA`
+constant in `poc/lib/geocode.mjs` to identify your own deployment.
+
+---
+
+## How it works
+
+```
+ upstream site ──fetch──▶ poc/.cache/ ──resolve──▶ resolved JSON ──catalogue──▶ build ──▶ poc/buyme-map-google.html
+ (BuyMe / Tav /           raw payloads            (coordinates)    scripts/       injects all three        ──deploy──▶ Vercel
+  Swish JSON APIs)                                                 catalogues/    as window.CATALOGUES
+```
+
+Each source is an independent pipeline of small scripts in `scripts/`:
+
+1. **fetch** — download the source's public JSON (brands, branches, logos) into
+   `poc/.cache/`. Everything downstream reads the cache, so later steps can be re-run
+   and tuned offline.
+2. **resolve** — turn each store into coordinates, via free geocoders (Nominatim →
+   Photon fallback) when the source publishes a street address, or via Google Places
+   text search when it only publishes a chain name.
+3. **catalogue** (`scripts/catalogues/<source>.mjs`) — assemble one uniform object per
+   source: `{ label, locations[], unmappedCount, catalogueSize, generatedAt, ... }`.
+   Each throws `Missing X. Run its resolver script first.` if an input is absent.
+4. **build** (`scripts/build-google-page.mjs`) — injects all three catalogues into
+   `poc/google-page-template.html` between the `/* BUYME_DATA_START */` and
+   `/* BUYME_DATA_END */` markers, and substitutes the page key. The data is inlined
+   rather than linked so the page also works when opened from disk.
+
+All non-trivial logic lives in **`poc/lib/`** as pure functions with tests beside them
+(`*.test.mjs`); the scripts are thin I/O drivers. Tests stub the network with an
+injected `fetchImpl` and never call live services.
+
+| Module | Responsibility |
+|---|---|
+| `geocode.mjs` | Nominatim → Photon cascade, rate limiting, rejects hits outside Israel |
+| `address-variants.mjs` | Rewrites messy Hebrew addresses (mall names, "רחוב", "קומה") into geocodable variants |
+| `places.mjs` | Google Places text search client with pagination |
+| `israel-tiles.mjs` | Israel bounding box + grid tiles, for chains that exceed Places' 60-result cap |
+| `call-budget.mjs` | One Places call ceiling shared across sources in a single refresh |
+| `match-chains.mjs` | Anchored brand-name matching, so a Places result counts only if its name *is* the brand |
+| `store-key.mjs` | Normalises store names for comparison |
+| `tav-catalogue.mjs`, `swish-catalogue.mjs`, `swish-api.mjs` | Source-specific parsing |
+
+### The three sources
+
+| | BuyMe | תו הזהב | Swish |
+|---|---|---|---|
+| Upstream | `buyme.co.il/brands/13438757/options` | `tavhazahav.shufersal.co.il` JSON API | `swish` site's React Server Actions |
+| Single-address brands | Nominatim/Photon → `poc/buyme-addresses.json` (committed) | Nominatim/Photon → `poc/tav-addresses.json` (committed) | — |
+| Multi-branch chains | Google Places → `poc/buyme-chains-google.json` (**git-ignored**) | Google Places → `poc/tav-locations-google.json` (**git-ignored**) | Swish publishes every branch address → Nominatim/Photon → `poc/swish-locations.json` (committed) |
+| Logos | `poc/logos/` (git-ignored) | `poc/logos-tav/` | `poc/logos-swish/` |
+| Must refresh within | **30 days** (Google) | **30 days** (Google) | no limit |
+
+Source-specific gotchas, each handled in code:
+
+- **תו הזהב** — Node's TLS stack cannot handshake with the API host; the fetcher uses
+  `node:https` with `ecdhCurve: 'P-256:P-384'`.
+- **Swish** — server-action ids are build hashes that change on every Swish deploy.
+  `poc/lib/swish-api.mjs` derives them from the live JS bundle on each run, and aborts
+  with `Could not derive the server-action id for …` if Swish's site changes shape —
+  it never silently returns an empty catalogue.
+- **Swish** sells two overlapping cards; chains are unioned into one source with a
+  `tiers` field, and the page badges the few accepted on only one card.
+
+### Design rules
+
+- **Sources are never cross-referenced.** The three spell the same chains differently
+  (BuyMe's "FOX" is four separate brands in תו הזהב), and a wrong merge would credit
+  one card with another's coverage. Each catalogue and logo directory stands alone.
+- **Understating a competitor is the main risk**, so failures are loud: fetchers
+  refuse to overwrite good data with a suspiciously small result, and the build fails
+  if any source is missing.
+- **Caches are write-then-rename** so a killed run never truncates hours of paid-for
+  lookups, and long runs are resumable.
+
+---
+
+## Refreshing the data
+
+Stores open, close and move, and each card adds and drops merchants. Nothing refreshes
+or redeploys automatically — run the steps below on a schedule, then **build, deploy,
+and open the live page to check every source appears in the dropdown.**
+
+### Google's 30-day rule
+
+Google Places' terms forbid keeping its coordinates for more than 30 days. This is why
+the Google-derived files and the generated page (which embeds them) are git-ignored and
+excluded from the Vercel upload (`poc/.vercelignore`), and why the refresh **cannot run
+in CI** — a CI job would have to commit its output to be useful. It must run on a
+machine that keeps the files locally.
+
+### Recommended schedule
+
+| Cadence | What | Why |
+|---|---|---|
+| **Weekly** | `npm run refresh:google` | No-op until BuyMe's Places data is 21 days old, then re-fetches it and rebuilds. Weekly against a 21-day threshold gives three chances before day 30. |
+| **Every ≤3 weeks** | תו הזהב Google refresh (below) | Same 30-day rule — **not** covered by `refresh:google`. |
+| **Monthly** | Full refresh of all three sources | Picks up new merchants, new branches and changed addresses. |
+
+### BuyMe
+
+```bash
+node --env-file=.env.local scripts/scrape-buyme-merchants.mjs   # merchant list + Hebrew names
+node scripts/fetch-buyme-logos.mjs                          # logos for new merchants
+node scripts/resolve-buyme-addresses.mjs                    # single-address brands (Nominatim)
+npm run refresh:google -- --force                           # chains via Google Places, then builds
+```
+
+- `refresh:merchants` refuses to write if it gets fewer than 500 merchants. New
+  merchants get a Hebrew alias from `scripts/buyme-hebrew-name-overrides.json`, else
+  from Claude (if `ANTHROPIC_API_KEY` is set), else a heuristic. Add an override entry
+  to correct a bad alias.
+- `resolve-buyme-addresses` caches by address string (`poc/.cache/geocode.json`), so a
+  re-run only geocodes addresses it has never seen — new or moved stores.
+- `refresh:google` **deletes** `poc/.cache/google-places.json` first, so every chain is
+  genuinely re-queried. Budget: up to 4,500 Places calls per run.
+
+### תו הזהב
+
+```bash
+node scripts/fetch-tav-payloads.mjs                         # brands + Shufersal branches
+node scripts/fetch-tav-logos.mjs
+node scripts/resolve-tav-addresses.mjs                      # the few brands with a street address
+rm -f poc/.cache/tav-google-places.json                     # force Places to re-query (30-day rule)
+node --env-file=.env.local scripts/resolve-tav-locations-google.mjs
+```
+
+### Swish
+
+No Google key and no Places quota involved.
+
+```bash
+rm -rf poc/.cache/swish-branches                            # otherwise known chains keep their old branch lists
+node scripts/fetch-swish-payloads.mjs                       # ~18 min branch crawl, resumable
+node scripts/fetch-swish-logos.mjs
+node scripts/resolve-swish-addresses.mjs                    # geocodes only addresses not yet cached
+```
+
+- The branch crawl skips any chain already cached in `poc/.cache/swish-branches/`.
+  That makes it resumable, but it also means **new or moved branches of an existing
+  chain are only picked up after that directory is cleared.** If a run fails partway,
+  just re-run it.
+- **Never clear `poc/.cache/swish-geocode.json`.** Addresses don't move, the cache has
+  no expiry, and rebuilding it costs hours at Nominatim's 1 request/second. Only new
+  addresses are geocoded on each refresh (a full cold run was ~70 min).
+
+### Build and publish
+
+```bash
+npm run build      # prints locations / unmapped / data age for each source
+npm run deploy
+```
+
+Check the build output: each source should report a data age under 30 days. Then open
+the live page and confirm all three sources are in the dropdown — a missing cache
+can otherwise produce a page that builds but silently lacks a source.
+
+### Scheduling on Windows
+
+From the repository root, in an elevated PowerShell:
+
+```powershell
+$action  = New-ScheduledTaskAction -Execute "node" `
+             -Argument "--env-file=.env.local scripts/refresh-google-data.mjs" `
+             -WorkingDirectory (Get-Location).Path
+$trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 3am
+Register-ScheduledTask -TaskName "BuyMe Google data refresh" -Action $action -Trigger $trigger
+```
+
+On Linux/macOS the equivalent is a weekly cron entry running
+`npm run refresh:google` from the repository root. Deploying remains manual.
+
+---
+
+## Known issues
+
+- **Some BuyMe chain pins are wrong.** `resolve-buyme-chains-google.mjs` does not yet
+  filter Places results by brand name, and Places matches generic Hebrew names by
+  *category* — e.g. a "clothing" brand returned hundreds of unrelated shops. The fix
+  already exists and is used by the תו הזהב resolver (`nameMatchesForms` in
+  `poc/lib/match-chains.mjs`); applying it to BuyMe needs a forced refresh
+  (~1,200–3,300 Places calls).
+- `npm run refresh:google` refreshes BuyMe only; the תו הזהב Google data must be
+  refreshed separately (see above).
+
+---
+
+## Repository layout
+
+```
+poc/
+  google-page-template.html   the page (HTML/CSS/JS, Hebrew RTL UI)
+  lib/                        pipeline logic + tests
+  *.json                      committed resolved data (free-geocoder output)
+  logos-tav/, logos-swish/    brand logos served with the page
+  buyme-map-osm.html          earlier OpenStreetMap-only prototype, not deployed
+scripts/                      fetch / resolve / build scripts, one set per source
+scripts/catalogues/           per-source catalogue assembly
+data/buyme-all-merchants.json BuyMe merchant list with curated Hebrew names
+docs/superpowers/specs/       design documents for each source
+```
+
+The design documents explain the reasoning behind most choices above in more depth.
+
+## Data and attribution
+
+Store data is taken from each card's public website. Coordinates from Nominatim and
+Photon are © OpenStreetMap contributors (ODbL). Google-derived coordinates are subject
+to the Google Maps Platform terms and are never committed. Brand logos belong to their
+owners.

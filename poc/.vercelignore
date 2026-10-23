@@ -1,0 +1,18 @@
+# Only the generated page and its logos belong on a public deployment.
+#
+# Everything else here is pipeline input or intermediate data, and one item is
+# a licence problem rather than merely noise: buyme-chains-google.json is raw
+# Google Places output. The repository git-ignores it because Places forbids
+# retaining those coordinates, and serving it as a downloadable file is bulk
+# redistribution of that data — worse than the page, which merely displays it.
+# The OSM-derived JSON raises the same share-alike question in miniature.
+#
+# Deployed: buyme-map-google.html, logos/, logos-tav/ and logos-swish/.
+*.json
+*.mjs
+*.md
+buyme-data.js
+buyme-map-osm.html
+google-page-template.html
+.cache/
+lib/

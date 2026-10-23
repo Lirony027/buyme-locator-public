@@ -1,0 +1,86 @@
+{
+  "generatedAt": "2026-09-14T12:07:50.093Z",
+  "source": "nominatim+photon",
+  "brands": [
+    {
+      "name": "קסטרו אונליין",
+      "address": "אלנבי 26",
+      "lat": 32.072883,
+      "lng": 34.767404,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "סיונרה",
+      "address": "המעגל 58",
+      "lat": 32.0486091,
+      "lng": 34.8650959,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "מתאו - תל אביב",
+      "address": "בוגרשוב 87",
+      "lat": 32.074321,
+      "lng": 34.774969,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "גוסטינו",
+      "address": "הצפצפה, אזור תעשיה רמת ישי",
+      "lat": 32.708275,
+      "lng": 35.174196,
+      "source": "nominatim",
+      "precision": "approximate"
+    },
+    {
+      "name": "בר איטליה",
+      "address": "קהילת צפת 1",
+      "lat": 32.3055097,
+      "lng": 34.8441345,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "א'גנדה",
+      "address": "מחלף קיסריה",
+      "lat": 32.5563191,
+      "lng": 34.9317352,
+      "source": "nominatim",
+      "precision": "approximate"
+    },
+    {
+      "name": "la vaca loca",
+      "address": "מדינת היהודים 60",
+      "lat": 32.1660627,
+      "lng": 34.8093313,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "שיפודי אווזי - התקווה תל אביב",
+      "address": "אצ\"ל 54",
+      "lat": 32.049869,
+      "lng": 34.792072,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "פומו - תל אביב",
+      "address": "הברזל 11",
+      "lat": 32.1075,
+      "lng": 34.836679,
+      "source": "nominatim",
+      "precision": "exact"
+    },
+    {
+      "name": "קפית במושבה - ירושלים",
+      "address": "עמק רפאים 36",
+      "lat": 31.763659,
+      "lng": 35.2193425,
+      "source": "nominatim",
+      "precision": "exact"
+    }
+  ]
+}
