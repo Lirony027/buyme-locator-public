@@ -22,6 +22,22 @@ npm run deploy                             # publish poc/ to Vercel
 
 Scripts that call Google need `node --env-file=.env.local ...` (keys: `GOOGLE_PIPELINE_API_KEY` server-side Places only; `GOOGLE_PAGE_API_KEY` embedded in the page, therefore public). Nothing redeploys automatically: after refreshing a source, build, deploy, then check the live page lists every source in its dropdown.
 
+## Running the page
+
+The page is git-ignored build output, so a fresh clone has nothing to open. Building it needs the developer's own Google Cloud project (billing on) and both keys in `.env.local` (setup: `docs/google-api-keys.md`), plus one full data refresh (README, "Refreshing the data"). Someone who only wants to view the map should use the live URL; no setup is needed.
+
+After `npm run build`, open `poc/buyme-map-google.html` straight from disk. There's no server step, because the build inlines all data into the HTML.
+
+```bash
+start poc/buyme-map-google.html
+```
+
+(`open` on macOS, `xdg-open` on Linux.)
+
+- Open it in place inside `poc/`. Brand logos load from the relative `logos/`, `logos-tav/` and `logos-swish/` folders.
+- It needs internet access, since Google Maps loads from Google. `GOOGLE_PAGE_API_KEY` must not be referrer-restricted, because a `file://` page sends no referrer.
+- If the browser blocks "my location" on a `file://` page, serve the folder instead: run `npx serve poc` and open the URL it prints.
+
 ## Architecture
 
 **Pipeline shape.** Per source: `scripts/fetch-*` (raw upstream payloads → `poc/.cache/`) → `scripts/resolve-*` (addresses → coordinates) → `scripts/catalogues/<source>.mjs` (assembles `{label, locations, unmappedCount, catalogueSize, generatedAt, ...}`) → `scripts/build-google-page.mjs`, which builds all three catalogues and **injects** them as `window.CATALOGUES` between the `/* BUYME_DATA_START */` / `/* BUYME_DATA_END */` markers in `poc/google-page-template.html` (inlined, not linked, because the page must also work from `file://`). The build fails if any source's inputs are missing — every catalogue throws "Missing X. Run its resolver script first."

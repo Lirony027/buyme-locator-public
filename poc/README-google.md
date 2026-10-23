@@ -11,8 +11,9 @@ Both live in `.env.local` (git-ignored):
     GOOGLE_PAGE_API_KEY=...       # embedded in the page, therefore public
 
 The page key cannot be referrer-restricted, because a `file://` page sends no
-referrer. Restrict it by API (Maps JavaScript + Places + Geocoding) and set a
+referrer. Restrict it by API (Maps JavaScript API + Places API (New)) and set a
 daily quota cap — the cap, not the restriction, is what bounds the damage.
+Step-by-step setup: `docs/google-api-keys.md`.
 
 ## Refreshing
 
