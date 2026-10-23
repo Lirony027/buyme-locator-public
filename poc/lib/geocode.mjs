@@ -3,7 +3,7 @@ import { ISRAEL_BOUNDS } from './israel-tiles.mjs';
 
 const NOMINATIM_ENDPOINT = 'https://nominatim.openstreetmap.org/search';
 const PHOTON_ENDPOINT = 'https://photon.komoot.io/api/';
-const UA = 'WalletExtender-locations-poc/1.0 (personal wallet app)';
+const UA = 'BuyMeLocator/1.0 (https://github.com/Lirony027/buyme-locator-public)';
 
 /** Nominatim's usage policy: at most one request per second. */
 const NOMINATIM_DELAY_MS = 1100;

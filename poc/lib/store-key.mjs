@@ -1,8 +1,6 @@
 /**
- * Mirrors WalletExtender's `src/domain/stores.ts` (a separate repo since the
- * split). Copied, not imported: these modules run under bare Node ESM
- * with no TypeScript loader, the same constraint `scripts/scrape-buyme-merchants.mjs`
- * documents at its own inlined copy. Keep the two in sync by hand.
+ * BuyMeLocator's store-name normalisation. `scripts/scrape-buyme-merchants.mjs`
+ * keeps its own inlined copy of `storeKey`. Keep the two in sync by hand.
  */
 
 /** Bidi formatting characters that ride along invisibly in copied Hebrew. */

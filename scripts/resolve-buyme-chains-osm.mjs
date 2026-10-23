@@ -5,7 +5,7 @@ import { brandForms, matchesBrand } from '../poc/lib/match-chains.mjs';
 
 const BUYME_ENDPOINT = 'https://buyme.co.il/brands/13438757/options';
 const OVERPASS_ENDPOINT = 'https://overpass-api.de/api/interpreter';
-const UA = 'WalletExtender-locations-poc/1.0 (personal wallet app)';
+const UA = 'BuyMeLocator/1.0 (https://github.com/Lirony027/buyme-locator-public)';
 
 const ROOT = new URL('..', import.meta.url);
 const MERCHANTS = new URL('data/buyme-all-merchants.json', ROOT);

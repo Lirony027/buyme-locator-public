@@ -35,9 +35,8 @@ if (invalid.length > 0) {
   );
 }
 
-// Mirrors `storeKey` in WalletExtender's src/domain/stores.ts (a separate repo
-// since the split). This script runs as a plain Node ESM file, so it
-// can't `import` that module anyway — inlined instead.
+// Mirrors `storeKey` in BuyMeLocator's poc/lib/store-key.mjs, inlined so this
+// script stands alone. Keep the two in sync by hand.
 const BIDI_CONTROLS = /[‎‏‪-‮⁦-⁩]/g;
 const storeKey = (name) =>
   name
